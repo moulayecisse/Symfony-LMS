@@ -1,0 +1,24 @@
+datatable.id: ID
+datatable.name: Nom
+datatable.actions: ACTIONS
+datatable.no_records_found: 'Aucun élément trouvé'
+datatable.rate: Taux
+datatable.address: Adresse
+datatable.phone: Téléphone
+datatable.email: Email
+datatable.openingDate: "Heure d'ouverture"
+datatable.closingTime: 'Heure de fermeture'
+datatable.firstName: Prénom
+datatable.lastName: Nom
+datatable.biography: Biographie
+datatable.birthday: 'Date de naissance'
+datatable.startDate: 'Date de début'
+datatable.endDate: 'Date de fin'
+datatable.returnDate: 'Date de retour'
+datatable.password: 'Mot de passe'
+datatable.roles: Roles
+datatable.isbn: ISBN
+datatable.title: Titre
+datatable.resume: Résumé
+datatable.pageNumber: 'Pages'
+datatable.cover: 'Couverture'

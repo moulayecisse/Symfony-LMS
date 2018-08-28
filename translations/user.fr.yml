@@ -1,0 +1,7 @@
+user.login.title: Connexion
+user.login.welcome.title: 'Join Our Community'
+user.login.welcome.message: 'Lorem ipsum dolor sit amet, coectetuer adipiscing<br>elit sed diam nonummy et nibh euismod'
+user.login.form.input.email.placeholder: Email
+user.login.form.input.password.placeholder: 'Mot de passe'
+user.login.form.button.submit.label: Connexion
+user.login.error: Erreur

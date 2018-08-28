@@ -1,0 +1,148 @@
+{#{% extends 'datatable_layout.html.twig' %}#}
+{% extends "form_layout.html.twig" %}
+
+{#{% block page_title %}#}
+{% block page_title 'page.title.pbook.edit' | trans({}, 'page') %}
+
+{#{% endblock %}#}
+
+{#{% block datable %}#}
+
+{#{% endblock %}#}
+
+
+
+{% trans_default_domain 'form' %}
+
+{% block page_content_portlet_head_title 'page.title.pbook.edit' | trans({}, 'page')  %}
+
+{% block page_content_portlet_body %}
+    <div class="m-portlet__body">
+
+        {{ form_start(form, { 'attr' : { 'class' : 'm-form m-form--label-align-left- m-form--state-', 'id' : 'm_form' } }) }}
+        <!--begin: Form Body -->
+        <div class="m-portlet__body">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2">
+                    <div class="m-form__section m-form__section--first">
+                        <div class="m-form__heading">
+                            <h3 class="m-form__heading-title">{{ 'form.section.title.details' | trans({}, 'form') }}</h3>
+                        </div>
+
+                        {% if error is defined %}
+                            <div class="m-section__content">
+                                <div class="m-alert m-alert--outline alert alert-danger alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    </button>
+
+                                    <strong>{{ 'form.error.danger' | trans }}</strong> {{ error.messageKey|trans(error.messageData, 'form') }}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if form.firstName is defined %}
+                            <div class="form-group m-form__group row {% if form_errors(form.firstName) is not empty %}has-danger{% endif %} {% if form_errors(form.firstName) is not empty %}has-success{% endif %}">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{% if form.firstName.vars.required %}* {% endif %}{{ form_label(form.firstName) }}:</label>
+
+                                <div class="col-xl-9 col-lg-9">
+                                    {{
+                                    form_widget(
+                                        form.firstName,
+                                        {
+                                            'attr': {
+                                            'class': 'form-control m-input',
+                                            'placeholder': 'form.first_name.placeholder' | trans,
+                                            'autocomplete': 'off',
+                                        },
+                                        }
+                                    )
+                                    }}
+
+                                    {% if form.firstName.vars.errors|length > 0 %}
+                                        <span class="m-form__help text-danger">
+                                            {% for error in form.firstName.vars.errors %}
+                                                {{ error.message }}
+                                            {% endfor %}
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if form.lastName is defined %}
+                            <div class="form-group m-form__group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{% if form.lastName.vars.required %}* {% endif %} {{ form_label(form.lastName) }}:</label>
+
+                                <div class="col-xl-9 col-lg-9">
+                                    {{
+                                    form_widget(
+                                        form.lastName,
+                                        {
+                                            'attr': {
+                                            'class': 'form-control m-input',
+                                            'placeholder': 'form.last_name.placeholder' | trans,
+                                            'autocomplete': 'off',
+                                        },
+                                        }
+                                    )
+                                    }}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if form.biography is defined %}
+                            <div class="form-group m-form__group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{% if form.biography.vars.required %}* {% endif %} {{ form_label(form.biography) }}:</label>
+
+                                <div class="col-xl-9 col-lg-9">
+                                    {{
+                                    form_widget(
+                                        form.biography,
+                                        {
+                                            'attr': {
+                                            'class': 'form-control m-input',
+                                            'placeholder': 'form.biography.placeholder' | trans,
+                                            'autocomplete': 'off',
+                                        },
+                                        }
+                                    )
+                                    }}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if form.birthday is defined %}
+                            <div class="form-group m-form__group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{% if form.birthday.vars.required %}* {% endif %} {{ form_label(form.birthday) }}:</label>
+
+                                <div class="col-xl-9 col-lg-9">
+                                    {{
+                                    form_widget(
+                                        form.birthday,
+                                        {
+                                            'attr': {
+                                            'class': 'form-control m-input',
+                                            'placeholder': 'form.first_name.placeholder' | trans,
+                                            'autocomplete': 'off',
+                                        },
+                                        }
+                                    )
+                                    }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock page_content_portlet_body %}
+
+{% block page_javascripts %}
+    <script>
+        $( "#form_submit_button" ).click(function() {
+            $("form[name='pbook']").submit();
+        });
+    </script>
+{% endblock %}

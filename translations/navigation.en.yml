@@ -1,0 +1,24 @@
+navigation.label.dashboard: Dashboard
+navigation.label.authors: Authors
+navigation.label.categories: Catégories
+navigation.label.admins: Administrateurs
+navigation.label.books: Books List
+navigation.label.bookings: Réservations
+navigation.label.ebooks: 'Livres Electronics'
+navigation.label.editors: Editeurs
+navigation.label.files: 'Fichiers'
+navigation.label.formats: Formats
+navigation.label.images: Images
+navigation.label.librarians: Libraires
+navigation.label.libraries: Libraries
+navigation.label.locations: Emplacement
+navigation.label.members: Membres
+navigation.label.member_ebooks: 'Livres Electronic des Membres'
+navigation.label.member_subscriptions: 'Inscriptions des Membres'
+navigation.label.member_types: 'Types de Membres'
+navigation.label.pbooks: 'Livres Physique'
+navigation.label.sub_categories: Sous-Catégories
+navigation.label.subscriptions: 'Inscriptionq'
+navigation.label.super_admins: 'Supeur Administrateur'
+navigation.label.users: 'Utilisateurs'
+navigation.label.rentABook: 'Rent a book'

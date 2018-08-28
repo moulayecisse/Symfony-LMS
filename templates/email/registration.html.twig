@@ -1,0 +1,4 @@
+{{ 'email.registration'|trans({
+    '%name%': user.firstName,
+    '%login-link%': url('user_login')
+})|raw }}

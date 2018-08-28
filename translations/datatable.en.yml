@@ -1,0 +1,24 @@
+datatable.id: ID
+datatable.name: Name
+datatable.actions: ACTIONS
+datatable.no_records_found: 'no records found'
+datatable.rate: __datatable.rate
+datatable.address: __datatable.address
+datatable.phone: __datatable.phone
+datatable.email: __datatable.email
+datatable.openingDate: __datatable.openingDate
+datatable.closingTime: __datatable.closingTime
+datatable.firstName: __datatable.firstName
+datatable.lastName: __datatable.lastName
+datatable.biography: __datatable.biography
+datatable.birthday: __datatable.birthday
+datatable.startDate: __datatable.startDate
+datatable.endDate: __datatable.endDate
+datatable.returnDate: __datatable.returnDate
+datatable.password: __datatable.password
+datatable.roles: __datatable.roles
+datatable.isbn: __datatable.isbn
+datatable.title: __datatable.title
+datatable.resume: __datatable.resume
+datatable.pageNumber: __datatable.pageNumber
+datatable.cover: __datatable.cover

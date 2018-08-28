@@ -1,0 +1,26 @@
+navigation.label.dashboard: Administration
+navigation.label.authors: Auteurs
+navigation.label.categories: Catégories
+navigation.label.admins: Administrateurs
+navigation.label.books: Liste des livres
+navigation.label.bookings: Réservations en cours
+navigation.label.ebooks: 'Livres Eléctronique'
+navigation.label.editors: Editeurs
+navigation.label.files: Fichiers
+navigation.label.formats: Formats
+navigation.label.home: Accueil
+navigation.label.images: Images
+navigation.label.librarians: Libraires
+navigation.label.libraries: Librairies
+navigation.label.locations: Emplacements
+navigation.label.members: Membres
+navigation.label.member_ebooks: 'Livres Electronic des Membres'
+navigation.label.member_subscriptions: 'Inscription des Membres'
+navigation.label.member_types: 'Types de Membres'
+navigation.label.pbooks: 'Livres Physique'
+navigation.label.sub_categories: Catégories
+navigation.label.subscriptions: Inscription
+navigation.label.super_admins: 'Supeur Administrateus'
+navigation.label.users: 'Utilisateurs'
+navigation.label.rentABook: |
+  Location d'un livre

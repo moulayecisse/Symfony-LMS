@@ -1,0 +1,11 @@
+form.first_name.placeholder: 'First name'
+form.last_name.placeholder: 'Last name'
+form.biography.placeholder: Biography
+form.section.title.details: __form.section.title.details
+form.error.danger: __form.error.danger
+form.section.title.details: Details
+form.error.danger: Error
+form.section.title.category: Category
+form.name.placeholder: Category
+form.section.title.sub_categories: Sub-Category
+row.placeholder: Placeholder

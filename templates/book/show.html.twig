@@ -1,0 +1,74 @@
+{% extends "datatable_layout.html.twig" %}
+
+{% block page_title 'page.title.book.list' | trans({}, 'page') %}
+
+{% trans_default_domain 'datatable' %}
+
+{% block datable %}
+    <h1>{{ book.title }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Books number</th>
+                <td>
+
+
+                    <a href="{{ path('pbook_list', {'id' : book.id}) }}" class="m-portlet__nav-link m-dropdown__toggle dropdown-toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand">
+                        <span class="Count">{{ count }}</span></a>
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ book.isbn }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ book.resume }}</td>
+            </tr>
+            <tr>
+                <th>PageNumber</th>
+                <td>{{ book.pageNumber }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ book.image.path }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('book_index') }}">back to list</a>
+
+    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+
+    {{ include('book/_delete_form.html.twig') }}
+
+{% endblock datable %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.Count').each(function () {
+            var $this = $(this);
+            jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+                duration: 2500,
+                easing: 'swing',
+                step: function () {
+                    $this.text(Math.ceil(this.Counter));
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

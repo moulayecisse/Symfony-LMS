@@ -1,0 +1,26 @@
+page.title.category.new: 'Nouvel Catégorie'
+page.title.category.list: Catégories
+page.title.member_type.list: __page.title.member_type.list
+page.title.library.edit: __page.title.library.edit
+page.title.library.new: __page.title.library.new
+page.title.library.list: __page.title.library.list
+page.title.author.edit: __page.title.author.edit
+page.title.author.list: __page.title.author.list
+page.title.format.edit: __page.title.format.edit
+page.title.format.new: __page.title.format.new
+page.title.format.list: __page.title.format.list
+page.title.booking.list: Liste des réservations
+page.title.admin.edit: __page.title.admin.edit
+page.title.admin.new: __page.title.admin.new
+page.title.admin.list: __page.title.admin.list
+page.title.book.edit: __page.title.book.edit
+page.title.book.new: __page.title.book.new
+page.title.book.list: Liste des livres
+page.title.booking.rent: Mise en place d'une location
+page.title.booking.new: Réservations en cours
+page.title.book.view: Voir la liste des livres physiques
+page.title.book.delete: Supprimer ce modèle de livre
+page.title.home.firstblock: Liste des livres de ma librairie
+page.title.home.secondblock: Liste des librairies
+page.title.home.thirdblock: Top des locations
+page.title.home.fourthblock: Livres loués en retard

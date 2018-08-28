@@ -1,0 +1,28 @@
+{% extends "view_layout.html.twig" %}
+
+{% block body %}
+    <h1>Editor</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ editor.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ editor.name }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ editor.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('editor_index') }}">back to list</a>
+
+    <a href="{{ path('editor_edit', {'id': editor.id}) }}">edit</a>
+
+    {{ include('editor/_delete_form.html.twig') }}
+{% endblock %}

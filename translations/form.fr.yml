@@ -1,0 +1,12 @@
+form.first_name.placeholder: 'Prénom'
+form.last_name.placeholder: 'Nom'
+form.biography.placeholder: 'Biographie'
+form.section.title.details: |
+  Mise en place d'une location
+form.error.danger: '__form.error.danger'
+#form.section.title.details: 'Détails'
+#form.error.danger: 'Erreur'
+form.section.title.category: 'Catégorie'
+form.name.placeholder: 'Nom'
+form.section.title.sub_categories: 'Sous-Catégories'
+row.placeholder: 'Placeholder'

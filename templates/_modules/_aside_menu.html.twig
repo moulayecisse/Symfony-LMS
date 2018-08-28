@@ -1,0 +1,46 @@
+{% trans_default_domain 'navigation' %}
+
+{% if is_granted('ROLE_LIBRARIAN') %}
+    {% set menus = [
+        {
+            'label' : 'navigation.label.home' | trans,
+            'icon' : 'flaticon-line-graph',
+            'path' : 'home',
+            'class' : app.request.attributes.get('_route') == 'home' ? 'm-menu__item--active' : '',
+            'badge' : '',
+            'badge_status' : '',
+            'have_access' : app.user.username != '' ? true : false
+        }
+    ] %}
+{% endif %}
+<!-- BEGIN: Aside Menu -->
+<div
+        id="m_ver_menu"
+        class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark "
+        m-menu-vertical="1" m-menu-scrollable="1" m-menu-dropdown-timeout="500" style="position: relative;"
+>
+    <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+        {% for menu in menus %}
+            {% if menu.have_access %}
+                <li class="m-menu__item  {{ menu.class }}" aria-haspopup="true">
+                    <a href="{{ path( menu.path ) }}" class="m-menu__link ">
+                        <i class="m-menu__link-icon {{ menu.icon }}"></i>
+
+                        <span class="m-menu__link-title">
+                            <span class="m-menu__link-wrap">
+                                <span class="m-menu__link-text">{{ menu.label }}</span>
+
+                                {% if menu.badge %}
+                                    <span class="m-menu__link-badge">
+                                    <span class="m-badge {{ menu.badge_status }}">{{ menu.badge }}</span>
+                                </span>
+                                {% endif %}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<!-- END: Aside Menu -->

@@ -1,0 +1,19 @@
+page.title.author.new: 'New Author'
+page.title.category.new: 'New Category'
+page.title.category.list: Categories
+page.title.member_type.list: __page.title.member_type.list
+page.title.library.edit: __page.title.library.edit
+page.title.library.new: __page.title.library.new
+page.title.library.list: __page.title.library.list
+page.title.author.edit: __page.title.author.edit
+page.title.author.list: __page.title.author.list
+page.title.format.edit: __page.title.format.edit
+page.title.format.new: __page.title.format.new
+page.title.format.list: __page.title.format.list
+page.title.booking.list: __page.title.booking.list
+page.title.admin.edit: __page.title.admin.edit
+page.title.admin.new: __page.title.admin.new
+page.title.admin.list: __page.title.admin.list
+page.title.book.edit: __page.title.book.edit
+page.title.book.new: __page.title.book.new
+page.title.book.list: __page.title.book.list
