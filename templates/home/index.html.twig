@@ -1,29 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home index{% endblock %}
+{% block title 'Home index'%}
 
-{% block page_vendors_styles %}
-    <!--begin::Page Vendors Styles -->
-    <link href="http://54.36.182.3.com/themes/metronic/5.5.4/default/dist/preview/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-    <!--end::Page Vendors Styles -->
-{% endblock page_vendors_styles %}
+{% block page_level_styles %}
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="https://keenthemes.com/preview/metronic/theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="https://keenthemes.com/preview/metronic/theme/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="https://keenthemes.com/preview/metronic/theme/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+{% endblock page_level_styles %}
 
-{% block page_content %}
-    <div class="m-content">
-        <div class="row">
-            <div class="col-xl-8">
-                <book-store></book-store>
-            </div>
-        </div>
-    </div>
-{% endblock page_content %}
+{% block page_level_plugins %}
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/moment.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="https://keenthemes.com/preview/metronic/theme/assets//global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+{% endblock page_level_plugins %}
 
-{% block page_vendors_scripts %}
-    <script src="http://54.36.182.3.com/themes/metronic/5.5.4/default/dist/preview/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
-    <script src="http://54.36.182.3.com/themes/metronic/5.5.4/default/dist/preview/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-{% endblock %}
+{% block page_level_scripts %}
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="https://keenthemes.com/preview/metronic/theme/assets//pages/scripts/ecommerce-dashboard.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+{% endblock page_level_scripts %}
 
-{% block page_javascripts %}
-    <script src="http://54.36.182.3.com/themes/metronic/5.5.4/default/dist/preview/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-    <script src="http://54.36.182.3.com/themes/metronic/5.5.4/default/dist/preview/assets/demo/default/custom/crud/datatables/data-sources/ajax-client-side.js" type="text/javascript"></script>
-{% endblock page_javascripts %}
+{% block page_level_custom_scripts %}
+<script>
+    $(document).ready(function()
+    {
+        $('#clickmewow').click(function()
+        {
+            $('#radio1003').attr('checked', 'checked');
+        });
+    })
+</script>
+{% endblock page_level_custom_scripts %}

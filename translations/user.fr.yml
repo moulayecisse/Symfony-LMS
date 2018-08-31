@@ -5,3 +5,4 @@ user.login.form.input.email.placeholder: Email
 user.login.form.input.password.placeholder: 'Mot de passe'
 user.login.form.button.submit.label: Connexion
 user.login.error: Erreur
+user.login.form.label.remember: 'Retenir'

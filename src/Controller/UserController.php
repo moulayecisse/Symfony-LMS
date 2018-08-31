@@ -160,8 +160,8 @@ class UserController extends Controller
         return $this->render(
             'user/login.html.twig',
             [
-                'form' => $form->createView(),
-                'error' => $error,
+                'login_form' => $form->createView(),
+                'login_error' => $error,
             ]
         );
     }
