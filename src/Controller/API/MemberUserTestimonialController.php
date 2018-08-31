@@ -14,18 +14,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class TestimonialController.
+ * Class MemberUserTestimonialController.
  *
  * @Route("/api/testimonials")
  */
-class TestimonialController
+class MemberUserTestimonialController
 {
     /**
      * @Route(
      *     "/count",
      *     name="api_testimonial_count",
      *     defaults={
-     *          "#_api_resource_class"=Testimonial::class,
+     *          "#_api_resource_class"=MemberTestimonial::class,
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
      *      }

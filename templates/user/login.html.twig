@@ -22,7 +22,7 @@
     <!-- BEGIN LOGO -->
     <div class="logo">
         {% if false %}
-        <a href="{{ path('home') }}">
+        <a href="{{ path('home_index') }}">
             {% if false %}
             <img src="https://keenthemes.com/preview/metronic/theme/assets/pages/img/logo-big.png" alt="" />
             {% endif %}
@@ -160,7 +160,7 @@
         {{ form_end(login_form) }}
         <!-- END LOGIN FORM -->
         <!-- BEGIN FORGOT PASSWORD FORM -->
-        <form class="forget-form" action="{{ path('home') }}" method="post">
+        <form class="forget-form" action="{{ path('home_index') }}" method="post">
             <h3 class="font-green">Forget Password ?</h3>
             <p> Enter your e-mail address below to reset your password. </p>
             <div class="form-group">
@@ -172,7 +172,7 @@
         </form>
         <!-- END FORGOT PASSWORD FORM -->
         <!-- BEGIN REGISTRATION FORM -->
-        <form class="register-form" action="{{ path('home') }}" method="post">
+        <form class="register-form" action="{{ path('home_index') }}" method="post">
             <h3 class="font-green">Sign Up</h3>
             <p class="hint"> Enter your personal details below: </p>
             <div class="form-group">

@@ -2,7 +2,7 @@
 
 namespace App\Mailer;
 
-use App\Entity\Booking;
+use App\Entity\BookRent;
 use App\Entity\User;
 use Swift_Mailer;
 use Swift_Message;
@@ -51,7 +51,7 @@ class Mailer
         $this->mailer->send($message);
     }
 
-    public function sendLateBookingNotification(Booking $booking)
+    public function sendLateBookingNotification(BookRent $booking)
     {
         $body = $this->twig->render(
             'email/booking/late/notification.html.twig',

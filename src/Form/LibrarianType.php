@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Librarian;
+use App\Entity\LibrarianUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +23,7 @@ class LibrarianType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Librarian::class,
+            'data_class' => LibrarianUser::class,
         ]);
     }
 }

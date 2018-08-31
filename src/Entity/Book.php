@@ -2,261 +2,170 @@
 
 namespace App\Entity;
 
-use App\Traits\Entity\IdTrait;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 /**
- * @ORM\MappedSuperclass
- * @ORM\InheritanceType("NONE")
- * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PBookRepository")
  */
 class Book
 {
-    use IdTrait;
+    public const STATUS_INSIDE = 'inside';
+    public const STATUS_OUTSIDE = 'outside';
+    public const STATUS_RESERVED = 'reserved';
+    public const STATUS_NOT_AVAILABLE = 'no_available';
+    public const STATUS = ['inside', 'outside', 'reserved', 'not_available'];
 
     /**
-     * @Groups( { "details", "draft" } )
+     * @ORM\Id()
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\GeneratedValue ()
+     * @ORM\Column(type="integer")
      */
-    private $isbn;
+    private $id;
 
     /**
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
-
-    /**
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
-
-    /**
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $resume;
-
-    /**
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $pageNumber;
-
-    /**
-     * @MaxDepth(2)
-     *
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\OneToOne(
-     *     targetEntity="App\Entity\Image",
-     *     mappedBy="book",
-     *     cascade={"persist", "remove"}
-     *     )
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
-     */
-    private $image;
-
-    /**
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="books")
-     */
-    private $author;
-
-    /**
-     * @MaxDepth(2)
-     *
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\OneToOne(targetEntity="EBook", mappedBy="book", cascade={"remove"})
-     */
-    private $eBook;
-
-    /**
-     * @MaxDepth(2)
-     *
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="books")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $subCategory;
-
-    /**
-     * @MaxDepth(2)
-     *
-     * @Groups( { "details", "draft" } )
-     *
-     * @ORM\OneToMany(targetEntity="PBook", mappedBy="book", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="BookModel.php", inversedBy="pBooks")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $pBooks;
+    private $book;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     *
+     * @var array
+     */
+    private $status;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BookRent.php", mappedBy="pBook", cascade={"remove"})
+     */
+    private $bookings;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Library", inversedBy="pBooks")
+     */
+    private $library;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BookBooking.php", mappedBy="pBook", cascade={"persist", "remove"})
+     */
+    private $reservations;
+
+    /**
+     * @return mixed
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations): void
+    {
+        $this->reservations = $reservations;
+    }
+
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
+        $this->status = ['inside' => 1];
+    }
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getIsbn(): ?string
-    {
-        return $this->isbn;
-    }
-
-    public function setIsbn(string $isbn): self
-    {
-        $this->isbn = $isbn;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
     /**
-     * @return mixed
+     * @return Book|null
      */
-    public function getSlug()
+    public function getBook(): ?Book
     {
-        return $this->slug;
+        return $this->book;
     }
 
-    /**
-     * @param mixed $slug
-     *
-     * @return Book
-     */
-    public function setSlug($slug)
+    public function setBook(Book $book): self
     {
-        $this->slug = $slug;
+        $this->book = $book;
 
         return $this;
     }
 
-    public function getResume(): ?string
+    public function getStatus(): array
     {
-        return $this->resume;
+        return $this->status;
     }
 
-    public function setResume(?string $resume): self
+    public function setStatus(array $status): self
     {
-        $this->resume = $resume;
+        $this->status = $status;
 
         return $this;
     }
 
-    public function getPageNumber(): ?int
+    public function addStatus(string $status): self
     {
-        return $this->pageNumber;
+        if (!$this->bookings->contains($status) && count($this->status) < 2) {
+            $key = count($this->status);
+            $this->status[$status] = $key;
+        }
+
+        return $this;
     }
 
-    public function setPageNumber(?int $pageNumber): self
+    public function removeStatus(string $status): self
     {
-        $this->pageNumber = $pageNumber;
+        if ($this->status->contains($status)) {
+            $this->status->removeElement($status);
+        }
 
         return $this;
     }
 
     /**
-     * @return Image
+     * @return Collection|BookRent[]
      */
-    public function getImage(): Image
+    public function getBookings(): Collection
     {
-        return $this->image;
+        return $this->bookings;
     }
 
-    public function setImage($image): self
+    public function addBooking(BookRent $booking): self
     {
-        $this->image = $image;
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setPBook($this);
+        }
 
         return $this;
     }
 
-    public function getAuthor(): ?Author
+    public function removeBooking(BookRent $booking): self
     {
-        return $this->author;
-    }
-
-    public function setAuthor(?Author $author): self
-    {
-        $this->author = $author;
+        if ($this->bookings->contains($booking)) {
+            $this->bookings->removeElement($booking);
+            // set the owning side to null (unless already changed)
+            if ($booking->getPBook() === $this) {
+                $booking->setPBook(null);
+            }
+        }
 
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPBooks()
+    public function getLibrary(): ?Library
     {
-        return $this->pBooks;
+        return $this->library;
     }
 
-    /**
-     * @param mixed $pBooks
-     *
-     * @return Book
-     */
-    public function setPBooks($pBooks)
+    public function setLibrary(?Library $library): self
     {
-        $this->pBooks = $pBooks;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEBook()
-    {
-        return $this->eBook;
-    }
-
-    /**
-     * @param mixed $eBook
-     *
-     * @return Book
-     */
-    public function setEBook($eBook)
-    {
-        $this->eBook = $eBook;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubCategory()
-    {
-        return $this->subCategory;
-    }
-
-    /**
-     * @param mixed $subCategory
-     *
-     * @return Book
-     */
-    public function setSubCategory($subCategory)
-    {
-        $this->subCategory = $subCategory;
+        $this->library = $library;
 
         return $this;
     }

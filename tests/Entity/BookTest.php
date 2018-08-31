@@ -9,9 +9,9 @@
 namespace App\Tests\Entity;
 
 
-use App\Entity\Author;
+use App\Entity\BookAuthor;
 use App\Entity\Book;
-use App\Entity\PBook;
+use App\Entity\Book;
 use PHPUnit\Framework\TestCase;
 #use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 #use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -33,7 +33,7 @@ class BookTest extends TestCase
 
     public function testBookIntegrity(  )
     {
-        $book = new Book( );
+        $book = new BookModel( );
 
         $author = new Author();
 
@@ -44,13 +44,13 @@ class BookTest extends TestCase
 
 
         /**
-         * PBook[] $tableauDePBook
+         * Book[] $tableauDePBook
          */
         $tableauDePBook = [];
         for ($i=0;$i<=9;$i++)
         {
-            //$pbook.${$i} = new PBook();
-            $tableauDePBook[$i] = new PBook();
+            //$pbook.${$i} = new Book();
+            $tableauDePBook[$i] = new Book();
         }
 
         $book->setIsbn( '9782080705259' );
@@ -61,7 +61,7 @@ class BookTest extends TestCase
 
         for ($i=0;$i<=9;$i++)
         {
-            //$pbook.${$i} = new PBook();
+            //$pbook.${$i} = new Book();
             $book->addPBook($tableauDePBook[$i]);
         }
 

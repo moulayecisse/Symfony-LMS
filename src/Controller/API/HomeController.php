@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *
  * @Route("/api")
  */
-class APIController
+class HomeController
 {
     public function __construct()
     {

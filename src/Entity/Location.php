@@ -29,7 +29,7 @@ class Location
     private $floor;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\SubCategory", mappedBy="location")
+     * @ORM\OneToMany(targetEntity="BookSubCategory.php", mappedBy="location")
      */
     private $subCategories;
 
@@ -68,14 +68,14 @@ class Location
     }
 
     /**
-     * @return Collection|SubCategory[]
+     * @return Collection|BookSubCategory[]
      */
     public function getSubCategories(): Collection
     {
         return $this->subCategories;
     }
 
-    public function addSubCategory(SubCategory $subCategory): self
+    public function addSubCategory(BookSubCategory $subCategory): self
     {
         if (!$this->subCategories->contains($subCategory)) {
             $this->subCategories[] = $subCategory;
@@ -85,7 +85,7 @@ class Location
         return $this;
     }
 
-    public function removeSubCategory(SubCategory $subCategory): self
+    public function removeSubCategory(BookSubCategory $subCategory): self
     {
         if ($this->subCategories->contains($subCategory)) {
             $this->subCategories->removeElement($subCategory);

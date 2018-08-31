@@ -5,7 +5,7 @@ form.section.title.details: __form.section.title.details
 form.error.danger: __form.error.danger
 form.section.title.details: Details
 form.error.danger: Error
-form.section.title.category: Category
-form.name.placeholder: Category
-form.section.title.sub_categories: Sub-Category
+form.section.title.category: BookCategory
+form.name.placeholder: BookCategory
+form.section.title.sub_categories: Sub-BookCategory
 row.placeholder: Placeholder

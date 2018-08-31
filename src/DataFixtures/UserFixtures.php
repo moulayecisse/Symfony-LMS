@@ -8,10 +8,10 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Admin;
-use App\Entity\Librarian;
-use App\Entity\Member;
-use App\Entity\SuperAdmin;
+use App\Entity\AdminUser;
+use App\Entity\LibrarianUser;
+use App\Entity\MemberUser;
+use App\Entity\SuperAdminUser;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -56,10 +56,10 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
 
         $this->addReference(self::USER_REFERENCE, $user);
 
-        $superAdmin = new SuperAdmin();
+        $superAdmin = new SuperAdminUser();
 
-        $superAdmin->setFirstName('SuperAdmin');
-        $superAdmin->setLastName('SuperAdmin');
+        $superAdmin->setFirstName('SuperAdminUser');
+        $superAdmin->setLastName('SuperAdminUser');
         $superAdmin->setEmail('superadmin@superadmin.com');
         $encoded = $this->encoder->encodePassword($superAdmin, '123456789');
         $superAdmin->setPassword($encoded);
@@ -68,10 +68,10 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
 
         $this->addReference(self::SUPER_ADMIN_REFERENCE, $superAdmin);
 
-        $admin = new Admin();
+        $admin = new AdminUser();
 
-        $admin->setFirstName('Admin');
-        $admin->setLastName('Admin');
+        $admin->setFirstName('AdminUser');
+        $admin->setLastName('AdminUser');
         $admin->setEmail('admin@admin.com');
         $encoded = $this->encoder->encodePassword($admin, '123456789');
         $admin->setPassword($encoded);
@@ -88,10 +88,10 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
             }
         }
 
-        $librarian = new Librarian();
+        $librarian = new LibrarianUser();
 
-        $librarian->setFirstName('Librarian');
-        $librarian->setLastName('Librarian');
+        $librarian->setFirstName('LibrarianUser');
+        $librarian->setLastName('LibrarianUser');
         $librarian->setEmail('librarian@librarian.com');
         $encoded = $this->encoder->encodePassword($librarian, '123456789');
         $librarian->setLibrary($libraries[rand(0, count($libraries) - 1) ]);
@@ -101,7 +101,7 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
 
         $this->addReference(self::LIBRARIAN_REFERENCE, $librarian);
 
-        $member = new Member();
+        $member = new MemberUser();
 
         $member->setFirstName('Member');
         $member->setLastName('Member');

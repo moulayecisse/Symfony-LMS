@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Format;
+use App\Entity\BookFormat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +19,7 @@ class FormatType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Format::class,
+            'data_class' => BookFormat::class,
         ]);
     }
 }

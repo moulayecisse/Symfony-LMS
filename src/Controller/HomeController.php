@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Booking;
+use App\Entity\BookRent;
 use App\Entity\Library;
 use App\Service\Book\BookProvider;
 use DateInterval;
@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends Controller
 {
     /**
-     * @Route("/", name="home", methods="GET")
+     * @Route("/", name="home_index", methods="GET")
      *
      * @return Response
      *

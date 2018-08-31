@@ -14,11 +14,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class BookController.
+ * Class BookModelController.
  *
  * @Route("/api/books")
  */
-class BookController
+class BookModelController
 {
     private $bookRepository;
 

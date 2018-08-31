@@ -35,7 +35,7 @@ security:
             form_login:
                 login_path: user_login
                 check_path: user_login
-                default_target_path: home
+                default_target_path: home_index
                 username_parameter: user_login[email]
                 password_parameter: user_login[password]
             logout:

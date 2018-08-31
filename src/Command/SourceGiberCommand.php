@@ -79,7 +79,7 @@ class SourceGiberCommand extends ContainerAwareCommand
 //        $this->io->text("\n\n");
 
         /*
-         * @var Category
+         * @var BookCategory
          */
         foreach ($menu->getCategories() as $category) {
             /**

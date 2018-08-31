@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Booking;
-use App\Entity\Member;
+use App\Entity\BookRent;
+use App\Entity\MemberUser;
 use App\Repository\MemberRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -20,7 +20,7 @@ class BookingType extends AbstractType
                 EntityType::class,
                 array(
                     // looks for choices from this entity
-                    'class' => Member::class,
+                    'class' => MemberUser::class,
                     'query_builder' => function (MemberRepository $er) {
                         return $er->createQueryBuilder('u')
                             ->orderBy('u.id', 'ASC');
@@ -49,7 +49,7 @@ class BookingType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-//            'data_class' => Booking::class,
+//            'data_class' => BookRent::class,
             'data_class' => null,
         ]);
     }

@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Editor;
+use App\Entity\BookEditor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -34,7 +34,7 @@ class EditorFixtures extends Fixture implements OrderedFixtureInterface
         $editors = [];
 
         for ($i = 0; $i < self::EDITORS_COUNT_REFERENCE; $i++) {
-            $editor = new Editor();
+            $editor = new BookEditor();
 
             $editor->setName($fakerFactory->company);
             $editor->setAddress($fakerFactory->address);

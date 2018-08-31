@@ -29,11 +29,11 @@ class EBookFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $k = 0;
-        for ($i = 0; $i < BookFixtures::BOOKS_COUNT_REFERENCE; $i++) {
+        for ($i = 0; $i < BookModelFixtures::BOOKS_COUNT_REFERENCE; $i++) {
             if (2 !== rand(0, 5)) {
                 $ebook = new EBook();
 
-                $ebook->setBook($this->getReference(BookFixtures::BOOKS_REFERENCE . $i));
+                $ebook->setBook($this->getReference(BookModelFixtures::BOOKS_REFERENCE . $i));
 
                 $manager->persist($ebook);
 

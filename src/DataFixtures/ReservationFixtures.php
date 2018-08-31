@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Reservation;
+use App\Entity\BookBooking;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -45,7 +45,7 @@ class ReservationFixtures extends Fixture implements OrderedFixtureInterface
         }
 
         for ($i = 0; $i < self::RESERVATIONS_COUNT_REFERENCE; $i++) {
-            $reservation = new Reservation();
+            $reservation = new BookBooking();
             $date = $this->randomDate($start, $end);
 //            $date = $date;
 

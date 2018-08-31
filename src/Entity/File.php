@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity(repositoryClass="App\Repository\FileRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="file_type", type="string")
- * @ORM\DiscriminatorMap({"file" = "File", "image" = "Image"})
+ * @ORM\DiscriminatorMap({"file" = "File", "image" = "ImageFile"})
  */
 class File
 {

@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Member extends User
 {
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="BookRent.php", mappedBy="member")
      */
     private $bookings;
 
@@ -41,7 +41,7 @@ class Member extends User
      *     "member"
      * )
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Testimonial", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="MemberTestimonial.php", mappedBy="member")
      */
     private $testimonials;
 
@@ -62,14 +62,14 @@ class Member extends User
     }
 
     /**
-     * @return Collection|Booking[]
+     * @return Collection|BookRent[]
      */
     public function getBookings(): Collection
     {
         return $this->bookings;
     }
 
-    public function addBooking(Booking $booking): self
+    public function addBooking(BookRent $booking): self
     {
         if (!$this->bookings->contains($booking)) {
             $this->bookings[] = $booking;
@@ -79,7 +79,7 @@ class Member extends User
         return $this;
     }
 
-    public function removebooking(Booking $booking): self
+    public function removebooking(BookRent $booking): self
     {
         if ($this->bookings->contains($booking)) {
             $this->bookings->removeElement($booking);
@@ -167,14 +167,14 @@ class Member extends User
     }
 
     /**
-     * @return Collection|Testimonial[]
+     * @return Collection|MemberTestimonial[]
      */
     public function getTestimonials(): Collection
     {
         return $this->testimonials;
     }
 
-    public function addTestimonial(Testimonial $testimonial): self
+    public function addTestimonial(MemberTestimonial $testimonial): self
     {
         if (!$this->testimonials->contains($testimonial)) {
             $this->testimonials[] = $testimonial;
@@ -184,7 +184,7 @@ class Member extends User
         return $this;
     }
 
-    public function removeTestimonial(Testimonial $testimonial): self
+    public function removeTestimonial(MemberTestimonial $testimonial): self
     {
         if ($this->testimonials->contains($testimonial)) {
             $this->testimonials->removeElement($testimonial);
@@ -208,7 +208,7 @@ class Member extends User
     /**
      * @param mixed $phone
      *
-     * @return Member
+     * @return MemberUser
      */
     public function setPhone($phone)
     {

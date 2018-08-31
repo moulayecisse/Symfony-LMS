@@ -1,31 +1,31 @@
 resources:
-    App\Entity\Author:
+    App\Entity\BookModelAuthor:
         collectionOperations:
             get: ~
-            api_author_best_selling:
+            api_book_model_author_best_selling:
                 swagger_context:
                     summary: "Retrieves the collection of best selling Author resources."
                     description: "Best selling Authors"
-            api_author_most_populars:
+            api_book_model_author_most_populars:
                 swagger_context:
                     summary: "Retrieves the collection of most popular Author resources."
                     description: "Most popular Authors"
-            api_book_author_get_subresource:
+            api_book_model_author_get_subresource:
                 method: 'GET' # nothing more to add if we want to keep the default controller
-                normalization_context: {groups: ['book']}
+                normalization_context: {groups: ['book_model']}
         itemOperations:
             get: ~
-            api_author_count:
+            api_book_model_author_count:
 
-    App\Entity\Category:
-        shortName: 'Category'
+    App\Entity\BookModelCategory:
+        shortName: 'Book Model Category'
         description: 'An category from our library'
-        iri: 'http://schema.org/Category'
+        iri: 'http://schema.org/category'
         attributes:
             pagination_items_per_page: 25
 
-    App\Entity\Book:
-        shortName: 'Book'
+    App\Entity\BookModel:
+        shortName: 'Book Model'
         description: 'An category from our library'
         iri: 'http://schema.org/Book'
         attributes:
@@ -38,52 +38,59 @@ resources:
         collectionOperations:
             get: ~ # nothing more to add if we want to keep the default controller
                 swagger_context:
-                    summary: "Books of our libraries"
-                    description: "Book that have been bye more"
+                    summary: "Book Models of our libraries"
+                    description: "Book Model that have been bye more"
                 normalization_context:
                     groups: [ 'draft', 'details']
-            api_book_best_sellers:
+            api_book_model_best_sellers:
                 swagger_context:
                     summary: "Best Sellers"
-                    description: "Book that have been bye more"
+                    description: "Book Model that have been bye more"
                 normalization_context:
                     groups: [ 'draft' ]
-            api_book_new_releases:
+            api_book_model_new_releases:
                 swagger_context:
                     summary: "Best Sellers"
-                    description: "Book that have been bye more"
+                    description: "Book Model that have been bye more"
                 normalization_context:
                     groups: [ 'draft' ]
-            api_book_picked_by_author:
+            api_book_model_picked_by_author:
                 swagger_context:
                     summary: "Best Sellers"
-                    description: "Book that have been bye more"
+                    description: "Book Model that have been bye more"
                 normalization_context:
                     groups: [ 'draft' ]
         itemOperations:
             get: ~
-            api_book_count:
-            api_book_featured:
-            api_book_picked_by_author:
-            api_call_to_action:
-            api_latest_posts:
-            api_service_info:
+            api_book_model_count:
+            api_book_model_featured:
+            api_book_model_picked_by_author:
+            api_home_call_to_action:
+            api_home_latest_posts:
+            api_home_service_info:
 #            api_featured_news:
-
-    App\Entity\SubCategory:
+    App\Entity\BookRent:
+        shortName: 'Book Rents'
+        description: 'Books that have been rented'
         itemOperations:
             get: ~
-            api_sub_category_count:
-            api_sub_category_counts:
+            api_booking_count:
 
-    App\Entity\Testimonial:
+
+    App\Entity\BookModelSubCategory:
         itemOperations:
             get: ~
-            api_testimonial_count:
+            api_book_model_sub_category_count:
+            api_book_model_sub_category_counts:
 
-    App\Entity\Member:
+    App\Entity\MemberUserTestimonial:
         itemOperations:
             get: ~
-            api_member_count:
-            api_member_current:
-            api_member_subscribe:
+            api_member_user_testimonial_count:
+
+    App\Entity\MemberUser:
+        itemOperations:
+            get: ~
+            api_member_user_count:
+            api_member_user_current:
+            api_member_user_subscribe:

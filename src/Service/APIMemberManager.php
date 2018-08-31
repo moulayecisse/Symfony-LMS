@@ -8,7 +8,7 @@
 
 namespace App\Service;
 
-use App\Entity\Member;
+use App\Entity\MemberUser;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -50,11 +50,11 @@ class APIMemberManager
      *
      * @param Request $request http request
      *
-     * @return Member
+     * @return MemberUser
      */
     public function subscribe(
         Request $request
-    ): ? Member {
+    ): ? MemberUser {
         $object = json_decode($request->getContent(), false);
 
         $member = null;
@@ -66,7 +66,7 @@ class APIMemberManager
         $password = $object->password;
 
         if ($phone && $email && $firstName && $lastName && $password) {
-            $member = new Member();
+            $member = new MemberUser();
 
             $member->setFirstName($firstName);
             $member->setLastName($lastName);

@@ -13,11 +13,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class SubCategoryController.
+ * Class BookModelSubCategoryController.
  *
  * @Route("/api/sub-categories")
  */
-class SubCategoryController
+class BookModelSubCategoryController
 {
     /**
      * Count action.

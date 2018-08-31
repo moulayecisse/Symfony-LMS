@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FormatRepository")
  */
-class Format
+class BookFormat
 {
     /**
      * @ORM\Id()

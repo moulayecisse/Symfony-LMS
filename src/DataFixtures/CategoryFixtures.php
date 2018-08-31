@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
+use App\Entity\BookCategory;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -141,7 +141,7 @@ class CategoryFixtures extends Fixture implements OrderedFixtureInterface
         $i = 0;
 
         foreach (self::CATEGORIES as $categoryName => $subCategories) {
-            $category = new Category();
+            $category = new BookCategory();
 
             $category->setName($categoryName);
             $category->setSlug(Transliterator::transliterate($category->getName()));

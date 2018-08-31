@@ -15,11 +15,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class AuthorController.
+ * Class BookModelAuthorController.
  *
  * @Route("/api/authors")
  */
-class AuthorController
+class BookModelAuthorController
 {
     private $authorRepository;
 

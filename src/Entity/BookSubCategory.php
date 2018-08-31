@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SubCategoryRepository")
  */
-class SubCategory
+class BookSubCategory
 {
     /**
      * @ORM\Id()
@@ -32,12 +32,12 @@ class SubCategory
     private $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="subCategories")
+     * @ORM\ManyToOne(targetEntity="BookCategory.php", inversedBy="subCategories")
      */
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Book", mappedBy="subCategory")
+     * @ORM\OneToMany(targetEntity="BookModel.php", mappedBy="subCategory")
      */
     private $books;
 
@@ -69,7 +69,7 @@ class SubCategory
     /**
      * @param mixed $slug
      *
-     * @return SubCategory
+     * @return BookSubCategory
      */
     public function setSlug($slug)
     {
@@ -78,12 +78,12 @@ class SubCategory
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): ?BookCategory
     {
         return $this->category;
     }
 
-    public function setCategory(?Category $category): self
+    public function setCategory(?BookCategory $category): self
     {
         $this->category = $category;
 
@@ -118,7 +118,7 @@ class SubCategory
     /**
      * @param mixed $books
      *
-     * @return SubCategory
+     * @return BookSubCategory
      */
     public function setBooks($books)
     {

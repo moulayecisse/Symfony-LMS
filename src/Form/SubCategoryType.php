@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\SubCategory;
+use App\Entity\BookSubCategory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +21,7 @@ class SubCategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SubCategory::class,
+            'data_class' => BookSubCategory::class,
         ]);
     }
 

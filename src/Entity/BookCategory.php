@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Category
+class BookCategory
 {
     /**
      * @Groups(
@@ -46,7 +46,7 @@ class Category
      *     "category"
      * )
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\SubCategory", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="BookSubCategory.php", mappedBy="category")
      */
     private $subCategories;
 
@@ -83,7 +83,7 @@ class Category
     /**
      * @param mixed $slug
      *
-     * @return Category
+     * @return BookCategory
      */
     public function setSlug($slug)
     {
@@ -93,14 +93,14 @@ class Category
     }
 
     /**
-     * @return Collection|SubCategory[]
+     * @return Collection|BookSubCategory[]
      */
     public function getSubCategories(): Collection
     {
         return $this->subCategories;
     }
 
-    public function addSubCategory(SubCategory $subCategory): self
+    public function addSubCategory(BookSubCategory $subCategory): self
     {
         if (!$this->subCategories->contains($subCategory)) {
             $this->subCategories[] = $subCategory;
@@ -110,7 +110,7 @@ class Category
         return $this;
     }
 
-    public function removeSubCategory(SubCategory $subCategory): self
+    public function removeSubCategory(BookSubCategory $subCategory): self
     {
         if ($this->subCategories->contains($subCategory)) {
             $this->subCategories->removeElement($subCategory);

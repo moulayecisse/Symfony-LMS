@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Librarian;
+use App\Entity\LibrarianUser;
 use App\Mailer\Mailer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -60,7 +60,7 @@ class LibrarianFixtures extends Fixture implements OrderedFixtureInterface
         }
 
         for ($i = 0; $i < self::LIBRARIANS_COUNT_REFERENCE; $i++) {
-            $librarian = new Librarian();
+            $librarian = new LibrarianUser();
 
             $librarian->setFirstName($fakerFactory->firstName);
             $librarian->setLastName($fakerFactory->lastName);

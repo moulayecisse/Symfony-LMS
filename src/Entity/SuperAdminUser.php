@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity(repositoryClass="App\Repository\SuperAdminRepository")
  */
-class SuperAdmin extends User
+class SuperAdminUser extends User
 {
     public function __construct()
     {

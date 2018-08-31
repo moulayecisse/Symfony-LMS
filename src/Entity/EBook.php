@@ -30,14 +30,14 @@ class EBook /*extends Book*/
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Book", inversedBy="eBook")
+     * @ORM\OneToOne(targetEntity="BookModel.php", inversedBy="eBook")
      */
     private $book;
 
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Book")
+     * @ORM\OneToOne(targetEntity="BookModel.php")
      */
     private $file;
 
@@ -65,7 +65,7 @@ class EBook /*extends Book*/
      *
      * @return EBook
      */
-    public function setBook(Book $book): EBook
+    public function setBook(BookModel $book): EBook
     {
         $this->book = $book;
 

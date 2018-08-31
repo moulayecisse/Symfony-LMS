@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TestimonialRepository")
  */
-class Testimonial
+class MemberTestimonial
 {
     /**
      * @ORM\Id()
@@ -22,9 +22,9 @@ class Testimonial
     private $message;
 
     /**
-     * @var Member
+     * @var MemberUser
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="testimonials")
+     * @ORM\ManyToOne(targetEntity="MemberUser.php", inversedBy="testimonials")
      */
     private $member;
 
@@ -43,7 +43,7 @@ class Testimonial
 
     /**
      * @param mixed $message
-     * @return Testimonial
+     * @return MemberTestimonial
      */
     public function setMessage($message)
     {
@@ -52,18 +52,18 @@ class Testimonial
     }
 
     /**
-     * @return Member
+     * @return MemberUser
      */
-    public function getMember(): Member
+    public function getMember(): MemberUser
     {
         return $this->member;
     }
 
     /**
-     * @param Member $member
-     * @return Testimonial
+     * @param MemberUser $member
+     * @return MemberTestimonial
      */
-    public function setMember(Member $member): Testimonial
+    public function setMember(MemberUser $member): MemberTestimonial
     {
         $this->member = $member;
         return $this;

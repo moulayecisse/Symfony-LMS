@@ -8,10 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\MappedSuperclass()
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
  */
-class Image extends File
+class ImageFile extends File
 {
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Book", inversedBy="image")
+     * @ORM\OneToOne(targetEntity="BookModel.php", inversedBy="image")
      * @ORM\Column(nullable=true)
      */
     private $book;
@@ -27,7 +27,7 @@ class Image extends File
     /**
      * @param mixed $book
      *
-     * @return Image
+     * @return ImageFile
      */
     public function setBook($book)
     {

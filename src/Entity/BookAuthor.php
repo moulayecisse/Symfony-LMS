@@ -26,8 +26,8 @@ class Author
     use BirthdayTrait;
 
     /**
-     * @var Book[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Book", mappedBy="author")
+     * @var BookModel[]
+     * @ORM\OneToMany(targetEntity="BookModel.php", mappedBy="author")
      */
     private $books;
 
@@ -64,7 +64,7 @@ class Author
     }
 
     /**
-     * @return Book[]
+     * @return BookModel[]
      */
     public function getBooks(): array
     {
@@ -72,7 +72,7 @@ class Author
         return [];
     }
 
-    public function addBook(Book $book): self
+    public function addBook(BookModel $book): self
     {
         if (!$this->books->contains($book)) {
             $this->books[] = $book;

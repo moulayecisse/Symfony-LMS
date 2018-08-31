@@ -29,7 +29,7 @@ class MemberType
     private $rate;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Member", mappedBy="memberType")
+     * @ORM\OneToMany(targetEntity="MemberUser.php", mappedBy="memberType")
      */
     private $members;
 
@@ -68,14 +68,14 @@ class MemberType
     }
 
     /**
-     * @return Collection|Member[]
+     * @return Collection|MemberUser[]
      */
     public function getMembers(): Collection
     {
         return $this->members;
     }
 
-    public function addMember(Member $member): self
+    public function addMember(MemberUser $member): self
     {
         if (!$this->members->contains($member)) {
             $this->members[] = $member;
@@ -85,7 +85,7 @@ class MemberType
         return $this;
     }
 
-    public function removeMember(Member $member): self
+    public function removeMember(MemberUser $member): self
     {
         if ($this->members->contains($member)) {
             $this->members->removeElement($member);

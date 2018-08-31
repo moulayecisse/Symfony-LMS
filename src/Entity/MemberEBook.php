@@ -22,7 +22,7 @@ class MemberEBook
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="memberEBooks")
+     * @ORM\ManyToOne(targetEntity="MemberUser.php", inversedBy="memberEBooks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $member;
@@ -60,7 +60,7 @@ class MemberEBook
         return $this->member;
     }
 
-    public function setMember(?Member $member): self
+    public function setMember(?MemberUser $member): self
     {
         $this->member = $member;
 

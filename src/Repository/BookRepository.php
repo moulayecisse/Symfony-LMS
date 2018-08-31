@@ -2,16 +2,16 @@
 
 namespace App\Repository;
 
-use App\Entity\Book;
+use App\Entity\BookModel;
 use App\Entity\EBook;
 use App\Entity\Library;
-use App\Entity\PBook;
+use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Book|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BookModel|null find($id, $lockMode = null, $lockVersion = null)
  * @method Book|null findOneBy(array $criteria, array $orderBy = null)
  * @method Book[]    findAll()
  * @method Book[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
@@ -31,7 +31,7 @@ class BookRepository extends ServiceEntityRepository
     public function findByLibrary($libraryId): array
     {
         return $this->createQueryBuilder('book')
-            ->join(PBook::class, 'pbook')
+            ->join(Book::class, 'pbook')
             ->where('pbook.book_id = book.id')
             ->distinct('pbook.book_id')
 
@@ -77,7 +77,7 @@ class BookRepository extends ServiceEntityRepository
             $query = $this->createQueryBuilder('book')
                 ->select('Count( book )')
                 ->distinct('book')
-                ->join(PBook::class, 'pbook', 'WITH', 'pbook.library_id = :library.id')
+                ->join(Book::class, 'pbook', 'WITH', 'pbook.library_id = :library.id')
                 ->setParameter('library_id', $libraryId)
                 ->addSelect('pbook')
 //                ->where( 'pbook = book.id' )

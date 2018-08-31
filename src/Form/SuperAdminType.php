@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\SuperAdmin;
+use App\Entity\SuperAdminUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +23,7 @@ class SuperAdminType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SuperAdmin::class,
+            'data_class' => SuperAdminUser::class,
         ]);
     }
 }

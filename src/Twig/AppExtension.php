@@ -3,7 +3,7 @@
 namespace App\Twig;
 
 use App\Entity\LikeNotification;
-use App\Entity\PBook;
+use App\Entity\Book;
 use DateTime;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
@@ -89,7 +89,7 @@ class AppExtension extends AbstractExtension implements GlobalsInterface
     /**
      * Filter PBooks according to there status.
      *
-     * @param PBook[] $pbooks array of pbooks to filter
+     * @param Book[] $pbooks array of pbooks to filter
      *
      * @return array
      */
@@ -101,24 +101,24 @@ class AppExtension extends AbstractExtension implements GlobalsInterface
         $pbookNotAvailable = [];
 
         /*
-         * @var PBook
+         * @var Book
          */
         foreach ($pbooks as $pbook) {
-            if (in_array(PBook::STATUS_INSIDE, $pbook->getStatus())) {
-                /* @var PBook[] $pbookInsides pbooks that is inside */
+            if (in_array(Book::STATUS_INSIDE, $pbook->getStatus())) {
+                /* @var Book[] $pbookInsides pbooks that is inside */
                 /* @var array $pbookInsides pbooks that is inside */
                 $pbookInsides[] = $pbook;
             }
 
-            if (in_array(PBook::STATUS_OUTSIDE, $pbook->getStatus())) {
+            if (in_array(Book::STATUS_OUTSIDE, $pbook->getStatus())) {
                 $pbookOutside[] = $pbook;
             }
 
-            if (in_array(PBook::STATUS_RESERVED, $pbook->getStatus())) {
+            if (in_array(Book::STATUS_RESERVED, $pbook->getStatus())) {
                 $pbookReserved[] = $pbook;
             }
 
-            if (in_array(PBook::STATUS_NOT_AVAILABLE, $pbook->getStatus())) {
+            if (in_array(Book::STATUS_NOT_AVAILABLE, $pbook->getStatus())) {
                 $pbookNotAvailable[] = $pbook;
             }
         }

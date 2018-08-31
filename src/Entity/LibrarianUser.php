@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\MappedSuperclass()
  * @ORM\Entity(repositoryClass="LibrarianRepository")
  */
-class Librarian extends User
+class LibrarianUser extends User
 {
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Library", inversedBy="librarians")
@@ -33,7 +33,7 @@ class Librarian extends User
     /**
      * @param mixed $library
      *
-     * @return Librarian
+     * @return LibrarianUser
      */
     public function setLibrary($library)
     {

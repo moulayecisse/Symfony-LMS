@@ -2,10 +2,10 @@
 
 namespace App\Command;
 
-use App\Entity\Booking;
+use App\Entity\BookRent;
 use App\Entity\Library;
-use App\Entity\Member;
-use App\Entity\PBook;
+use App\Entity\MemberUser;
+use App\Entity\Book;
 use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,11 +14,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Workflow\Registry;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
- * Class BookingCommand.
+ * Class BookRentCommand.
  */
-class BookingCommand extends ContainerAwareCommand
+class BookRentCommand extends ContainerAwareCommand
 {
     /**
      * EntityManagerInterface
@@ -40,17 +41,23 @@ class BookingCommand extends ContainerAwareCommand
      * @var Registry
      */
     private $registry;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
 
     /**
-     * BookingCommand constructor.
+     * BookRentCommand constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param null                   $name
+     * @param TranslatorInterface $translator
+     * @param null $name
      */
-    public function __construct( EntityManagerInterface $entityManager, $name = null )
+    public function __construct( EntityManagerInterface $entityManager, TranslatorInterface $translator, $name = null )
     {
         parent::__construct($name);
         $this->entityManager = $entityManager;
+        $this->translator = $translator;
     }
 
     /**
@@ -59,9 +66,9 @@ class BookingCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('app:booking')
-            ->setDescription('Create booking from specified date to now')
-            ->setHelp('Create booking from specified date to now')
+            ->setName('app:book:rent')
+            ->setDescription($this->translator->trans('command.book.rent.description'))
+            ->setHelp($this->translator->trans('command.book.rent.help'))
         ;
     }
 
@@ -82,29 +89,29 @@ class BookingCommand extends ContainerAwareCommand
 
         $this->io = new SymfonyStyle($input, $output);
 
-        $this->io->title('Create booking');
+        $this->io->title($this->translator->trans('command.book.rent.title'));
 
-        $purge = $this->io->choice('Purger la table booking?', ['Oui', 'Non']);
+        $truncate = $this->io->choice($this->translator->trans('command.book.rent.choice.truncate'), [$this->translator->trans('yes'), $this->translator->trans('no')]);
 
-        if ('Oui' === $purge) {
-            $this->entityManager->getRepository(Booking::class)->truncate();
+        if ($this->translator->trans('yes') === $truncate) {
+            $this->entityManager->getRepository(BookRent::class)->truncate();
         }
 
         $libraryNames = array_map(function ($library) {
             return $library->getName();
         }, $libraries);
-        array_unshift($libraryNames, 'Tous');
+        array_unshift($libraryNames, $this->translator->trans('all'));
 
-        $libraryName = $this->io->choice('Librairie', $libraryNames);
+        $libraryName = $this->io->choice($this->translator->trans('Library'), $libraryNames);
 
-        $pbooks = ('Tous' === $libraryName)
-            ? $this->entityManager->getRepository(PBook::class)->findAll()
-            : $this->entityManager->getRepository(PBook::class)
+        $books = ($this->translator->trans('all') === $libraryName)
+            ? $this->entityManager->getRepository(Book::class)->findAll()
+            : $this->entityManager->getRepository(Book::class)
                 ->findBy(['library' => $this->entityManager->getRepository(Library::class)->findOneBy(['name' => $libraryName])])
         ;
-        $members = $this->entityManager->getRepository(Member::class)->findAll();
+        $memberUsers = $this->entityManager->getRepository(MemberUser::class)->findAll();
 
-        $days = intval($this->io->ask('From how many day(s) ?'));
+        $days = intval($this->io->ask($this->translator->trans('command.book.rent.ask.days')));
 
         $daysProgressBar = $this->io->createProgressBar($days);
 
@@ -121,9 +128,9 @@ class BookingCommand extends ContainerAwareCommand
         $startDate->modify('-'.$days.' day');
         $date->modify('-'.$days.' day');
 
-        foreach ($pbooks as &$pbook) {
-            $pbook->setStatus([PBook::STATUS_INSIDE => 1]);
-            $this->entityManager->persist($pbook);
+        foreach ($books as &$book) {
+            $book->setStatus([Book::STATUS_INSIDE => 1]);
+            $this->entityManager->persist($book);
         }
 
         $this->entityManager->flush();
@@ -131,48 +138,43 @@ class BookingCommand extends ContainerAwareCommand
         for ($i = 0; $i < $days; ++$i) {
             $date->modify('-1 day');
 
-            foreach ($members as $member) {
-                $bookingCount = $this->entityManager->getRepository(Booking::class)->countBooking(false, $member->getId(), true, false, $date);
+            foreach ($memberUsers as $memberUser) {
+                $bookRentCount = $this->entityManager->getRepository(BookRent::class)->countBooking(false, $memberUser->getId(), true, false, $date);
 
-                if ($bookingCount >= 3) {
-                    $memberBookings = $this->entityManager->getRepository(Booking::class)->findBooking(false, $member->getId(), true, false, $date);
+                if ($bookRentCount >= 3) {
+                    $bookRents = $this->entityManager->getRepository(BookRent::class)->findBooking(false, $memberUser->getId(), true, false, $date);
 
                     /*
-                     * @var Booking
+                     * @var BookRent
                      */
-                    foreach ($memberBookings as $memberBooking) {
+                    foreach ($bookRents as $bookRent) {
                         if (1 === mt_rand(0, 5)) {
                             $memberBooking->setReturnDate($date);
-                            $memberBooking->getPBook()->setStatus([PBook::STATUS_INSIDE => 1]);
+                            $memberBooking->getPBook()->setStatus([Book::STATUS_INSIDE => 1]);
 
                             $this->entityManager->persist($memberBooking);
                             $this->entityManager->flush();
                         }
                     }
                 } else {
-                    foreach ($pbooks as $pbook) {
+                    foreach ($books as $book) {
 //                        $workflow = $this->registry->get($pbook);
-                        $bookingCount = $this->entityManager->getRepository(Booking::class)->countBooking(false, $member->getId(), true, false, $date);
+                        $bookRentCount = $this->entityManager->getRepository(BookRent::class)->countBooking(false, $memberUser->getId(), true, false, $date);
 
-                        if ($bookingCount < 3 && 1 === mt_rand(0, 5) && $pbook->getStatus() === [PBook::STATUS_INSIDE => 1]) {
-                            $booking = new Booking();
+                        if ($bookRentCount < 3 && 1 === mt_rand(0, 5) && $book->getStatus() === [Book::STATUS_INSIDE => 1]) {
+                            $bookRent = new BookRent();
                             $endDate = clone $date;
                             $endDate->modify('+15 day');
-                            $booking->setStartDate($date);
-                            $booking->setEndDate($endDate);
-                            $booking->setPBook($pbook);
-                            $booking->setMember($member);
+                            $bookRent->setStartDate($date);
+                            $bookRent->setEndDate($endDate);
+                            $bookRent->setPBook($book);
+                            $bookRent->setMember($memberUser);
 
-                            $pbook->setStatus([PBook::STATUS_OUTSIDE => 1]);
+                            $book->setStatus([Book::STATUS_OUTSIDE => 1]);
 
-                            $this->entityManager->persist($pbook);
-                            $this->entityManager->persist($booking);
+                            $this->entityManager->persist($book);
+                            $this->entityManager->persist($bookRent);
                             $this->entityManager->flush();
-
-//                            $workflow = $this->registry->get($pbook, 'pbook_status');
-
-//                            $this->io->text($pbook->getBook()->getTitle().' - '.$date->format('Y-m-d'));
-//                            $this->io->text($workflow->getEnabledTransitions($pbook));
                         }
                     }
                 }
@@ -180,11 +182,8 @@ class BookingCommand extends ContainerAwareCommand
             $daysProgressBar->advance(1);
         }
 
-//        $daysProgressBar->finish();
-
         $this->io->newLine(2);
         $this->io->success('Days : '.$days);
-//        $this->io->success( 'Categories : ' . count($categories) . ' - SubCategories : '  . count($subCategories) . ' - Books : ' . count($books) );
     }
 
     /**

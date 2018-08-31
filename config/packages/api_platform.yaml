@@ -8,7 +8,7 @@ api_platform:
     description: 'An Library api to provide books'
 
     # The version of the API.
-    version: '1.0.1'
+    version: '2.0.1'
 
     # Specify a name converter to use.
     name_converter: ~

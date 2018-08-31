@@ -8,7 +8,7 @@
 
 namespace App\Controller\API;
 
-use App\Entity\Member;
+use App\Entity\MemberUser;
 use App\Repository\MemberRepository;
 use App\Service\APIMemberManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,16 +17,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class MemberController.
+ * Class MemberUserController.
  *
  * @Route("/api/members")
  */
-class MemberController extends Controller
+class MemberUserController extends Controller
 {
     /**
      * An library management system subscribed member.
      *
-     * @var Member
+     * @var MemberUser
      */
     private $member;
 
@@ -45,7 +45,7 @@ class MemberController extends Controller
     private $apiMemberManagement;
 
     /**
-     * MemberController constructor.
+     * MemberUserController constructor.
      *
      * @param MemberRepository $memberRepository    Member's Repository
      * @param APIMemberManager $apiMemberManagement API Member Manager

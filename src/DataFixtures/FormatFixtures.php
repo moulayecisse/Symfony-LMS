@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Format;
+use App\Entity\BookFormat;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -44,7 +44,7 @@ class FormatFixtures extends Fixture implements OrderedFixtureInterface
         $i = 0;
 
         foreach (self::FORMATS as $formatName) {
-            $format = new Format();
+            $format = new BookFormat();
 
             $format->setName($formatName);
 

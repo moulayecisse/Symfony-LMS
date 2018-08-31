@@ -49,12 +49,12 @@ class Library
     private $closingTime;
 
     /**
-     * @ORM\OneToMany(targetEntity="PBook", mappedBy="library", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="library", cascade={"remove"})
      */
     private $pBooks;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Librarian", mappedBy="library")
+     * @ORM\OneToMany(targetEntity="LibrarianUser.php", mappedBy="library")
      */
     private $librarians;
 
@@ -141,14 +141,14 @@ class Library
     }
 
     /**
-     * @return Collection|PBook[]
+     * @return Collection|Book[]
      */
     public function getPBooks(): Collection
     {
         return $this->pBooks;
     }
 
-    public function addPBook(PBook $pBook): self
+    public function addPBook(Book $pBook): self
     {
         if (!$this->pBooks->contains($pBook)) {
             $this->pBooks[] = $pBook;
@@ -158,7 +158,7 @@ class Library
         return $this;
     }
 
-    public function removePBook(PBook $pBook): self
+    public function removePBook(Book $pBook): self
     {
         if ($this->pBooks->contains($pBook)) {
             $this->pBooks->removeElement($pBook);

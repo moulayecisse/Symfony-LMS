@@ -2,9 +2,9 @@
 
 namespace App\Repository;
 
-use App\Entity\Booking;
+use App\Entity\BookRent;
 use App\Entity\Library;
-use App\Entity\PBook;
+use App\Entity\Book;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -12,22 +12,22 @@ use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Booking|null find($id, $lockMode = null, $lockVersion = null)
- * @method Booking|null findOneBy(array $criteria, array $orderBy = null)
- * @method Booking[]    findAll()
- * @method Booking[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BookRent|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BookRent|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BookRent[]    findAll()
+ * @method BookRent[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class BookingRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Booking::class);
+        parent::__construct($registry, BookRent::class);
     }
 
     public function findByLibrary($libraryId)
     {
         return $this->createQueryBuilder('booking')
-            ->join(PBook::class, 'pbook')
+            ->join(Book::class, 'pbook')
             ->join(Library::class, 'library')
             ->andWhere('library.id = :library_id')
             ->setParameter('library_id', $libraryId)
@@ -84,7 +84,7 @@ class BookingRepository extends ServiceEntityRepository
      * @param bool $late
      * @param null $date
      *
-     * @return Booking[]
+     * @return BookRent[]
      */
     public function findBooking($libraryId = false, $memberId = false, $currentOnly = false, $late = false, $date = null): array
     {
@@ -120,7 +120,7 @@ class BookingRepository extends ServiceEntityRepository
     public function findLateByLibrary($libraryId)
     {
         return $this->createQueryBuilder('booking')
-            ->join(PBook::class, 'pbook')
+            ->join(Book::class, 'pbook')
             ->join(Library::class, 'library')
 
             ->where('booking.endDate < CURRENT_DATE()')
@@ -137,7 +137,7 @@ class BookingRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('booking')
                 ->select('COUNT(booking)')
-                ->join(PBook::class, 'pbook')
+                ->join(Book::class, 'pbook')
                 ->join(Library::class, 'library')
 
                 ->where('booking.endDate < CURRENT_DATE()')
@@ -164,7 +164,7 @@ class BookingRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('booking')
                 ->select('COUNT(booking)')
-                ->join(PBook::class, 'pbook')
+                ->join(Book::class, 'pbook')
 
                 ->join(Library::class, 'library')
                 ->where('library.id = :library_id')

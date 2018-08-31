@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Category;
+use App\Entity\BookCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Category|null find($id, $lockMode = null, $lockVersion = null)
- * @method Category|null findOneBy(array $criteria, array $orderBy = null)
- * @method Category[]    findAll()
- * @method Category[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BookCategory|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BookCategory|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BookCategory[]    findAll()
+ * @method BookCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class CategoryRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Category::class);
+        parent::__construct($registry, BookCategory::class);
     }
 
 //    /**
-//     * @return Category[] Returns an array of Category objects
+//     * @return BookCategory[] Returns an array of BookCategory objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CategoryRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Category
+    public function findOneBySomeField($value): ?BookCategory
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

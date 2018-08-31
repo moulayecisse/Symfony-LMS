@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\PBook;
+use App\Entity\Book;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -24,20 +24,20 @@ class PBookFixtures extends Fixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $status = PBook::STATUS;
+        $status = Book::STATUS;
 
         $j = 0;
-        for ($i = 0; $i < BookFixtures::BOOKS_COUNT_REFERENCE; ++$i) {
+        for ($i = 0; $i < BookModelFixtures::BOOKS_COUNT_REFERENCE; ++$i) {
             for ($k = 0; $k < LibraryFixtures::LIBRARIES_COUNT_REFERENCE; ++$k) {
                 if (2 !== rand(0, 5)) {
                     $pBookCount = mt_rand(0, 5);
 
                     for ($m = 0; $m < $pBookCount; ++$m) {
-                        $pBook = new PBook();
+                        $pBook = new Book();
 
-                        $pBook->setBook($this->getReference(BookFixtures::BOOKS_REFERENCE.$i));
+                        $pBook->setBook($this->getReference(BookModelFixtures::BOOKS_REFERENCE.$i));
                         $pBook->setLibrary($this->getReference(LibraryFixtures::LIBRARIES_REFERENCE.$k));
-                        $pBook->setStatus([PBook::STATUS_INSIDE => 1]);
+                        $pBook->setStatus([Book::STATUS_INSIDE => 1]);
 
                         $manager->persist($pBook);
 

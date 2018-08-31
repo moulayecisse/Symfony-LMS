@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Editor;
+use App\Entity\BookEditor;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +20,7 @@ class EditorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Editor::class,
+            'data_class' => BookEditor::class,
         ]);
     }
 }

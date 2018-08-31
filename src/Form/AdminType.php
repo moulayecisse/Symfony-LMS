@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Admin;
+use App\Entity\AdminUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +23,7 @@ class AdminType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Admin::class,
+            'data_class' => AdminUser::class,
         ]);
     }
 }

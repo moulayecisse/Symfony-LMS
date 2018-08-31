@@ -8,9 +8,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Author;
+use App\Entity\BookAuthor;
 use App\Entity\Book;
-use App\Entity\Image;
+use App\Entity\ImageFile;
 use App\Service\Source\Firebase\Firebase;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -18,7 +18,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 
-class BookFixtures extends Fixture implements OrderedFixtureInterface
+class BookModelFixtures extends Fixture implements OrderedFixtureInterface
 {
     public const BOOKS_REFERENCE = 'books';
     public const BOOKS_COUNT_REFERENCE = 100;
@@ -34,7 +34,7 @@ class BookFixtures extends Fixture implements OrderedFixtureInterface
 
         for ($i = 0; $i < self::BOOKS_COUNT_REFERENCE; ++$i) {
             $book = new Book();
-            $image = new Image();
+            $image = new ImageFile();
 
             $image->setPath('https://via.placeholder.com/350x150');
             $image->setIsLocal(false);
@@ -42,9 +42,9 @@ class BookFixtures extends Fixture implements OrderedFixtureInterface
             /*
              * @var Author
              */
-            $book->setAuthor($this->getReference(AuthorFixtures::AUTHORS_REFERENCE.rand(0, AuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
+            $book->setAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
             $authorCounts = rand(0, 3);
-//            $book->addAuthor($this->getReference(AuthorFixtures::AUTHORS_REFERENCE.rand(0, AuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
+//            $book->addAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
 //            $book->setAuthors($this->pickAuthors($authors));
             $book->setSubCategory($this->getReference(SubCategoryFixtures::SUB_CATEGORIES_REFERENCE.rand(0, SubCategoryFixtures::SUB_CATEGORIES_COUNT_REFERENCE - 1)));
             $book->setIsbn($fakerFactory->isbn13);

@@ -5,8 +5,8 @@
         {
             'label' : 'navigation.label.home' | trans,
             'icon' : 'flaticon-line-graph',
-            'path' : 'home',
-            'class' : app.request.attributes.get('_route') == 'home' ? 'm-menu__item--active' : '',
+            'path' : 'home_index',
+            'class' : app.request.attributes.get('_route') == 'home_index' ? 'm-menu__item--active' : '',
             'badge' : '',
             'badge_status' : '',
             'have_access' : app.user.username != '' ? true : false

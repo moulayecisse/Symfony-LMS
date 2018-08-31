@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReservationRepository")
  */
-class Reservation
+class BookBooking
 {
     /**
      * @ORM\Id()
@@ -17,13 +17,13 @@ class Reservation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PBook", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $pBook;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="MemberUser.php", inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $member;
@@ -38,24 +38,24 @@ class Reservation
         return $this->id;
     }
 
-    public function getPBook(): ?PBook
+    public function getPBook(): ?Book
     {
         return $this->pBook;
     }
 
-    public function setPBook(?PBook $pBook): self
+    public function setPBook(?Book $pBook): self
     {
         $this->pBook = $pBook;
 
         return $this;
     }
 
-    public function getMember(): ?Member
+    public function getMember(): ?MemberUser
     {
         return $this->member;
     }
 
-    public function setMember(?Member $member): self
+    public function setMember(?MemberUser $member): self
     {
         $this->member = $member;
 

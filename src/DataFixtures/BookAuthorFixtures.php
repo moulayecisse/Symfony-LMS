@@ -14,7 +14,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 
-class AuthorFixtures extends Fixture implements OrderedFixtureInterface
+class BookAuthorFixtures extends Fixture implements OrderedFixtureInterface
 {
     public const AUTHORS_REFERENCE = 'authors';
     public const AUTHORS_COUNT_REFERENCE = 50;

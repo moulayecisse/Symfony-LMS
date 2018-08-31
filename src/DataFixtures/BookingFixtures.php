@@ -9,9 +9,9 @@
 namespace App\DataFixtures;
 
 use App\Entity\Book;
-use App\Entity\Booking;
-use App\Entity\PBook;
-use App\Entity\Member;
+use App\Entity\BookRent;
+use App\Entity\Book;
+use App\Entity\MemberUser;
 use DateInterval;
 use DatePeriod;
 use DateTime;
@@ -32,7 +32,7 @@ class BookingFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         for ($i = 0; $i < self::BOOKINGS_COUNT_REFERENCE; $i++) {
-            $booking = new Booking();
+            $booking = new BookRent();
 
             $booking->setMember($this->getReference(MemberFixtures::MEMBERS_REFERENCE . $i));
             $booking->setPBook($this->getReference(PBookFixtures::PBOOKS_REFERENCE . $i));

@@ -8,8 +8,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
-use App\Entity\SubCategory;
+use App\Entity\BookCategory;
+use App\Entity\BookSubCategory;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -140,7 +140,7 @@ class SubCategoryFixtures extends Fixture implements OrderedFixtureInterface
         $k = 0;
         for ($i = 0; $i < CategoryFixtures::CATEGORIES_COUNT_REFERENCE; $i++) {
             foreach (self::CATEGORIES[$this->getReference(CategoryFixtures::CATEGORIES_REFERENCE . $i)->getName()] as $subCategoryName) {
-                $subCategory = new SubCategory();
+                $subCategory = new BookSubCategory();
 
                 $subCategory->setName($subCategoryName);
                 $subCategory->setCategory($this->getReference(CategoryFixtures::CATEGORIES_REFERENCE . $i));

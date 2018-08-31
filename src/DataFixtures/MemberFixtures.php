@@ -8,14 +8,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Admin;
+use App\Entity\AdminUser;
 use App\Entity\Author;
-use App\Entity\Librarian;
-use App\Entity\Member;
+use App\Entity\LibrarianUser;
+use App\Entity\MemberUser;
 use App\Entity\MemberSubscription;
 use App\Entity\MemberType;
-use App\Entity\Subscription;
-use App\Entity\SuperAdmin;
+use App\Entity\MemberSubscriptionType;
+use App\Entity\SuperAdminUser;
 use App\Entity\User;
 use DateInterval;
 use DatePeriod;
@@ -55,7 +55,7 @@ class MemberFixtures extends Fixture implements OrderedFixtureInterface
 //        $period = new DatePeriod($startDate, $interval, $todayDate);
 
         for ($i = 0; $i < self::MEMBERS_COUNT_REFERENCE; $i++) {
-            $member = new Member();
+            $member = new MemberUser();
 
             $member->setFirstName($fakerFactory->firstName);
             $member->setLastName($fakerFactory->lastName);
