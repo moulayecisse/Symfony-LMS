@@ -71,7 +71,7 @@ class LibrarianFixtures extends Fixture implements OrderedFixtureInterface
 
             $manager->persist($librarian);
 
-            $this->mailer->sendConfirmationEmail($librarian);
+//            $this->mailer->sendConfirmationEmail($librarian);
 
             $this->addReference(self::LIBRARIANS_REFERENCE . $i, $librarian);
         }
