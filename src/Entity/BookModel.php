@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
  * @ORM\InheritanceType("NONE")
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
  */
-class Book
+class BookModel
 {
     use IdTrait;
 

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Traits\Entity\BookRentCollectionTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,12 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="App\Repository\MemberRepository")
  */
-class Member extends User
+class MemberUser extends User
 {
-    /**
-     * @ORM\OneToMany(targetEntity="BookRent.php", mappedBy="member")
-     */
-    private $bookings;
+    use BookRentCollectionTrait;
+    use MemberEBookCollectionTrait;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\MemberEBook", mappedBy="member", orphanRemoval=true)
@@ -55,41 +54,9 @@ class Member extends User
     public function __construct()
     {
         $this->roles = [self::ROLE_MEMBER];
-        $this->bookings = new ArrayCollection();
         $this->memberEBooks = new ArrayCollection();
         $this->memberSubscriptions = new ArrayCollection();
         $this->testimonials = new ArrayCollection();
-    }
-
-    /**
-     * @return Collection|BookRent[]
-     */
-    public function getBookings(): Collection
-    {
-        return $this->bookings;
-    }
-
-    public function addBooking(BookRent $booking): self
-    {
-        if (!$this->bookings->contains($booking)) {
-            $this->bookings[] = $booking;
-            $booking->setMember($this);
-        }
-
-        return $this;
-    }
-
-    public function removebooking(BookRent $booking): self
-    {
-        if ($this->bookings->contains($booking)) {
-            $this->bookings->removeElement($booking);
-            // set the owning side to null (unless already changed)
-            if ($booking->getMember() === $this) {
-                $booking->setMember(null);
-            }
-        }
-
-        return $this;
     }
 
     /**

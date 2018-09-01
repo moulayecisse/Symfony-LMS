@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
  */
-class Author
+class BookAuthor
 {
     use IdTrait;
     use FirstNameTrait;

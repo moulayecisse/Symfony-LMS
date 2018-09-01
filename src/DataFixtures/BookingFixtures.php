@@ -34,7 +34,7 @@ class BookingFixtures extends Fixture implements OrderedFixtureInterface
         for ($i = 0; $i < self::BOOKINGS_COUNT_REFERENCE; $i++) {
             $booking = new BookRent();
 
-            $booking->setMember($this->getReference(MemberFixtures::MEMBERS_REFERENCE . $i));
+            $booking->setMemberUser($this->getReference(MemberFixtures::MEMBERS_REFERENCE . $i));
             $booking->setPBook($this->getReference(PBookFixtures::PBOOKS_REFERENCE . $i));
             $booking->setReturnDate(new DateTime());
             $booking->setStartDate(new DateTime());

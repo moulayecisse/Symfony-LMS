@@ -168,7 +168,7 @@ class BookRentCommand extends ContainerAwareCommand
                             $bookRent->setStartDate($date);
                             $bookRent->setEndDate($endDate);
                             $bookRent->setPBook($book);
-                            $bookRent->setMember($memberUser);
+                            $bookRent->setMemberUser($memberUser);
 
                             $book->setStatus([Book::STATUS_OUTSIDE => 1]);
 

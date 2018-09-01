@@ -63,7 +63,7 @@ class Mailer
         $message =
             (new Swift_Message())->setSubject('Welcome to the micro-post app!')
                 ->setFrom($this->mailFrom)
-                ->setTo($booking->getMember()->getEmail())
+                ->setTo($booking->getMemberUser()->getEmail())
                 ->setBody($body, 'text/html');
 
         $this->mailer->send($message);
