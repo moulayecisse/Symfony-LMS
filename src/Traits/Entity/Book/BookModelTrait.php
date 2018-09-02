@@ -8,9 +8,7 @@
 
 namespace App\Traits\Entity\Book;
 
-use App\Entity\BookCategory;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\BookModel;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,32 +21,32 @@ trait BookModelTrait
     /**
      * Name.
      *
-     * @var BookCategory
+     * @var BookModel
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\BookModel", inversedBy="books")
      */
-    private $model;
+    private $bookModel;
 
     /**
      * Get Model.
      *
-     * @return BookCategory
+     * @return BookModel
      */
-    public function getModel() : BookCategory
+    public function getBookModel() : BookModel
     {
-        return $this->model;
+        return $this->bookModel;
     }
 
     /**
      * Set Model.
      *
-     * @param BookCategory $model Content
+     * @param BookModel $bookModel Content
      *
      * @return self
      */
-    public function setModel(BookCategory $model): self
+    public function setBookModel(BookModel $bookModel): self
     {
-        $this->model = $model;
+        $this->bookModel = $bookModel;
 
         return $this;
     }

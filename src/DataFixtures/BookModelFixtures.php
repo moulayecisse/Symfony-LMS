@@ -41,11 +41,11 @@ class BookModelFixtures extends Fixture implements OrderedFixtureInterface
             /*
              * @var Author
              */
-            $bookModel->setAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
+            $bookModel->setBookAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
             $authorCounts = rand(0, 3);
 //            $bookModel->addAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
 //            $bookModel->setAuthors($this->pickAuthors($authors));
-            $bookModel->setCategory($this->getReference(BookCategoryFixtures::BOOK_CATEGORIES_REFERENCE.rand(0, BookCategoryFixtures::BOOK_CATEGORIES_COUNT_REFERENCE - 1)));
+            $bookModel->setBookCategory($this->getReference(BookCategoryFixtures::BOOK_CATEGORIES_REFERENCE.rand(0, BookCategoryFixtures::BOOK_CATEGORIES_COUNT_REFERENCE - 1)));
             $bookModel->setIsbn($fakerFactory->isbn13);
             $bookModel->setPageNumber(rand(100, 200));
             $bookModel->setResume($fakerFactory->text($maxNbChars = 200));

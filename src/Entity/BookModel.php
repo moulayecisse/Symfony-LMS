@@ -70,14 +70,14 @@ class BookModel
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\BookAuthor", inversedBy="books")
      */
-    private $author;
+    private $bookAuthor;
 
     /**
      * @MaxDepth(2)
      *
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\OneToOne(targetEntity="EBook", mappedBy="book", cascade={"remove"})
+     * @ORM\OneToOne(targetEntity="EBook", mappedBy="bookModel", cascade={"remove"})
      */
     private $eBook;
 
@@ -89,7 +89,7 @@ class BookModel
      * @ORM\ManyToOne(targetEntity="App\Entity\BookCategory", inversedBy="books")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $category;
+    private $bookCategory;
 
     /**
      * @MaxDepth(2)
@@ -99,7 +99,7 @@ class BookModel
      * @ORM\OneToMany(targetEntity="Book", mappedBy="bookModel", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $pBooks;
+    private $books;
 
     public function getId()
     {
@@ -189,14 +189,14 @@ class BookModel
         return $this;
     }
 
-    public function getAuthor(): ?Author
+    public function getBookAuthor(): ?BookAuthor
     {
-        return $this->author;
+        return $this->bookAuthor;
     }
 
-    public function setAuthor(?Author $author): self
+    public function setBookAuthor(?BookAuthor $bookAuthor): self
     {
-        $this->author = $author;
+        $this->bookAuthor = $bookAuthor;
 
         return $this;
     }
@@ -204,19 +204,19 @@ class BookModel
     /**
      * @return mixed
      */
-    public function getPBooks()
+    public function getBooks()
     {
-        return $this->pBooks;
+        return $this->books;
     }
 
     /**
-     * @param mixed $pBooks
+     * @param mixed $books
      *
      * @return Book
      */
-    public function setPBooks($pBooks)
+    public function setBooks($books)
     {
-        $this->pBooks = $pBooks;
+        $this->books = $books;
 
         return $this;
     }
@@ -244,19 +244,19 @@ class BookModel
     /**
      * @return mixed
      */
-    public function getCategory()
+    public function getBookCategory()
     {
-        return $this->category;
+        return $this->bookCategory;
     }
 
     /**
-     * @param mixed $category
+     * @param mixed $bookCategory
      *
      * @return Book
      */
-    public function setCategory($category)
+    public function setBookCategory($bookCategory)
     {
-        $this->category = $category;
+        $this->bookCategory = $bookCategory;
 
         return $this;
     }

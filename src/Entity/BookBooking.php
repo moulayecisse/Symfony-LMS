@@ -20,13 +20,13 @@ class BookBooking
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="bookBookings")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $pBook;
+    private $book;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $member;
+    private $memberUser;
 
     /**
      * @ORM\Column(type="date")
@@ -38,26 +38,26 @@ class BookBooking
         return $this->id;
     }
 
-    public function getPBook(): ?Book
+    public function getBook(): ?Book
     {
-        return $this->pBook;
+        return $this->book;
     }
 
-    public function setPBook(?Book $pBook): self
+    public function setBook(?Book $book): self
     {
-        $this->pBook = $pBook;
+        $this->book = $book;
 
         return $this;
     }
 
-    public function getMember(): ?MemberUser
+    public function getMemberUser(): ?MemberUser
     {
-        return $this->member;
+        return $this->memberUser;
     }
 
-    public function setMember(?MemberUser $member): self
+    public function setMemberUser(?MemberUser $memberUser): self
     {
-        $this->member = $member;
+        $this->memberUser = $memberUser;
 
         return $this;
     }

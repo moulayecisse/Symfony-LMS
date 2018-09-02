@@ -32,7 +32,7 @@ class EBook /*extends Book*/
      *
      * @ORM\OneToOne(targetEntity="App\Entity\BookModel", inversedBy="eBook")
      */
-    private $book;
+    private $bookModel;
 
     /**
      * @var Book
@@ -55,19 +55,19 @@ class EBook /*extends Book*/
     /**
      * @return Book
      */
-    public function getBook(): Book
+    public function getBookModel(): Book
     {
-        return $this->book;
+        return $this->bookModel;
     }
 
     /**
-     * @param Book $book
+     * @param Book $bookModel
      *
      * @return EBook
      */
-    public function setBook(BookModel $book): EBook
+    public function setBookModel(BookModel $bookModel): EBook
     {
-        $this->book = $book;
+        $this->bookModel = $bookModel;
 
         return $this;
     }

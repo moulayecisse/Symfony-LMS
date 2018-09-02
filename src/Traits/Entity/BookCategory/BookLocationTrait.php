@@ -9,8 +9,7 @@
 namespace App\Traits\Entity\BookCategory;
 
 use App\Entity\BookCategory;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\BookLocation;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,32 +22,32 @@ trait BookLocationTrait
     /**
      * Name.
      *
-     * @var BookCategory
+     * @var BookLocation
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\BookLocation", inversedBy="categories")
      */
-    private $location;
+    private $bookLocation;
 
     /**
      * Get BookLocation.
      *
-     * @return BookCategory
+     * @return BookLocation
      */
-    public function getLocation() : BookCategory
+    public function getBookLocation() : BookLocation
     {
-        return $this->location;
+        return $this->bookLocation;
     }
 
     /**
      * Set BookLocation.
      *
-     * @param BookCategory $location Content
+     * @param BookLocation $bookLocation Content
      *
      * @return self
      */
-    public function setLocation(BookCategory $location): self
+    public function setBookLocation(BookLocation $bookLocation): self
     {
-        $this->location = $location;
+        $this->bookLocation = $bookLocation;
 
         return $this;
     }

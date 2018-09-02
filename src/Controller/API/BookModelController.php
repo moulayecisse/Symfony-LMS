@@ -108,7 +108,7 @@ class BookModelController
                     'title' => $book->getTitle(),
                     'image' => $book->getImage()->getPath(),
                     'isbn' => $book->getIsbn(),
-                    'subCategory' => $book->getCategory()->getName(),
+                    'subCategory' => $book->getBookCategory()->getName(),
                     'author' => $book->getAuthor()->getFirstName().' '.$book->getAuthor()->getLastName(),
                     'resume' => $book->getResume(),
 //                    'pbooks' => $book->getPBooks(),

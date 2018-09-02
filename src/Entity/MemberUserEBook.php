@@ -25,7 +25,7 @@ class MemberUserEBook
      * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="memberEBooks")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $member;
+    private $memberUser;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\EBook", inversedBy="memberEBooks")
@@ -55,14 +55,14 @@ class MemberUserEBook
         return $this;
     }
 
-    public function getMember(): ?Member
+    public function getMemberUser(): ?Member
     {
-        return $this->member;
+        return $this->memberUser;
     }
 
-    public function setMember(?MemberUser $member): self
+    public function setMemberUser(?MemberUser $memberUser): self
     {
-        $this->member = $member;
+        $this->memberUser = $memberUser;
 
         return $this;
     }

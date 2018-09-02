@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MemberTestimonial;
+use App\Entity\MemberUserTestimonial;
 use App\Mailer\Mailer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -52,7 +52,7 @@ class TestimonialFixtures extends Fixture implements OrderedFixtureInterface
         }
 
         for ($i = 0; $i < self::TESTIMONIALS_COUNT_REFERENCE; ++$i) {
-            $testimonial = new MemberTestimonial();
+            $testimonial = new MemberUserTestimonial();
 
             $testimonial->setMessage($fakerFactory->text(200));
             $testimonial->setMember($members[rand(0, count($members) - 1)]);

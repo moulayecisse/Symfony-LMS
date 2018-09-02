@@ -33,7 +33,7 @@ class EBookFixtures extends Fixture implements OrderedFixtureInterface
             if (2 !== rand(0, 5)) {
                 $ebook = new EBook();
 
-                $ebook->setBook($this->getReference(BookModelFixtures::BOOK_MODELS_REFERENCE . $i));
+                $ebook->setBookModel($this->getReference(BookModelFixtures::BOOK_MODELS_REFERENCE . $i));
 
                 $manager->persist($ebook);
 

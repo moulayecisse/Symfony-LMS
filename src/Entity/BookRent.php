@@ -20,7 +20,7 @@ class BookRent
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="bookRents")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $pBook;
+    private $book;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="bookings")
@@ -48,14 +48,14 @@ class BookRent
         return $this->id;
     }
 
-    public function getPBook(): ?Book
+    public function getBook(): ?Book
     {
-        return $this->pBook;
+        return $this->book;
     }
 
-    public function setPBook(?Book $pBook): self
+    public function setBook(?Book $book): self
     {
-        $this->pBook = $pBook;
+        $this->book = $book;
 
         return $this;
     }

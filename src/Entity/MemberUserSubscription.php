@@ -30,7 +30,7 @@ class MemberUserSubscription
      * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="memberSubscriptions")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $member;
+    private $memberUser;
 
     public function getId()
     {
@@ -61,14 +61,14 @@ class MemberUserSubscription
         return $this;
     }
 
-    public function getMember(): ?MemberUser
+    public function getMemberUser(): ?MemberUser
     {
-        return $this->member;
+        return $this->memberUser;
     }
 
-    public function setMember(?MemberUser $member): self
+    public function setMemberUser(?MemberUser $memberUser): self
     {
-        $this->member = $member;
+        $this->memberUser = $memberUser;
 
         return $this;
     }

@@ -8,7 +8,7 @@
 
 namespace App\Controller\API;
 
-use App\Repository\TestimonialRepository;
+use App\Repository\MemberUserTestimonialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,17 +25,17 @@ class MemberUserTestimonialController
      *     "/count",
      *     name="api_testimonial_count",
      *     defaults={
-     *          "#_api_resource_class"=MemberTestimonial::class,
+     *          "#_api_resource_class"=MemberUserTestimonial::class,
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
      *      }
      * )
      *
-     * @param TestimonialRepository $testimonialRepository
+     * @param MemberUserTestimonialRepository $testimonialRepository
      *
      * @return JsonResponse
      */
-    public function count(TestimonialRepository $testimonialRepository)
+    public function count(MemberUserTestimonialRepository $testimonialRepository)
     {
         $testimonialsCount = $testimonialRepository->count([]);
 

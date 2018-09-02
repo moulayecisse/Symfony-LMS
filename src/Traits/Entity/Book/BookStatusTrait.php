@@ -10,7 +10,7 @@ namespace App\Traits\Entity\Book;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Faker\Test\Provider\Collection;
+use Doctrine\Common\Collections\Collection;
 
 trait BookStatusTrait
 {

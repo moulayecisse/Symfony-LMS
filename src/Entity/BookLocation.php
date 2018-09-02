@@ -29,7 +29,7 @@ class BookLocation
     private $floor;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\BookCategory", mappedBy="location")
+     * @ORM\OneToMany(targetEntity="App\Entity\BookCategory", mappedBy="bookLocation")
      */
     private $categories;
 
@@ -79,7 +79,7 @@ class BookLocation
     {
         if (!$this->categories->contains($subCategory)) {
             $this->categories[] = $subCategory;
-            $subCategory->setLocation($this);
+            $subCategory->setBookLocation($this);
         }
 
         return $this;
@@ -90,8 +90,8 @@ class BookLocation
         if ($this->categories->contains($subCategory)) {
             $this->categories->removeElement($subCategory);
             // set the owning side to null (unless already changed)
-            if ($subCategory->getLocation() === $this) {
-                $subCategory->setLocation(null);
+            if ($subCategory->getBookLocation() === $this) {
+                $subCategory->setBookLocation(null);
             }
         }
 

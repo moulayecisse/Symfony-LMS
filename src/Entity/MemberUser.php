@@ -20,12 +20,12 @@ class MemberUser extends User
 //    use MemberUserEBooksTrait;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="member", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="memberUser", orphanRemoval=true)
      */
     private $memberEBooks;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserSubscription", mappedBy="member", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserSubscription", mappedBy="memberUser", orphanRemoval=true)
      */
     private $memberSubscriptions;
 
@@ -40,9 +40,9 @@ class MemberUser extends User
      *     "member"
      * )
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberTestimonial", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserTestimonial", mappedBy="member")
      */
-    private $testimonials;
+    private $memberUserTestimonials;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -56,7 +56,7 @@ class MemberUser extends User
         $this->roles = [self::ROLE_MEMBER];
         $this->memberEBooks = new ArrayCollection();
         $this->memberSubscriptions = new ArrayCollection();
-        $this->testimonials = new ArrayCollection();
+        $this->memberUserTestimonials = new ArrayCollection();
     }
 
     /**
@@ -71,7 +71,7 @@ class MemberUser extends User
     {
         if (!$this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks[] = $memberEBook;
-            $memberEBook->setMember($this);
+            $memberEBook->setMemberUser($this);
         }
 
         return $this;
@@ -82,8 +82,8 @@ class MemberUser extends User
         if ($this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks->removeElement($memberEBook);
             // set the owning side to null (unless already changed)
-            if ($memberEBook->getMember() === $this) {
-                $memberEBook->setMember(null);
+            if ($memberEBook->getMemberUser() === $this) {
+                $memberEBook->setMemberUser(null);
             }
         }
 
@@ -102,7 +102,7 @@ class MemberUser extends User
     {
         if (!$this->memberSubscriptions->contains($memberSubscription)) {
             $this->memberSubscriptions[] = $memberSubscription;
-            $memberSubscription->setMember($this);
+            $memberSubscription->setMemberUser($this);
         }
 
         return $this;
@@ -113,8 +113,8 @@ class MemberUser extends User
         if ($this->memberSubscriptions->contains($memberSubscription)) {
             $this->memberSubscriptions->removeElement($memberSubscription);
             // set the owning side to null (unless already changed)
-            if ($memberSubscription->getMember() === $this) {
-                $memberSubscription->setMember(null);
+            if ($memberSubscription->getMemberUser() === $this) {
+                $memberSubscription->setMemberUser(null);
             }
         }
 
@@ -134,27 +134,27 @@ class MemberUser extends User
     }
 
     /**
-     * @return Collection|MemberTestimonial[]
+     * @return Collection|MemberUserTestimonial[]
      */
-    public function getTestimonials(): Collection
+    public function getMemberUserTestimonials(): Collection
     {
-        return $this->testimonials;
+        return $this->memberUserTestimonials;
     }
 
-    public function addTestimonial(MemberTestimonial $testimonial): self
+    public function addTestimonial(MemberUserTestimonial $testimonial): self
     {
-        if (!$this->testimonials->contains($testimonial)) {
-            $this->testimonials[] = $testimonial;
+        if (!$this->memberUserTestimonials->contains($testimonial)) {
+            $this->memberUserTestimonials[] = $testimonial;
             $testimonial->setMember($this);
         }
 
         return $this;
     }
 
-    public function removeTestimonial(MemberTestimonial $testimonial): self
+    public function removeTestimonial(MemberUserTestimonial $testimonial): self
     {
-        if ($this->testimonials->contains($testimonial)) {
-            $this->testimonials->removeElement($testimonial);
+        if ($this->memberUserTestimonials->contains($testimonial)) {
+            $this->memberUserTestimonials->removeElement($testimonial);
             // set the owning side to null (unless already changed)
             if ($testimonial->getMember() === $this) {
                 $testimonial->setMember(null);

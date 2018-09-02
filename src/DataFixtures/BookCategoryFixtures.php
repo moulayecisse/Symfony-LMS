@@ -147,7 +147,7 @@ class BookCategoryFixtures extends Fixture implements OrderedFixtureInterface
              * @var BookLocation $bookLocation
              */
             $bookLocation = $this->getReference(BookLocationFixtures::LOCATIONS_REFERENCE . $bookLocationId);
-            $bookCategory->setLocation( $bookLocation );
+            $bookCategory->setBookLocation( $bookLocation );
             $bookCategory->setName('Category ' . $i);
             $bookCategory->setSlug(Transliterator::transliterate($bookCategory->getName()));
 
@@ -160,7 +160,7 @@ class BookCategoryFixtures extends Fixture implements OrderedFixtureInterface
                  * @var BookLocation $bookCategoryChildLocation
                  */
                 $bookCategoryChildLocation = $this->getReference(BookLocationFixtures::LOCATIONS_REFERENCE . $bookCategoryChildLocationId);
-                $bookCategoryChild->setLocation( $bookCategoryChildLocation );
+                $bookCategoryChild->setBookLocation( $bookCategoryChildLocation );
                 $bookCategoryChild->setName('Category Child ' . $k);
                 $bookCategoryChild->setSlug(Transliterator::transliterate($bookCategoryChild->getName()));
 

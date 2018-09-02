@@ -25,7 +25,7 @@ trait ChildrenTrait
      *
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\BookCategory", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="App\Entity\BookCategory", mappedBy="parent", cascade={"persist"})
      */
     private $children;
 
