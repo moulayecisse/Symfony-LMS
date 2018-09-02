@@ -24,8 +24,7 @@
 npm-debug.log
 yarn-error.log
 /src/Migrations/
-/backup
-/backup/src/Command/BookRentCommand.php
+/backup/
 ###< symfony/webpack-encore-pack ###
 
 ###> lexik/jwt-authentication-bundle ###
