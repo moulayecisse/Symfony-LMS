@@ -8,10 +8,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\BookAuthor;
 use App\Entity\Book;
+use App\Entity\BookModel;
 use App\Entity\ImageFile;
-use App\Service\Source\Firebase\Firebase;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -20,8 +19,8 @@ use Faker\Factory;
 
 class BookModelFixtures extends Fixture implements OrderedFixtureInterface
 {
-    public const BOOKS_REFERENCE = 'books';
-    public const BOOKS_COUNT_REFERENCE = 100;
+    public const BOOK_MODELS_REFERENCE = 'book_models';
+    public const BOOK_MODELS_COUNT_REFERENCE = 100;
 
     /**
      * Load data fixtures with the passed EntityManager.
@@ -32,8 +31,8 @@ class BookModelFixtures extends Fixture implements OrderedFixtureInterface
     {
         $fakerFactory = Factory::create('fr_FR');
 
-        for ($i = 0; $i < self::BOOKS_COUNT_REFERENCE; ++$i) {
-            $book = new Book();
+        for ($i = 0; $i < self::BOOK_MODELS_COUNT_REFERENCE; ++$i) {
+            $bookModel = new BookModel();
             $image = new ImageFile();
 
             $image->setPath('https://via.placeholder.com/350x150');
@@ -42,38 +41,38 @@ class BookModelFixtures extends Fixture implements OrderedFixtureInterface
             /*
              * @var Author
              */
-            $book->setAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
+            $bookModel->setAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
             $authorCounts = rand(0, 3);
-//            $book->addAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
-//            $book->setAuthors($this->pickAuthors($authors));
-            $book->setSubCategory($this->getReference(SubCategoryFixtures::SUB_CATEGORIES_REFERENCE.rand(0, SubCategoryFixtures::SUB_CATEGORIES_COUNT_REFERENCE - 1)));
-            $book->setIsbn($fakerFactory->isbn13);
-            $book->setPageNumber(rand(100, 200));
-            $book->setResume($fakerFactory->text($maxNbChars = 200));
-            $book->setTitle('Book ' . $i);
-            $book->setSlug(Transliterator::transliterate($book->getTitle()));
-            $book->setImage($image);
+//            $bookModel->addAuthor($this->getReference(BookAuthorFixtures::AUTHORS_REFERENCE.rand(0, BookAuthorFixtures::AUTHORS_COUNT_REFERENCE - 1)));
+//            $bookModel->setAuthors($this->pickAuthors($authors));
+            $bookModel->setCategory($this->getReference(BookCategoryFixtures::BOOK_CATEGORIES_REFERENCE.rand(0, BookCategoryFixtures::BOOK_CATEGORIES_COUNT_REFERENCE - 1)));
+            $bookModel->setIsbn($fakerFactory->isbn13);
+            $bookModel->setPageNumber(rand(100, 200));
+            $bookModel->setResume($fakerFactory->text($maxNbChars = 200));
+            $bookModel->setTitle('Book ' . $i);
+            $bookModel->setSlug(Transliterator::transliterate($bookModel->getTitle()));
+            $bookModel->setImage($image);
 
-            $manager->persist($book);
+            $manager->persist($bookModel);
 
-            $this->addReference(self::BOOKS_REFERENCE.$i, $book);
+            $this->addReference(self::BOOK_MODELS_REFERENCE.$i, $bookModel);
         }
 
         $manager->flush();
     }
 
-//    private function pickAuthors($authors = [], $number = 3)
-//    {
-//        $pickedAuthors = [];
-//        for ($i = 0; $i < count($authors); ++$i) {
-//            $index = mt_rand(0, count($authors));
-//            $pickedAuthors[] = $authors[$index];
-//
-//            $authors = array_slice($authors, $index, 0);
-//        }
-//
-//        return $pickedAuthors;
-//    }
+    private function pickAuthors($authors = [], $number = 3)
+    {
+        $pickedAuthors = [];
+        for ($i = 0; $i < count($authors); ++$i) {
+            $index = mt_rand(0, count($authors));
+            $pickedAuthors[] = $authors[$index];
+
+            $authors = array_slice($authors, $index, 0);
+        }
+
+        return $pickedAuthors;
+    }
 
     /**
      * Get the order of this fixture.

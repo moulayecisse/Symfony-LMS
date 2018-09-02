@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\MappedSuperclass
  * @ORM\InheritanceType("NONE")
- * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
+ * @ORM\Entity(repositoryClass="BookModelRepository")
  */
 class BookModel
 {
@@ -57,7 +57,7 @@ class BookModel
      * @Groups( { "details", "draft" } )
      *
      * @ORM\OneToOne(
-     *     targetEntity="ImageFile.php",
+     *     targetEntity="App\Entity\ImageFile",
      *     mappedBy="book",
      *     cascade={"persist", "remove"}
      *     )
@@ -68,7 +68,7 @@ class BookModel
     /**
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\ManyToOne(targetEntity="BookAuthor.php", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BookAuthor", inversedBy="books")
      */
     private $author;
 
@@ -86,17 +86,17 @@ class BookModel
      *
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\ManyToOne(targetEntity="BookSubCategory.php", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BookCategory", inversedBy="books")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $subCategory;
+    private $category;
 
     /**
      * @MaxDepth(2)
      *
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\OneToMany(targetEntity="Book", mappedBy="book", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="bookModel", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $pBooks;
@@ -244,19 +244,19 @@ class BookModel
     /**
      * @return mixed
      */
-    public function getSubCategory()
+    public function getCategory()
     {
-        return $this->subCategory;
+        return $this->category;
     }
 
     /**
-     * @param mixed $subCategory
+     * @param mixed $category
      *
      * @return Book
      */
-    public function setSubCategory($subCategory)
+    public function setCategory($category)
     {
-        $this->subCategory = $subCategory;
+        $this->category = $category;
 
         return $this;
     }

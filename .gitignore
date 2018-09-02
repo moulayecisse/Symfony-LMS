@@ -24,6 +24,7 @@
 npm-debug.log
 yarn-error.log
 /src/Migrations/
+/backup/
 ###< symfony/webpack-encore-pack ###
 
 ###> lexik/jwt-authentication-bundle ###

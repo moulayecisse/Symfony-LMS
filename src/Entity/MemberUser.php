@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Traits\Entity\BookRentCollectionTrait;
+use App\Traits\Entity\MemberUser\BookRentsTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,25 +12,25 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\MappedSuperclass()
  *
- * @ORM\Entity(repositoryClass="App\Repository\MemberRepository")
+ * @ORM\Entity(repositoryClass="MemberUserRepository")
  */
 class MemberUser extends User
 {
-    use BookRentCollectionTrait;
-    use MemberEBookCollectionTrait;
+    use BookRentsTrait;
+//    use MemberUserEBooksTrait;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberEBook", mappedBy="member", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="member", orphanRemoval=true)
      */
     private $memberEBooks;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberSubscription", mappedBy="member", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserSubscription", mappedBy="member", orphanRemoval=true)
      */
     private $memberSubscriptions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberType", inversedBy="members")
+     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUserType", inversedBy="members")
      * @ORM\JoinColumn(nullable=true)
      */
     private $memberType;
@@ -40,7 +40,7 @@ class MemberUser extends User
      *     "member"
      * )
      *
-     * @ORM\OneToMany(targetEntity="MemberTestimonial.php", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberTestimonial", mappedBy="member")
      */
     private $testimonials;
 
@@ -60,14 +60,14 @@ class MemberUser extends User
     }
 
     /**
-     * @return Collection|MemberEBook[]
+     * @return Collection|MemberUserEBook[]
      */
     public function getMemberEBooks(): Collection
     {
         return $this->memberEBooks;
     }
 
-    public function addMemberEBook(MemberEBook $memberEBook): self
+    public function addMemberEBook(MemberUserEBook $memberEBook): self
     {
         if (!$this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks[] = $memberEBook;
@@ -77,7 +77,7 @@ class MemberUser extends User
         return $this;
     }
 
-    public function removeMemberEBook(MemberEBook $memberEBook): self
+    public function removeMemberEBook(MemberUserEBook $memberEBook): self
     {
         if ($this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks->removeElement($memberEBook);
@@ -91,14 +91,14 @@ class MemberUser extends User
     }
 
     /**
-     * @return Collection|MemberSubscription[]
+     * @return Collection|MemberUserSubscription[]
      */
     public function getMemberSubscriptions(): Collection
     {
         return $this->memberSubscriptions;
     }
 
-    public function addMemberSubscription(MemberSubscription $memberSubscription): self
+    public function addMemberSubscription(MemberUserSubscription $memberSubscription): self
     {
         if (!$this->memberSubscriptions->contains($memberSubscription)) {
             $this->memberSubscriptions[] = $memberSubscription;
@@ -108,7 +108,7 @@ class MemberUser extends User
         return $this;
     }
 
-    public function removeMemberSubscription(MemberSubscription $memberSubscription): self
+    public function removeMemberSubscription(MemberUserSubscription $memberSubscription): self
     {
         if ($this->memberSubscriptions->contains($memberSubscription)) {
             $this->memberSubscriptions->removeElement($memberSubscription);
@@ -121,12 +121,12 @@ class MemberUser extends User
         return $this;
     }
 
-    public function getMemberType(): ?MemberType
+    public function getMemberType(): ?MemberUserType
     {
         return $this->memberType;
     }
 
-    public function setMemberType(?MemberType $memberType): self
+    public function setMemberType(?MemberUserType $memberType): self
     {
         $this->memberType = $memberType;
 

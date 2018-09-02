@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\DiscriminatorMap(
  *     {
  *          "user" = "User",
- *          "member" = "Member",
+ *          "member" = "MemberUser",
  *          "liberian" = "LibrarianUser",
  *          "admin" = "AdminUser",
  *          "super_admin" = "SuperAdminUser",

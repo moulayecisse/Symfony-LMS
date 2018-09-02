@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Traits\Entity\Book\BookBookingsTrait;
+use App\Traits\Entity\Book\BookModelTrait;
+use App\Traits\Entity\Book\BookRentsTrait;
+use App\Traits\Entity\Book\BookStatusTrait;
+use App\Traits\Entity\Book\LibraryTrait;
+use App\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PBookRepository")
+ * @ORM\Entity(repositoryClass="BookRepository")
  */
 class Book
 {
@@ -17,156 +21,17 @@ class Book
     public const STATUS_NOT_AVAILABLE = 'no_available';
     public const STATUS = ['inside', 'outside', 'reserved', 'not_available'];
 
-    /**
-     * @ORM\Id()
-     *
-     * @ORM\GeneratedValue ()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="BookModel.php", inversedBy="pBooks")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $book;
-
-    /**
-     * @ORM\Column(type="array", nullable=true)
-     *
-     * @var array
-     */
-    private $status;
-
-    /**
-     * @ORM\OneToMany(targetEntity="BookRent.php", mappedBy="pBook", cascade={"remove"})
-     */
-    private $bookings;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Library", inversedBy="pBooks")
-     */
-    private $library;
-
-    /**
-     * @ORM\OneToMany(targetEntity="BookBooking.php", mappedBy="pBook", cascade={"persist", "remove"})
-     */
-    private $reservations;
-
-    /**
-     * @return mixed
-     */
-    public function getReservations()
-    {
-        return $this->reservations;
-    }
-
-    /**
-     * @param mixed $reservations
-     */
-    public function setReservations($reservations): void
-    {
-        $this->reservations = $reservations;
-    }
+    use IdTrait;
+    use BookModelTrait;
+    use BookStatusTrait { BookStatusTrait::__construct as private __bookStatusTraitConstruct; }
+    use BookRentsTrait { BookRentsTrait::__construct as private __bookRentsTrait; }
+    use BookBookingsTrait { BookBookingsTrait::__construct as private __bookBookingsTrait; }
+    use LibraryTrait;
 
     public function __construct()
     {
-        $this->bookings = new ArrayCollection();
-        $this->reservations = new ArrayCollection();
-        $this->status = ['inside' => 1];
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return Book|null
-     */
-    public function getBook(): ?Book
-    {
-        return $this->book;
-    }
-
-    public function setBook(Book $book): self
-    {
-        $this->book = $book;
-
-        return $this;
-    }
-
-    public function getStatus(): array
-    {
-        return $this->status;
-    }
-
-    public function setStatus(array $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    public function addStatus(string $status): self
-    {
-        if (!$this->bookings->contains($status) && count($this->status) < 2) {
-            $key = count($this->status);
-            $this->status[$status] = $key;
-        }
-
-        return $this;
-    }
-
-    public function removeStatus(string $status): self
-    {
-        if ($this->status->contains($status)) {
-            $this->status->removeElement($status);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|BookRent[]
-     */
-    public function getBookings(): Collection
-    {
-        return $this->bookings;
-    }
-
-    public function addBooking(BookRent $booking): self
-    {
-        if (!$this->bookings->contains($booking)) {
-            $this->bookings[] = $booking;
-            $booking->setPBook($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBooking(BookRent $booking): self
-    {
-        if ($this->bookings->contains($booking)) {
-            $this->bookings->removeElement($booking);
-            // set the owning side to null (unless already changed)
-            if ($booking->getPBook() === $this) {
-                $booking->setPBook(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getLibrary(): ?Library
-    {
-        return $this->library;
-    }
-
-    public function setLibrary(?Library $library): self
-    {
-        $this->library = $library;
-
-        return $this;
+        $this->__bookStatusTraitConstruct();
+        $this->__bookRentsTrait();
+        $this->__bookBookingsTrait();
     }
 }

@@ -45,9 +45,9 @@ class TestimonialFixtures extends Fixture implements OrderedFixtureInterface
 
         $i = 0;
         $members = [];
-        while ($this->hasReference(MemberFixtures::MEMBERS_REFERENCE.$i)) {
-            if ($this->hasReference(MemberFixtures::MEMBERS_REFERENCE.$i)) {
-                $members[] = $this->getReference(MemberFixtures::MEMBERS_REFERENCE.$i++);
+        while ($this->hasReference(MemberUserFixtures::MEMBERS_REFERENCE.$i)) {
+            if ($this->hasReference(MemberUserFixtures::MEMBERS_REFERENCE.$i)) {
+                $members[] = $this->getReference(MemberUserFixtures::MEMBERS_REFERENCE.$i++);
             }
         }
 

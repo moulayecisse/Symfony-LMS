@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MemberSubscriptionType;
+use App\Entity\MemberUserSubscriptionType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -44,7 +44,7 @@ class SubscriptionFixtures extends Fixture implements OrderedFixtureInterface
         $i = 0;
 
         foreach (self::SUBSCRIPTIONS as $SUBSCRIPTION) {
-            $subscription = new MemberSubscriptionType();
+            $subscription = new MemberUserSubscriptionType();
 
             $subscription->setName($SUBSCRIPTION['name']);
             $subscription->setDuration($SUBSCRIPTION['duration']);

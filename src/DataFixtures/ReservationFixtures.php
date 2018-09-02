@@ -38,9 +38,9 @@ class ReservationFixtures extends Fixture implements OrderedFixtureInterface
 
         $i = 0;
         $pbooks = [];
-        while ($this->hasReference(PBookFixtures::PBOOKS_REFERENCE . $i)) {
-            if ($this->hasReference(PBookFixtures::PBOOKS_REFERENCE . $i)) {
-                $pbooks[] = $this->getReference(PBookFixtures::PBOOKS_REFERENCE . $i++);
+        while ($this->hasReference(BookFixtures::PBOOKS_REFERENCE . $i)) {
+            if ($this->hasReference(BookFixtures::PBOOKS_REFERENCE . $i)) {
+                $pbooks[] = $this->getReference(BookFixtures::PBOOKS_REFERENCE . $i++);
             }
         }
 
@@ -50,7 +50,7 @@ class ReservationFixtures extends Fixture implements OrderedFixtureInterface
 //            $date = $date;
 
             $reservation->setPBook($pbooks[rand(0, count($pbooks) - 1) ]);
-            $reservation->setMember($this->getReference(MemberFixtures::MEMBERS_REFERENCE . rand(0, MemberFixtures::MEMBERS_COUNT_REFERENCE - 1)));
+            $reservation->setMember($this->getReference(MemberUserFixtures::MEMBERS_REFERENCE . rand(0, MemberUserFixtures::MEMBERS_COUNT_REFERENCE - 1)));
             $reservation->setDate($date);
 
             $manager->persist($reservation);

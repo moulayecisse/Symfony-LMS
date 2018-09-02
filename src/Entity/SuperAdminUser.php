@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass()
  *
- * @ORM\Entity(repositoryClass="App\Repository\SuperAdminRepository")
+ * @ORM\Entity(repositoryClass="SuperAdminUserRepository")
  */
 class SuperAdminUser extends User
 {

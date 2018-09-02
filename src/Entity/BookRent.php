@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @ORM\Entity(repositoryClass="BookRentRepository")
  */
 class BookRent
 {
@@ -17,7 +17,7 @@ class BookRent
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Book", inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="bookRents")
      * @ORM\JoinColumn(nullable=false)
      */
     private $pBook;

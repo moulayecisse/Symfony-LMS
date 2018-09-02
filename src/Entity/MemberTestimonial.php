@@ -24,7 +24,7 @@ class MemberTestimonial
     /**
      * @var MemberUser
      *
-     * @ORM\ManyToOne(targetEntity="MemberUser.php", inversedBy="testimonials")
+     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="testimonials")
      */
     private $member;
 

@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\MappedSuperclass()
- * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="ImageFileRepository")
  */
 class ImageFile extends File
 {
     /**
-     * @ORM\OneToOne(targetEntity="BookModel.php", inversedBy="image")
+     * @ORM\OneToOne(targetEntity="App\Entity\BookModel", inversedBy="image")
      * @ORM\Column(nullable=true)
      */
     private $book;

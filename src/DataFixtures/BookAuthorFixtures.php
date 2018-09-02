@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Author;
+use App\Entity\BookAuthor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -16,7 +16,7 @@ use Faker\Factory;
 
 class BookAuthorFixtures extends Fixture implements OrderedFixtureInterface
 {
-    public const AUTHORS_REFERENCE = 'authors';
+    public const AUTHORS_REFERENCE = 'book_authors';
     public const AUTHORS_COUNT_REFERENCE = 50;
 
     /**
@@ -29,15 +29,15 @@ class BookAuthorFixtures extends Fixture implements OrderedFixtureInterface
         $fakerFactory = Factory::create('fr_FR');
 
         for ($i = 0; $i < self::AUTHORS_COUNT_REFERENCE; ++$i) {
-            $author = new Author();
+            $bookAuthor = new BookAuthor();
 
-            $author->setFirstName($fakerFactory->firstName);
-            $author->setLastName($fakerFactory->lastName);
-            $author->setBiography($fakerFactory->text($maxNbChars = 200));
+            $bookAuthor->setFirstName($fakerFactory->firstName);
+            $bookAuthor->setLastName($fakerFactory->lastName);
+            $bookAuthor->setBiography($fakerFactory->text($maxNbChars = 200));
 
-            $manager->persist($author);
+            $manager->persist($bookAuthor);
 
-            $this->addReference(self::AUTHORS_REFERENCE.$i, $author);
+            $this->addReference(self::AUTHORS_REFERENCE.$i, $bookAuthor);
         }
 
         $manager->flush();

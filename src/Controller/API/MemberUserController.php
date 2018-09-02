@@ -9,7 +9,7 @@
 namespace App\Controller\API;
 
 use App\Entity\MemberUser;
-use App\Repository\MemberRepository;
+use App\Repository\MemberUserRepository;
 use App\Service\APIMemberManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +33,7 @@ class MemberUserController extends Controller
     /**
      * Members repository.
      *
-     * @var MemberRepository
+     * @var MemberUserRepository
      */
     private $memberRepository;
 
@@ -47,11 +47,11 @@ class MemberUserController extends Controller
     /**
      * MemberUserController constructor.
      *
-     * @param MemberRepository $memberRepository    Member's Repository
+     * @param MemberUserRepository $memberRepository    Member's Repository
      * @param APIMemberManager $apiMemberManagement API Member Manager
      */
     public function __construct(
-        MemberRepository $memberRepository,
+        MemberUserRepository $memberRepository,
         APIMemberManager $apiMemberManagement
     ) {
         $this->memberRepository = $memberRepository;

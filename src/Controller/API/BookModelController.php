@@ -9,7 +9,7 @@
 namespace App\Controller\API;
 
 use App\Entity\Book;
-use App\Repository\BookRepository;
+use App\Repository\BookModelRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,18 +34,18 @@ class BookModelController
      *     }
      * )
      *
-     * @param BookRepository $bookRepository
+     * @param BookModelRepository $bookRepository
      *
      * @return JsonResponse
      */
-    public function count(BookRepository $bookRepository)
+    public function count(BookModelRepository $bookRepository)
     {
         $booksCount = $bookRepository->count([]);
 
         return new JsonResponse(['booksCount' => $booksCount]);
     }
 
-    public function __construct(BookRepository $bookRepository)
+    public function __construct(BookModelRepository $bookRepository)
     {
         $this->bookRepository = $bookRepository;
     }
@@ -108,7 +108,7 @@ class BookModelController
                     'title' => $book->getTitle(),
                     'image' => $book->getImage()->getPath(),
                     'isbn' => $book->getIsbn(),
-                    'subCategory' => $book->getSubCategory()->getName(),
+                    'subCategory' => $book->getCategory()->getName(),
                     'author' => $book->getAuthor()->getFirstName().' '.$book->getAuthor()->getLastName(),
                     'resume' => $book->getResume(),
 //                    'pbooks' => $book->getPBooks(),

@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MemberType;
+use App\Entity\MemberUserType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -46,7 +46,7 @@ class MemberTypeFixtures extends Fixture implements OrderedFixtureInterface
     {
         $i = 0;
         foreach (self::MEMBER_TYPES as $MEMBER_TYPE) {
-            $memberType = new MemberType();
+            $memberType = new MemberUserType();
 
             $memberType->setName($MEMBER_TYPE['name']);
             $memberType->setRate($MEMBER_TYPE['rate']);

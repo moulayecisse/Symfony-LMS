@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @ORM\MappedSuperclass()
- * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @ORM\Entity(repositoryClass="AdminUserRepository")
  */
 class AdminUser extends User
 {

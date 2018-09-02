@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\MemberType;
+use App\Entity\MemberUserType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +20,7 @@ class MemberTypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => MemberType::class,
+            'data_class' => MemberUserType::class,
         ]);
     }
 }

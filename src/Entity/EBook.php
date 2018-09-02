@@ -30,19 +30,19 @@ class EBook /*extends Book*/
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="BookModel.php", inversedBy="eBook")
+     * @ORM\OneToOne(targetEntity="App\Entity\BookModel", inversedBy="eBook")
      */
     private $book;
 
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="BookModel.php")
+     * @ORM\OneToOne(targetEntity="App\Entity\BookModel")
      */
     private $file;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberEBook", mappedBy="ebook")
+     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="ebook")
      * @ORM\JoinColumn(nullable=false)
      */
     private $memberEBooks;
@@ -73,14 +73,14 @@ class EBook /*extends Book*/
     }
 
     /**
-     * @return Collection|MemberEBook[]
+     * @return Collection|MemberUserEBook[]
      */
     public function getMemberEBooks(): Collection
     {
         return $this->memberEBooks;
     }
 
-    public function addMemberEBook(MemberEBook $memberEBook): self
+    public function addMemberEBook(MemberUserEBook $memberEBook): self
     {
         if (!$this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks[] = $memberEBook;
@@ -90,7 +90,7 @@ class EBook /*extends Book*/
         return $this;
     }
 
-    public function removeMemberEBook(MemberEBook $memberEBook): self
+    public function removeMemberEBook(MemberUserEBook $memberEBook): self
     {
         if ($this->memberEBooks->contains($memberEBook)) {
             $this->memberEBooks->removeElement($memberEBook);

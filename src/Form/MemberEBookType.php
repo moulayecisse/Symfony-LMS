@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\MemberEBook;
+use App\Entity\MemberUserEBook;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +22,7 @@ class MemberEBookType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => MemberEBook::class,
+            'data_class' => MemberUserEBook::class,
         ]);
     }
 }

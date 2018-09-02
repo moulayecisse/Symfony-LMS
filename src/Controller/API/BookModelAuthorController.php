@@ -9,7 +9,7 @@
 namespace App\Controller\API;
 
 use App\Entity\Author;
-use App\Repository\AuthorRepository;
+use App\Repository\BookAuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +23,7 @@ class BookModelAuthorController
 {
     private $authorRepository;
 
-    public function __construct(AuthorRepository $authorRepository)
+    public function __construct(BookAuthorRepository $authorRepository)
     {
         $this->authorRepository = $authorRepository;
     }

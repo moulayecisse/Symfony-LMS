@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\MemberSubscription;
+use App\Entity\MemberUserSubscription;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +21,7 @@ class MemberSubscriptionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => MemberSubscription::class,
+            'data_class' => MemberUserSubscription::class,
         ]);
     }
 }

@@ -54,7 +54,7 @@ class Library
     private $pBooks;
 
     /**
-     * @ORM\OneToMany(targetEntity="LibrarianUser.php", mappedBy="library")
+     * @ORM\OneToMany(targetEntity="App\Entity\LibrarianUser", mappedBy="library")
      */
     private $librarians;
 

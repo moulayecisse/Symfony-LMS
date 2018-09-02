@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @author  Moulaye Cissé <moulaye.c@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
- * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
+ * @ORM\Entity(repositoryClass="BookAuthorRepository")
  */
 class BookAuthor
 {
@@ -27,7 +27,7 @@ class BookAuthor
 
     /**
      * @var BookModel[]
-     * @ORM\OneToMany(targetEntity="BookModel.php", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\BookModel", mappedBy="author")
      */
     private $books;
 
