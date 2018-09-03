@@ -15,25 +15,25 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class BookModelAuthorController.
+ * Class BookAuthorController.
  *
- * @Route("/api/authors")
+ * @Route("/api/book_authors")
  */
-class BookModelAuthorController
+class BookAuthorController
 {
-    private $authorRepository;
+    private $bookAuthorRepository;
 
-    public function __construct(BookAuthorRepository $authorRepository)
+    public function __construct(BookAuthorRepository $bookAuthorRepository)
     {
-        $this->authorRepository = $authorRepository;
+        $this->bookAuthorRepository = $bookAuthorRepository;
     }
 
     /**
      * @Route(
      *     "/count",
-     *     name="api_author_count",
+     *     name="api_book_author_count",
      *     defaults={
-     *          "#_api_resource_class"=Author::class,
+     *          "#_api_resource_class"=BookAuthor::class,
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
      *      }
@@ -43,18 +43,18 @@ class BookModelAuthorController
      */
     public function count()
     {
-        $authorsCount = $this->authorRepository->count([]);
+        $authorsCount = $this->bookAuthorRepository->count([]);
 
         return new JsonResponse(['authorsCount' => $authorsCount]);
     }
 
     /**
      * @Route(
-     *     name="api_author_most_populars",
-     *     path="/most-populars",
+     *     name="api_book_author_most_populars",
+     *     path="/most_populars",
      *     methods={"GET"},
      *     defaults={
-     *         "_api_resource_class"=Author::class,
+     *         "_api_resource_class"=BookAuthor::class,
      *         "_api_collection_operation_name"="most_populars"
      *     }
      * )
@@ -63,16 +63,16 @@ class BookModelAuthorController
      */
     public function mostPopulars()
     {
-        return $this->authorRepository->findBy([], [], 10);
+        return $this->bookAuthorRepository->findBy([], [], 10);
     }
 
     /**
      * @Route(
-     *     name="api_author_best_selling",
-     *     path="/best-selling",
+     *     name="api_book_author_best_selling",
+     *     path="/best_selling",
      *     methods={"GET"},
      *     defaults={
-     *         "_api_resource_class"=Author::class,
+     *         "_api_resource_class"=BookAuthor::class,
      *         "_api_collection_operation_name"="best_selling"
      *     }
      * )
@@ -81,6 +81,6 @@ class BookModelAuthorController
      */
     public function bestSelling()
     {
-        return $this->authorRepository->findBy([], [], 10);
+        return $this->bookAuthorRepository->findBy([], [], 10);
     }
 }

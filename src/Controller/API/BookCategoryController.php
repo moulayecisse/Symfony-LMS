@@ -8,22 +8,22 @@
 
 namespace App\Controller\API;
 
-use App\Repository\SubCategoryRepository;
+use App\Repository\BookCategoryRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class BookModelSubCategoryController.
+ * Class BookCategoryController.
  *
- * @Route("/api/sub-categories")
+ * @Route("/api/book_categories")
  */
-class BookModelSubCategoryController
+class BookCategoryController
 {
     /**
      * Count action.
      *
      * @Route(
-     *     name="api_sub_category_count",
+     *     name="api_book_category_count",
      *     path="/count",
      *     methods={"GET"},
      *     defaults={
@@ -31,11 +31,11 @@ class BookModelSubCategoryController
      *     }
      * )
      *
-     * @param SubCategoryRepository $subCategoryRepository
+     * @param BookCategoryRepository $subCategoryRepository
      *
      * @return JsonResponse
      */
-    public function count(SubCategoryRepository $subCategoryRepository)
+    public function count(BookCategoryRepository $subCategoryRepository)
     {
         $subCategoriesCount = $subCategoryRepository->count([]);
 
@@ -46,7 +46,7 @@ class BookModelSubCategoryController
      * Count action.
      *
      * @Route(
-     *     name="api_sub_category_counts",
+     *     name="api_book_category_counts",
      *     path="/counts",
      *     methods={"GET"},
      *     defaults={
@@ -54,11 +54,11 @@ class BookModelSubCategoryController
      *     }
      * )
      *
-     * @param SubCategoryRepository $subCategoryRepository
+     * @param BookCategoryRepository $subCategoryRepository
      *
      * @return JsonResponse
      */
-    public function counts(SubCategoryRepository $subCategoryRepository)
+    public function counts(BookCategoryRepository $subCategoryRepository)
     {
         $subCategories = $subCategoryRepository->findBy([], [], 4);
 

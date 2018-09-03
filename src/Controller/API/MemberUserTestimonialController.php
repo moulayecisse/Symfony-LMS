@@ -16,14 +16,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class MemberUserTestimonialController.
  *
- * @Route("/api/testimonials")
+ * @Route("/api/member_user_testimonials")
  */
 class MemberUserTestimonialController
 {
     /**
      * @Route(
      *     "/count",
-     *     name="api_testimonial_count",
+     *     name="api_member_user_testimonial_count",
      *     defaults={
      *          "#_api_resource_class"=MemberUserTestimonial::class,
      *          "_api_item_operation_name"="count",

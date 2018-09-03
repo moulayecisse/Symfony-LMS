@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class BookModelController.
  *
- * @Route("/api/books")
+ * @Route("/api/book_models")
  */
 class BookModelController
 {
@@ -26,7 +26,7 @@ class BookModelController
      * Count action.
      *
      * @Route(
-     *     name="api_book_count",
+     *     name="api_book_model_count",
      *     path="/count",
      *     methods={"GET"},
      *     defaults={
@@ -52,11 +52,11 @@ class BookModelController
 
     /**
      * @Route(
-     *     name="api_book_best_sellers",
-     *     path="/best-sellers",
+     *     name="api_book_model_best_sellers",
+     *     path="/best_sellers",
      *     methods={"GET"},
      *     defaults={
-     *         "_api_resource_class"=Book::class,
+     *         "_api_resource_class"=BookModel::class,
      *         "_api_collection_operation_name"="best_sellers"
      *     }
      * )
@@ -70,11 +70,11 @@ class BookModelController
 
     /**
      * @Route(
-     *     name="api_book_new_releases",
-     *     path="/new-releases",
+     *     name="api_book_model_new_releases",
+     *     path="/new_releases",
      *     methods={"GET"},
      *     defaults={
-     *         "_api_resource_class"=Book::class,
+     *         "_api_resource_class"=BookModel::class,
      *         "_api_collection_operation_name"="new_releases"
      *     }
      * )
@@ -88,7 +88,7 @@ class BookModelController
 
     /**
      * @Route(
-     *     name="api_book_featured",
+     *     name="api_book_model_featured",
      *     path="/featured",
      *     methods={"GET"},
      *     defaults={
@@ -121,11 +121,11 @@ class BookModelController
 
     /**
      * @Route(
-     *     name="api_book_picked_by_author",
-     *     path="/picked-by-author",
+     *     name="api_book_model_picked_by_author",
+     *     path="/picked_by_author",
      *     methods={"GET"},
      *     defaults={
-     *         "_api_resource_class"=Book::class,
+     *         "_api_resource_class"=BookModel::class,
      *         "_api_collection_operation_name"="picked_by_author"
      *     }
      * )

@@ -1,35 +1,50 @@
 resources:
+    App\Entity\Book: ~
+
     App\Entity\BookAuthor:
         collectionOperations:
             get: ~
-#            api_book_model_author_best_selling:
-#                swagger_context:
-#                    summary: "Retrieves the collection of best selling Author resources."
-#                    description: "Best selling Authors"
-#            api_book_model_author_most_populars:
-#                swagger_context:
-#                    summary: "Retrieves the collection of most popular Author resources."
-#                    description: "Most popular Authors"
-#            api_book_model_author_get_subresource:
-#                method: 'GET' # nothing more to add if we want to keep the default controller
-#                normalization_context: {groups: ['book_model']}
-#        itemOperations:
-#            get: ~
-#            api_book_model_author_count:
+            post: ~
+            api_book_author_best_selling:
+                swagger_context:
+                    summary: "Retrieves the collection of best selling Author resources."
+                    description: "Best selling Authors"
+            api_book_author_most_populars:
+                swagger_context:
+                    summary: "Retrieves the collection of most popular Author resources."
+                    description: "Most popular Authors"
+            api_book_author_get_subresource:
+                method: 'GET' # nothing more to add if we want to keep the default controller
+                normalization_context: {groups: ['book']}
+        itemOperations:
+            get: ~
+            delete: ~
+            put: ~
+            api_book_author_count:
+
+    App\Entity\BookBooking: ~
 
     App\Entity\BookCategory:
-        shortName: 'Book Model Category'
+        shortName: 'BookCategory'
         description: 'An category from our library'
         iri: 'http://schema.org/category'
         attributes:
             pagination_items_per_page: 25
         itemOperations:
             get: ~
-#            api_book_model_sub_category_count:
-#            api_book_model_sub_category_counts:
+            delete: ~
+            put: ~
+            api_book_category_count:
+            api_book_category_counts:
+
+    App\Entity\BookEditor: ~
+
+    App\Entity\BookFormat: ~
+
+    App\Entity\BookLocation: ~
 
     App\Entity\BookModel:
-        shortName: 'Book Model'
+        shortName: 'BookModel'
         description: 'An category from our library'
         iri: 'http://schema.org/Book'
         attributes:
@@ -46,48 +61,81 @@ resources:
                     description: "Book Model that have been bye more"
                 normalization_context:
                     groups: [ 'draft', 'details']
-#            api_book_model_best_sellers:
-#                swagger_context:
-#                    summary: "Best Sellers"
-#                    description: "Book Model that have been bye more"
-#                normalization_context:
-#                    groups: [ 'draft' ]
-#            api_book_model_new_releases:
-#                swagger_context:
-#                    summary: "Best Sellers"
-#                    description: "Book Model that have been bye more"
-#                normalization_context:
-#                    groups: [ 'draft' ]
-#            api_book_model_picked_by_author:
-#                swagger_context:
-#                    summary: "Best Sellers"
-#                    description: "Book Model that have been bye more"
-#                normalization_context:
-#                    groups: [ 'draft' ]
+            post: ~
+            api_book_model_best_sellers:
+                swagger_context:
+                    summary: "Best Sellers"
+                    description: "Book Model that have been bye more"
+                normalization_context:
+                    groups: [ 'draft' ]
+            api_book_model_new_releases:
+                swagger_context:
+                    summary: "Best Sellers"
+                    description: "Book Model that have been bye more"
+                normalization_context:
+                    groups: [ 'draft' ]
+            api_book_model_picked_by_author:
+                swagger_context:
+                    summary: "Best Sellers"
+                    description: "Book Model that have been bye more"
+                normalization_context:
+                    groups: [ 'draft' ]
         itemOperations:
             get: ~
-#            api_book_model_count:
-#            api_book_model_featured:
-#            api_book_model_picked_by_author:
-#            api_home_call_to_action:
-#            api_home_latest_posts:
-#            api_home_service_info:
-#            api_featured_news:
+            delete: ~
+            put: ~
+            api_book_model_count:
+            api_book_model_featured:
+            api_book_model_picked_by_author:
+
+            api_home_call_to_action:
+            api_home_latest_posts:
+            api_home_service_info:
+#            api_home_featured_news:
+
     App\Entity\BookRent:
-        shortName: 'Book Rents'
+        shortName: 'BookRent'
         description: 'Books that have been rented'
         itemOperations:
             get: ~
-#            api_booking_count:
+            delete: ~
+            put: ~
+#            api_book_rent_count:
 
-    App\Entity\MemberUserTestimonial:
-        itemOperations:
-            get: ~
-#            api_member_user_testimonial_count:
+    App\Entity\EBook: ~
+
+    App\Entity\File: ~
+
+    App\Entity\ImageFile: ~
+
+    App\Entity\LibrarianUser: ~
+
+    App\Entity\Library: ~
 
     App\Entity\MemberUser:
         itemOperations:
             get: ~
-#            api_member_user_count:
-#            api_member_user_current:
-#            api_member_user_subscribe:
+            delete: ~
+            put: ~
+            api_member_user_count:
+            api_member_user_current:
+            api_member_user_subscribe:
+
+    App\Entity\MemberUserEBook: ~
+
+    App\Entity\MemberUserSubscription: ~
+
+    App\Entity\MemberUserSubscriptionType: ~
+
+    App\Entity\MemberUserTestimonial:
+        itemOperations:
+            get: ~
+            delete: ~
+            put: ~
+            api_member_user_testimonial_count:
+
+    App\Entity\MemberUserType: ~
+
+    App\Entity\SuperAdminUser: ~
+
+    App\Entity\User: ~

@@ -1,6 +1,5 @@
 # api/config/packages/api_platform.yaml
 api_platform:
-
     # The title of the API.
     title: 'LMS | Library Management System'
 
@@ -127,7 +126,9 @@ api_platform:
 
     mapping:
         # The list of paths with files or directories where the bundle will look for additional resource files.
-        paths: []
+        paths:
+            - '%kernel.project_dir%/src/Entity' # default configuration for annotations
+            - '%kernel.project_dir%/config/api_platform' # yaml or xml directory configuration
 
     # The list of your resources class directories. Defaults to the directories of the mapping paths but might differ.
     resource_class_directories:

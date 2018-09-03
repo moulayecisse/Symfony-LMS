@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class MemberUserController.
  *
- * @Route("/api/members")
+ * @Route("/api/member_users")
  */
 class MemberUserController extends Controller
 {
@@ -63,9 +63,9 @@ class MemberUserController extends Controller
      *
      * @Route(
      *     "/count",
-     *     name="api_member_count",
+     *     name="api_member_user_count",
      *     defaults={
-     *          "#_api_resource_class"=Member::class,
+     *          "#_api_resource_class"=MemberUser::class,
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
      *      }
@@ -85,7 +85,7 @@ class MemberUserController extends Controller
      *
      * @Route(
      *     "/current",
-     *     name="api_member_current",
+     *     name="api_member_user_current",
      *     defaults={
      *          "_api_item_operation_name"="get_current",
      *          "_api_receive"=false
@@ -102,15 +102,14 @@ class MemberUserController extends Controller
     /**
      * Subscribe an giving user by adding him into database.
      *
-     * @param Request          $request HTTP request
+     * @param Request $request HTTP request
      * @param APIMemberManager $manager API Member Manager
      *
      * @return JsonResponse
      *
-     * @throws \Doctrine\ORM\ORMException
      * @Route(
      *     "/subscribe",
-     *     name="api_member_subscribe",
+     *     name="api_member_user_subscribe",
      *     defaults={
      *          "_api_item_operation_name"="get_subscribe",
      *          "_api_receive"=false

@@ -25,8 +25,8 @@ class HomeController
 
     /**
      * @Route(
-     *     "/books/call-to-action",
-     *     name="api_call_to_action",
+     *     "/books/call_to_action",
+     *     name="api_home_call_to_action",
      *     defaults={
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
@@ -51,7 +51,7 @@ class HomeController
     /**
      * @Route(
      *     "/services/info",
-     *     name="api_service_info",
+     *     name="api_home_service_info",
      *     defaults={
      *          "_api_item_operation_name"="count",
      *          "_api_receive"=false
@@ -77,8 +77,8 @@ class HomeController
 
     /**
      * @Route(
-     *     "/books/latest-posts",
-     *     name="api_latest_posts",
+     *     "/books/latest_posts",
+     *     name="api_home_latest_posts",
      *     defaults={
      *          "_api_item_operation_name"="latest_posts",
      *          "_api_receive"=false
@@ -99,7 +99,7 @@ class HomeController
     /**
      * @Route(
      *     "/services/listFeaturedNews",
-     *     name="api_latest_posts",
+     *     name="api_home_latest_posts",
      *     defaults={
      *          "_api_item_operation_name"="latest_posts",
      *          "_api_receive"=false

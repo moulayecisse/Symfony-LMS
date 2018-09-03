@@ -12,7 +12,7 @@ use App\Traits\Entity\SlugTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\SubCategoryRepository")
+ * @ORM\Entity(repositoryClass="BookCategoryRepository")
  */
 class BookCategory
 {

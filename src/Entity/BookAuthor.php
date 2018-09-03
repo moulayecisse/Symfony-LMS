@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @author  Moulaye Cissé <moulaye.c@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
- * @ORM\Entity(repositoryClass="BookAuthorRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BookAuthorRepository")
  */
 class BookAuthor
 {
