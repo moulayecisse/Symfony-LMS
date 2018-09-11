@@ -8,7 +8,7 @@
 
 namespace App\Controller\API;
 
-use App\Entity\Book;
+use App\Entity\BookModel;
 use App\Repository\BookModelRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class BookModelController
 {
-    private $bookRepository;
+    private $bookModelRepository;
 
     /**
      * Count action.
@@ -34,20 +34,20 @@ class BookModelController
      *     }
      * )
      *
-     * @param BookModelRepository $bookRepository
+     * @param BookModelRepository $bookModelRepository
      *
      * @return JsonResponse
      */
-    public function count(BookModelRepository $bookRepository)
+    public function count(BookModelRepository $bookModelRepository)
     {
-        $booksCount = $bookRepository->count([]);
+        $bookModelsCount = $bookModelRepository->count([]);
 
-        return new JsonResponse(['booksCount' => $booksCount]);
+        return new JsonResponse(['bookModelsCount' => $bookModelsCount]);
     }
 
-    public function __construct(BookModelRepository $bookRepository)
+    public function __construct(BookModelRepository $bookModelRepository)
     {
-        $this->bookRepository = $bookRepository;
+        $this->bookModelRepository = $bookModelRepository;
     }
 
     /**
@@ -65,7 +65,7 @@ class BookModelController
      */
     public function bestSellers()
     {
-        return $this->bookRepository->findBestSellers(5);
+        return $this->bookModelRepository->findBestSellers(5);
     }
 
     /**
@@ -83,7 +83,7 @@ class BookModelController
      */
     public function newReleases()
     {
-        return $this->bookRepository->findBestSellers(3);
+        return $this->bookModelRepository->findBestSellers(3);
     }
 
     /**
@@ -100,20 +100,20 @@ class BookModelController
      */
     public function featured()
     {
-        $book = $this->bookRepository->findOneBy([]);
+        $bookModel = $this->bookModelRepository->findOneBy([]);
 
         return new JsonResponse(
             [
-                'book' => [
-                    'title' => $book->getTitle(),
-                    'image' => $book->getImage()->getPath(),
-                    'isbn' => $book->getIsbn(),
-                    'subCategory' => $book->getBookCategory()->getName(),
-                    'author' => $book->getAuthor()->getFirstName().' '.$book->getAuthor()->getLastName(),
-                    'resume' => $book->getResume(),
-//                    'pbooks' => $book->getPBooks(),
-                    'pageNumber' => $book->getPageNumber(),
-                    'slug' => $book->getSlug(),
+                'bookModel' => [
+                    'title' => $bookModel->getTitle(),
+                    'image' => $bookModel->getImage()->getPath(),
+                    'isbn' => $bookModel->getIsbn(),
+                    'subCategory' => $bookModel->getBookModelCategory()->getName(),
+                    'author' => $bookModel->getAuthor()->getFirstName().' '.$bookModel->getAuthor()->getLastName(),
+                    'resume' => $bookModel->getResume(),
+//                    'pbookModels' => $bookModel->getPBookModels(),
+                    'pageNumber' => $bookModel->getPageNumber(),
+                    'slug' => $bookModel->getSlug(),
                 ],
             ]
         );
@@ -134,6 +134,6 @@ class BookModelController
      */
     public function pickedByAuthor()
     {
-        return $this->bookRepository->findBestSellers(5);
+        return $this->bookModelRepository->findBestSellers(5);
     }
 }
