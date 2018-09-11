@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Translation\Translator;
 use Symfony\Component\Workflow\Registry;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -57,6 +58,11 @@ class BookRentCommand extends ContainerAwareCommand
     {
         parent::__construct($name);
         $this->entityManager = $entityManager;
+
+        $translator = new Translator('fr_FR');
+        $translator->addLoader('array', new ArrayLoader());
+
+
         $this->translator = $translator;
     }
 

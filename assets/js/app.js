@@ -1,15 +1,19 @@
 import Vue from 'vue';
 
-import DashboardBooksCount from './components/modules/dashboard/BooksCount'
-import DashboardBooksCountNumber from './components/modules/dashboard/BooksCountNumber'
+import DashboardStat from './components/modules/dashboard/DashboardStat'
+import TableResponsive from './components/modules/dashboard/TableResponsive'
+import TabbableLine from './components/modules/dashboard/TabbableLine'
+import PortletLight from './components/modules/dashboard/PortletLight'
 
 new Vue(
     {
         el: '#app',
 
         components: {
-            DashboardBooksCount
-            , DashboardBooksCountNumber
+            DashboardStat,
+            TableResponsive,
+            TabbableLine,
+            PortletLight,
         }
     }
 );

@@ -1,6 +1,6 @@
 <template>
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
-        <div class="dashboard-stat blue">
+        <div :class="['dashboard-stat', color]">
             <div class="visual">
                 <i :class="icon"></i>
             </div>
@@ -22,7 +22,7 @@
     import axios from 'axios';
 
     export default {
-        name: "dashboard-books-count",
+        name: "dashboard-stat",
 
         props: {
             description: {
@@ -47,7 +47,7 @@
             },
             url: {
                 type: String,
-                default: 'http://127.0.0.1:8000/api/books/count'
+                default: 'http://lms.com/api/book_models/count'
             },
             content: {
                 type: String,

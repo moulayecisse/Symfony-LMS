@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\MappedSuperclass
  * @ORM\InheritanceType("NONE")
- * @ORM\Entity(repositoryClass="BookModelRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BookModelRepository")
  */
 class BookModel
 {

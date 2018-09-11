@@ -23,8 +23,7 @@ class BookRent
     private $book;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="bookings")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="bookRents")
      */
     private $memberUser;
 

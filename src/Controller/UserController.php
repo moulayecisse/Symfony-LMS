@@ -144,7 +144,7 @@ class UserController extends Controller
          * @Todo add permission check
          */
         if ($this->getUser()) {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home_index');
         }
 
         /**

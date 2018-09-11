@@ -60,7 +60,7 @@ resources:
                     summary: "Book Models of our libraries"
                     description: "Book Model that have been bye more"
                 normalization_context:
-                    groups: [ 'draft', 'details']
+                    groups: [ 'draft']
             post: ~
             api_book_model_best_sellers:
                 swagger_context:
@@ -102,7 +102,7 @@ resources:
             put: ~
 #            api_book_rent_count:
 
-    App\Entity\EBook: ~
+#    App\Entity\EBook: ~
 
     App\Entity\File: ~
 

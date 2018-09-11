@@ -9,6 +9,7 @@
 namespace App\Traits\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -19,6 +20,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait IdTrait
 {
     /**
+     * @Groups( "details" )
+     *
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
