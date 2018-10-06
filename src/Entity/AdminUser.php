@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * @ORM\MappedSuperclass()
- * @ORM\Entity(repositoryClass="AdminUserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AdminUserRepository")
  */
 class AdminUser extends User
 {
@@ -20,6 +20,6 @@ class AdminUser extends User
      */
     public function __construct()
     {
-        $this->roles = [self::ROLE_ADMIN];
+        $this->setRoles([self::ROLE_ADMIN]);
     }
 }

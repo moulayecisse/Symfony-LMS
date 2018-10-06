@@ -8,12 +8,12 @@
 
 namespace App\Entity;
 
-use App\Traits\Entity\EmailTrait;
-use App\Traits\Entity\FirstNameTrait;
-use App\Traits\Entity\IdTrait;
-use App\Traits\Entity\LastNameTrait;
-use App\Traits\Entity\PasswordTrait;
-use App\Traits\Entity\RolesTrait;
+use Cisse\Traits\Entity\EmailTrait;
+use Cisse\Traits\Entity\FirstNameTrait;
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\LastNameTrait;
+use Cisse\Traits\Entity\PasswordTrait;
+use Cisse\Traits\Entity\RolesTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 

@@ -11,7 +11,7 @@ use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="BookRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
  */
 class Book
 {

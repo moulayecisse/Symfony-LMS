@@ -15,7 +15,7 @@
         "version": "v1.2.0"
     },
     "cisse/symfony-traits": {
-        "version": "dev-master"
+        "version": "v1.0.3"
     },
     "doctrine/annotations": {
         "version": "1.0",

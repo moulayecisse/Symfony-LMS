@@ -7,16 +7,16 @@ use App\Entity\Library;
 use App\Entity\MemberUser;
 use App\Entity\Book;
 use DateTime;
+//use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Translation\Translator;
 use Symfony\Component\Workflow\Registry;
-use Symfony\Component\Translation\TranslatorInterface;
-
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
 /**
  * Class BookRentCommand.
  */
@@ -51,19 +51,20 @@ class BookRentCommand extends ContainerAwareCommand
      * BookRentCommand constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param TranslatorInterface $translator
      * @param null $name
      */
-    public function __construct( EntityManagerInterface $entityManager, TranslatorInterface $translator, $name = null )
+    public function __construct( EntityManagerInterface $entityManager, $name = null )
     {
         parent::__construct($name);
         $this->entityManager = $entityManager;
 
-        $translator = new Translator('fr_FR');
-        $translator->addLoader('array', new ArrayLoader());
-
-
-        $this->translator = $translator;
+//        $translator = new Translator('fr_FR');
+//        $translator->addLoader('array', new ArrayLoader());
+//        $translator->addResource('array', array(
+//            'Symfony is great!' => 'Symfony est super !',
+//        ), 'fr_FR');
+//
+//        $this->translator = $translator;
     }
 
     /**
@@ -71,6 +72,14 @@ class BookRentCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
+        $translator = new Translator('fr_FR');
+        $translator->addLoader('array', new ArrayLoader());
+        $translator->addResource('array', array(
+            'Symfony is great!' => 'Symfony est super !',
+        ), 'fr_FR');
+
+        $this->translator = $translator;
+
         $this
             ->setName('app:book:rent')
             ->setDescription($this->translator->trans('command.book.rent.description'))

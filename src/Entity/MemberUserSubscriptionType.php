@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="MemberSubscriptionTypeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MemberSubscriptionTypeRepository")
  */
 class MemberUserSubscriptionType
 {

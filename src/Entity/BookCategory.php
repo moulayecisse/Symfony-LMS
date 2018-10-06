@@ -5,14 +5,14 @@ namespace App\Entity;
 use App\Traits\Entity\BookCategory\BookLocationTrait;
 use App\Traits\Entity\BookCategory\BooksTrait;
 use App\Traits\Entity\BookCategory\ChildrenTrait;
-use App\Traits\Entity\IdTrait;
-use App\Traits\Entity\NameTrait;
 use App\Traits\Entity\BookCategory\ParentTrait;
-use App\Traits\Entity\SlugTrait;
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\NameTrait;
+use Cisse\Traits\Entity\SlugTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="BookCategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BookCategoryRepository")
  */
 class BookCategory
 {

@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\MappedSuperclass()
  *
- * @ORM\Entity(repositoryClass="MemberUserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MemberUserRepository")
  */
 class MemberUser extends User
 {
@@ -53,7 +53,7 @@ class MemberUser extends User
 
     public function __construct()
     {
-        $this->roles = [self::ROLE_MEMBER];
+        $this->setRoles([self::ROLE_MEMBER]);
         $this->memberEBooks = new ArrayCollection();
         $this->memberSubscriptions = new ArrayCollection();
         $this->memberUserTestimonials = new ArrayCollection();

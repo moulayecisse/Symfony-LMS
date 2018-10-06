@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Traits\Entity\BiographyTrait;
-use App\Traits\Entity\BirthdayTrait;
-use App\Traits\Entity\FirstNameTrait;
-use App\Traits\Entity\IdTrait;
-use App\Traits\Entity\LastNameTrait;
+use Cisse\Traits\Entity\BiographyTrait;
+use Cisse\Traits\Entity\BirthdayTrait;
+use Cisse\Traits\Entity\FirstNameTrait;
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\LastNameTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

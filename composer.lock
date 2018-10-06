@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca1409e87937822529affdf6734d0590",
+    "content-hash": "79576deb327395abd648ee45bf6f412d",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -210,24 +210,29 @@
         },
         {
             "name": "cisse/symfony-traits",
-            "version": "dev-master",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moulayecisse/symfony-bundles-traits.git",
-                "reference": "2ee44d95436789c53e77ce8b2fc37a910ba71d21"
+                "reference": "0f3c15b828e3ca8be19bac8ff969f567893a1831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moulayecisse/symfony-bundles-traits/zipball/2ee44d95436789c53e77ce8b2fc37a910ba71d21",
-                "reference": "2ee44d95436789c53e77ce8b2fc37a910ba71d21",
+                "url": "https://api.github.com/repos/moulayecisse/symfony-bundles-traits/zipball/0f3c15b828e3ca8be19bac8ff969f567893a1831",
+                "reference": "0f3c15b828e3ca8be19bac8ff969f567893a1831",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
+                "php": ">=7.1.0",
                 "symfony/framework-bundle": ">=3.4",
                 "symfony/validator": "*"
             },
             "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Cisse\\Traits\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -240,6 +245,7 @@
                 }
             ],
             "description": "Symfony Useful Traits",
+            "homepage": "http://www.moulayecisse.com",
             "keywords": [
                 "api",
                 "json",
@@ -247,7 +253,7 @@
                 "web service",
                 "xml"
             ],
-            "time": "2018-10-05T14:49:55+00:00"
+            "time": "2018-10-06T16:22:31+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -6730,9 +6736,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "cisse/symfony-traits": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

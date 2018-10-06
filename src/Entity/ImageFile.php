@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\MappedSuperclass()
- * @ORM\Entity(repositoryClass="ImageFileRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ImageFileRepository")
  */
 class ImageFile extends File
 {

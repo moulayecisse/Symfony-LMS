@@ -7,7 +7,7 @@
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.1",
         "behat/transliterator": "^1.2",
-        "cisse/symfony-traits": "dev-master",
+        "cisse/symfony-traits": "^1.0",
         "fzaninotto/faker": "^1.8",
         "lexik/jwt-authentication-bundle": "^2.5",
         "sensio/framework-extra-bundle": "^5.2",

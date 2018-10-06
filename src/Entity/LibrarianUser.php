@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  *
  * @ORM\MappedSuperclass()
- * @ORM\Entity(repositoryClass="LibrarianRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\LibrarianUserRepository")
  */
 class LibrarianUser extends User
 {
@@ -19,7 +19,7 @@ class LibrarianUser extends User
 
     public function __construct()
     {
-        $this->roles = [ self::ROLE_LIBRARIAN ];
+        $this->setRoles([self::ROLE_LIBRARIAN]);
     }
 
     /**
