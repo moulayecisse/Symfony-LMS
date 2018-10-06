@@ -8,9 +8,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Book;
-use App\Entity\BookModel;
-use App\Entity\ImageFile;
+use App\Entity\Book\Book;
+use App\Entity\Book\BookModel;
+use App\Entity\File\ImageFile;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

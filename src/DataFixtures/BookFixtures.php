@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

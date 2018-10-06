@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\BookCategory;
+use App\Entity\Book\BookCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

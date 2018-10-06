@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\File;
+use App\Entity\File\File;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

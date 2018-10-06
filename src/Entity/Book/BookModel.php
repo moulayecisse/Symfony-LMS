@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
+use App\Entity\Book\Book;
+use App\Entity\Book\BookAuthor;
+use App\Entity\File\ImageFile;
 use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -175,7 +178,7 @@ class BookModel
     }
 
     /**
-     * @return ImageFile
+     * @return \App\Entity\File\ImageFile
      */
     public function getImage(): ImageFile
     {

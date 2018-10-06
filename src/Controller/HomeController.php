@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use App\Entity\Library;
 use App\Service\Book\BookProvider;
 use DateInterval;

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Book\EBook;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\BookEditor;
+use App\Entity\Book\BookEditor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

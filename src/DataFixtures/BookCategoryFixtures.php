@@ -8,8 +8,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\BookCategory;
-use App\Entity\BookLocation;
+use App\Entity\Book\BookCategory;
+use App\Entity\Book\BookLocation;
 use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

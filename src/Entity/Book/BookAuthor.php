@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
+use App\Entity\Book\Book;
+use App\Entity\Book\BookModel;
 use Cisse\Traits\Entity\BiographyTrait;
 use Cisse\Traits\Entity\BirthdayTrait;
 use Cisse\Traits\Entity\FirstNameTrait;
@@ -33,7 +35,7 @@ class BookAuthor
 
 //    /**
 //     * @var Book[]
-//     * @ORM\ManyToMany(targetEntity="App\Entity\Book", mappedBy="authors")
+//     * @ORM\ManyToMany(targetEntity="App\Entity\Book\Book", mappedBy="authors")
 //     */
 //    private $contributedBooks;
 

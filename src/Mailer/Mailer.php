@@ -2,7 +2,7 @@
 
 namespace App\Mailer;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use App\Entity\User;
 use Swift_Mailer;
 use Swift_Message;

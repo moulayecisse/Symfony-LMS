@@ -2,11 +2,11 @@
 
 namespace App\Repository;
 
-use App\Entity\BookModel;
-use App\Entity\BookRent;
-use App\Entity\ImageFile;
+use App\Entity\Book\BookModel;
+use App\Entity\Book\BookRent;
+use App\Entity\File\ImageFile;
 use App\Entity\Library;
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use App\Entity\MemberUser;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

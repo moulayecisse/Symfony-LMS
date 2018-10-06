@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\BookCategory;
 
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,7 +23,7 @@ trait BooksTrait
     /**
      * Name.
      *
-     * @var Collection|Book[]
+     * @var Collection|\App\Entity\Book\Book[]
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Book", mappedBy="category")
      */
@@ -40,7 +40,7 @@ trait BooksTrait
     /**
      * Get Books.
      *
-     * @return Collection|Book[]
+     * @return Collection|\App\Entity\Book\Book[]
      */
     public function getBooks() : Collection
     {
@@ -50,7 +50,7 @@ trait BooksTrait
     /**
      * Set Books.
      *
-     * @param Collection|Book[] $books
+     * @param Collection|\App\Entity\Book\Book[] $books
      *
      * @return self
      */
@@ -64,7 +64,7 @@ trait BooksTrait
     /**
      * Add a Book to Books.
      *
-     * @param Book $book add new Book
+     * @param \App\Entity\Book\Book $book add new Book
      *
      * @return self
      */
@@ -81,7 +81,7 @@ trait BooksTrait
     /**
      * Remove a Book to Books.
      *
-     * @param Book $book Book book to remove
+     * @param \App\Entity\Book\Book $book Book book to remove
      *
      * @return self
      */

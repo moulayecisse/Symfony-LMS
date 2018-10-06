@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\File;
 
+use App\Entity\File\File;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

@@ -3,7 +3,7 @@
 namespace App\Twig;
 
 use App\Entity\LikeNotification;
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use DateTime;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
@@ -89,7 +89,7 @@ class AppExtension extends AbstractExtension implements GlobalsInterface
     /**
      * Filter PBooks according to there status.
      *
-     * @param Book[] $pbooks array of pbooks to filter
+     * @param \App\Entity\Book\Book[] $pbooks array of pbooks to filter
      *
      * @return array
      */

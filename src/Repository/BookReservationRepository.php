@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\BookBooking;
+use App\Entity\Book\BookBooking;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

@@ -2,10 +2,10 @@
 
 namespace App\Repository;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use App\Entity\Library;
 use App\Entity\MemberUser;
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;

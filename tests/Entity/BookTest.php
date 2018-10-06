@@ -9,9 +9,9 @@
 namespace App\Tests\Entity;
 
 
-use App\Entity\BookAuthor;
-use App\Entity\Book;
-use App\Entity\Book;
+use App\Entity\Book\BookAuthor;
+use App\Entity\Book\Book;
+use App\Entity\Book\Book;
 use PHPUnit\Framework\TestCase;
 #use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 #use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -27,7 +27,7 @@ class BookTest extends TestCase
     public function testBookCanBeCreated()
     {
         $book = new Book();
-        $this->assertInstanceOf(Book::class, $book);
+        $this->assertInstanceOf(Book\Book::class, $book);
     }
 
 

@@ -2,10 +2,10 @@
 
 namespace App\Command;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use App\Entity\Library;
 use App\Entity\MemberUser;
-use App\Entity\Book;
+use App\Entity\Book\Book;
 use DateTime;
 //use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;

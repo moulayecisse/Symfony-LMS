@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use App\Entity\MemberUser;
 use App\Repository\MemberUserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;

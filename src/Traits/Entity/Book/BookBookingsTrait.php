@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\Book;
 
-use App\Entity\BookBooking;
+use App\Entity\Book\BookBooking;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,7 +19,7 @@ trait BookBookingsTrait
     /**
      * Name.
      *
-     * @var Collection|BookBooking[]
+     * @var Collection|\App\Entity\Book\BookBooking[]
      *
      * @ORM\OneToMany(targetEntity="App\Entity\BookBooking", mappedBy="book")
      */
@@ -36,7 +36,7 @@ trait BookBookingsTrait
     /**
      * Get BookBookings.
      *
-     * @return Collection|BookBooking[]
+     * @return Collection|\App\Entity\Book\BookBooking[]
      */
     public function getBookBookings() : Collection
     {
@@ -60,7 +60,7 @@ trait BookBookingsTrait
     /**
      * Add a BookBooking to BookBookings.
      *
-     * @param BookBooking $bookBooking new BookBooking
+     * @param \App\Entity\Book\BookBooking $bookBooking new BookBooking
      *
      * @return self
      */
@@ -77,7 +77,7 @@ trait BookBookingsTrait
     /**
      * Remove a BookBooking to BookBookings.
      *
-     * @param BookBooking $bookBooking BookBooking to remove
+     * @param \App\Entity\Book\BookBooking $bookBooking BookBooking to remove
      *
      * @return self
      */

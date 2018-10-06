@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\Book;
 
-use App\Entity\BookModel;
+use App\Entity\Book\BookModel;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,7 +21,7 @@ trait BookModelTrait
     /**
      * Name.
      *
-     * @var BookModel
+     * @var \App\Entity\Book\BookModel
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\BookModel", inversedBy="books")
      */
@@ -40,7 +40,7 @@ trait BookModelTrait
     /**
      * Set Model.
      *
-     * @param BookModel $bookModel Content
+     * @param \App\Entity\Book\BookModel $bookModel Content
      *
      * @return self
      */

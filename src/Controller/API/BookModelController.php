@@ -8,7 +8,7 @@
 
 namespace App\Controller\API;
 
-use App\Entity\BookModel;
+use App\Entity\Book\BookModel;
 use App\Repository\BookModelRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;

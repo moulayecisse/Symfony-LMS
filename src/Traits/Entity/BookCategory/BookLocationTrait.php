@@ -8,8 +8,8 @@
 
 namespace App\Traits\Entity\BookCategory;
 
-use App\Entity\BookCategory;
-use App\Entity\BookLocation;
+use App\Entity\Book\BookCategory;
+use App\Entity\Book\BookLocation;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

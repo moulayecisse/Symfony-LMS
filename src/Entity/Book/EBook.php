@@ -6,8 +6,11 @@
  * Time: 10:19.
  */
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
+use App\Entity\Book\Book;
+use App\Entity\Book\BookModel;
+use App\Entity\MemberUserEBook;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

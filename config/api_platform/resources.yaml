@@ -102,7 +102,7 @@ resources:
             put: ~
 #            api_book_rent_count:
 
-#    App\Entity\EBook: ~
+#    App\Entity\Book\EBook: ~
 
     App\Entity\File: ~
 

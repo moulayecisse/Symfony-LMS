@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
+use App\Entity\Book\Book;
+use App\Entity\MemberUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
 use App\Traits\Entity\Book\BookBookingsTrait;
 use App\Traits\Entity\Book\BookModelTrait;

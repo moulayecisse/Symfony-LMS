@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

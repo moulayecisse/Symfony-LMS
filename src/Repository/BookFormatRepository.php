@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\BookFormat;
+use App\Entity\Book\BookFormat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

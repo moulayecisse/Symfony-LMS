@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\BookCategory;
 
-use App\Entity\BookCategory;
+use App\Entity\Book\BookCategory;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -40,7 +40,7 @@ trait ChildrenTrait
     /**
      * Get Children.
      *
-     * @return Collection|BookCategory[]
+     * @return Collection|\App\Entity\Book\BookCategory[]
      */
     public function getChildren() : Collection
     {
@@ -50,7 +50,7 @@ trait ChildrenTrait
     /**
      * Set Children.
      *
-     * @param Collection|BookCategory[] $Children Content
+     * @param Collection|\App\Entity\Book\BookCategory[] $Children Content
      *
      * @return self
      */
@@ -81,7 +81,7 @@ trait ChildrenTrait
     /**
      * Remove a BookCategory to Children.
      *
-     * @param BookCategory $child BookCategory child to remove
+     * @param \App\Entity\Book\BookCategory $child BookCategory child to remove
      *
      * @return self
      */

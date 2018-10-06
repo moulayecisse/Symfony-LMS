@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\MemberUser;
 
-use App\Entity\BookRent;
+use App\Entity\Book\BookRent;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,7 +18,7 @@ trait BookRentsTrait
     /**
      * Name.
      *
-     * @var Collection|BookRent[]
+     * @var Collection|\App\Entity\Book\BookRent[]
      *
      * @ORM\OneToMany(targetEntity="App\Entity\BookRent", mappedBy="memberUser")
      */
@@ -35,7 +35,7 @@ trait BookRentsTrait
     /**
      * Get BookRents.
      *
-     * @return Collection|BookRent[]
+     * @return Collection|\App\Entity\Book\BookRent[]
      */
     public function getBookRents() : Collection
     {
@@ -45,7 +45,7 @@ trait BookRentsTrait
     /**
      * Set BookRents.
      *
-     * @param Collection|BookRent[] $bookRents Content
+     * @param Collection|\App\Entity\Book\BookRent[] $bookRents Content
      *
      * @return self
      */
@@ -59,7 +59,7 @@ trait BookRentsTrait
     /**
      * Add a BookRent to BookRents.
      *
-     * @param BookRent $bookRent new BookRent
+     * @param \App\Entity\Book\BookRent $bookRent new BookRent
      *
      * @return self
      */
@@ -76,7 +76,7 @@ trait BookRentsTrait
     /**
      * Remove a BookRent to BookRents.
      *
-     * @param BookRent $bookRent BookRent to remove
+     * @param \App\Entity\Book\BookRent $bookRent BookRent to remove
      *
      * @return self
      */
