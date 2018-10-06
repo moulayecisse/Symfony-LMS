@@ -46,12 +46,18 @@
         <div class="col-md-6">
             <portlet-light>
                 <tabbable-line
-                        v-bind:labels="['Best Sellers', 'Trop Fort']"
-                        v-bind:ids="['best_sellers', 'trop_fort']"
+                        v-bind:labels="['Best Sellers', 'New Releases']"
+                        v-bind:ids="['best_sellers', 'new_releases']"
                 >
                     <table-responsive
                             url="{{ path('api_book_model_best_sellers') }}"
                             slot="best_sellers"
+                    >
+                    </table-responsive>
+
+                    <table-responsive
+                            url="{{ path('api_book_model_new_releases') }}"
+                            slot="new_releases"
                     >
                     </table-responsive>
                 </tabbable-line>

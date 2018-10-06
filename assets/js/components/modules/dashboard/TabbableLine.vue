@@ -33,7 +33,9 @@
 
         <div class="tab-content">
             <div :class="key === 0 ? 'tab-pane active' : 'tab-pane'" v-for="(id, key) in ids" :key="key" :id="key">
-                <slot :name="id"></slot>
+                <div class="scroller" style="height: 339px;" data-always-visible="1" data-rail-visible="0">
+                    <slot :name="id"></slot>
+                </div>
             </div>
         </div>
     </div>

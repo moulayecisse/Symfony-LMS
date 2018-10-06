@@ -22,7 +22,7 @@ Trait PasswordTrait
      * @ORM\Column(type="string", length=254, unique=true)
      *
      * @Assert\NotBlank()
-     * @Assert\Password()
+     * @Assert\NotNull()
      */
     private $password;
 

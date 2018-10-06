@@ -51,7 +51,7 @@ class Library
     /**
      * @ORM\OneToMany(targetEntity="Book", mappedBy="library", cascade={"remove"})
      */
-    private $pBooks;
+    private $books;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\LibrarianUser", mappedBy="library")
@@ -60,7 +60,7 @@ class Library
 
     public function __construct()
     {
-        $this->pBooks = new ArrayCollection();
+        $this->books = new ArrayCollection();
     }
 
     public function getId()
@@ -143,15 +143,15 @@ class Library
     /**
      * @return Collection|Book[]
      */
-    public function getPBooks(): Collection
+    public function getBooks(): Collection
     {
-        return $this->pBooks;
+        return $this->books;
     }
 
     public function addPBook(Book $pBook): self
     {
-        if (!$this->pBooks->contains($pBook)) {
-            $this->pBooks[] = $pBook;
+        if (!$this->books->contains($pBook)) {
+            $this->books[] = $pBook;
             $pBook->setLibrary($this);
         }
 
@@ -160,8 +160,8 @@ class Library
 
     public function removePBook(Book $pBook): self
     {
-        if ($this->pBooks->contains($pBook)) {
-            $this->pBooks->removeElement($pBook);
+        if ($this->books->contains($pBook)) {
+            $this->books->removeElement($pBook);
             // set the owning side to null (unless already changed)
             if ($pBook->getLibrary() === $this) {
                 $pBook->setLibrary(null);

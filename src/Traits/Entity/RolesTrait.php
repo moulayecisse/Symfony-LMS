@@ -21,7 +21,12 @@ Trait RolesTrait
      *
      * @ORM\Column(type="json_array")
      */
-    private $roles;
+    protected $roles;
+
+    function __construct()
+    {
+        $this->roles = [];
+    }
 
     /**
      * Set roles
@@ -39,10 +44,10 @@ Trait RolesTrait
     /**
      * Get roles
      *
-     * @return string[]
+     * @return String[]
      */
     public function getRoles() : array
     {
-        return $this->roles;
+        return $this->roles ?? [];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\BookModel;
 use App\Entity\BookRent;
+use App\Entity\EBook;
 use App\Entity\ImageFile;
 use App\Entity\Library;
 use App\Entity\Book;
@@ -53,8 +54,8 @@ class BookModelRepository extends ServiceEntityRepository
     public function findBestSellers($limit = 10): array
     {
         return $this->createQueryBuilder('bm')
-            //->join(EBook::class, 'eb')
-            //->where('eb.book_model_id = b.id')
+            ->join('bm.eBook', 'eb')
+//            ->where('bm.id = eb.book_model_id')
             //->groupBy('eb.book_model_id')
             //->orderBy('eb.book_model_id')
 

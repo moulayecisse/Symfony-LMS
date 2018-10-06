@@ -7,7 +7,7 @@ use App\Traits\Entity\Book\BookModelTrait;
 use App\Traits\Entity\Book\BookRentsTrait;
 use App\Traits\Entity\Book\BookStatusTrait;
 use App\Traits\Entity\Book\LibraryTrait;
-use App\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

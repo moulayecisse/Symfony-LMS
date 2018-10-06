@@ -1,52 +1,52 @@
 security:
     encoders:
-        App\Entity\user: bcrypt
+        App\Entity\User: bcrypt
     providers:
         user_provider:
             entity:
-                class: App\Entity\User
-                property: email
+                class:      App\Entity\User
+                property:   email
         api_user_provider:
             entity:
-                class: App\Entity\User
-                property: email
+                class:      App\Entity\User
+                property:   email
     firewalls:
         api:
-            pattern: ^/api/login_check
-            stateless: true
-            anonymous: true
-            provider: api_user_provider
+            pattern:    ^/api/login_check
+            stateless:  true
+            anonymous:  true
+            provider:   api_user_provider
             json_login:
-                check_path: /api/login_check
-                username_path: username
-                password_path: password
-                success_handler: lexik_jwt_authentication.handler.authentication_success
-                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                check_path:         /api/login_check
+                username_path:      username
+                password_path:      password
+                success_handler:    lexik_jwt_authentication.handler.authentication_success
+                failure_handler:    lexik_jwt_authentication.handler.authentication_failure
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+            pattern:    ^/(_(profiler|wdt)|css|images|js)/
+            security:   false
         backend:
-            anonymous: ~
-            pattern: ^/
-            provider: user_provider
+            anonymous:  ~
+            pattern:    ^/
+            provider:   user_provider
             form_login:
-                login_path: user_login
-                check_path: user_login
-                default_target_path: home_index
-                username_parameter: user_login[email]
-                password_parameter: user_login[password]
+                login_path:             user_login
+                check_path:             user_login
+                default_target_path:    home_index
+                username_parameter:     user_login[email]
+                password_parameter:     user_login[password]
             logout:
                 path: user_logout
                 target: user_login
     access_control:
-        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: [ROLE_LIBRARIAN] }
+        - { path: ^/api,        role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/login,  role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$,     role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/,           roles: [ROLE_LIBRARIAN] }
 
     role_hierarchy:
-        ROLE_ADMIN: ROLE_ALLOWED_TO_SWITCH
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:         ROLE_ALLOWED_TO_SWITCH
+        ROLE_SUPER_ADMIN:   [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

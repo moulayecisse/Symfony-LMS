@@ -25,6 +25,8 @@ trait IdTrait
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * @noinspection PhpPropertyNamingConventionInspection
      */
     private $id;
 
