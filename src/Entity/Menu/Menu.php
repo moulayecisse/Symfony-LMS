@@ -10,6 +10,9 @@ namespace App\Entity\Menu;
 
 
 use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\NameTrait;
+use Cisse\Traits\Entity\SlugTrait;
+use Cisse\Traits\Entity\TitleTrait;
 
 /**
  * Class Menu
@@ -20,4 +23,7 @@ use Cisse\Traits\Entity\IdTrait;
 class Menu
 {
     use IdTrait;
+    use NameTrait;
+    use TitleTrait;
+    use SlugTrait;
 }
