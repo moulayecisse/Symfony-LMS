@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\MemberUserSubscriptionType;
+use App\Entity\User\Member\MemberUserSubscriptionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

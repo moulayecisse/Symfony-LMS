@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MemberUserSubscriptionType;
+use App\Entity\User\Member\MemberUserSubscriptionType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

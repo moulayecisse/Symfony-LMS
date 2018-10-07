@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\MemberUserSubscriptionType;
+use App\Entity\User\Member\MemberUserSubscriptionType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

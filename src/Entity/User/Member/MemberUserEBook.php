@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\User\Member;
 
 use App\Entity\Book\EBook;
+use App\Entity\Member;
+use App\Entity\User\MemberUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

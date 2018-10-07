@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\SuperAdminUser;
+use App\Entity\User\SuperAdminUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

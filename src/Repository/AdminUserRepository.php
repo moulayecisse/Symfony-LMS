@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\AdminUser;
+use App\Entity\User\AdminUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

@@ -1,7 +1,12 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\User;
 
+use App\Entity\User\Member\MemberUserEBook;
+use App\Entity\User\Member\MemberUserSubscription;
+use App\Entity\User\Member\MemberUserTestimonial;
+use App\Entity\User\MemberUserType;
+use App\Entity\User\User;
 use App\Traits\Entity\MemberUser\BookRentsTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -91,7 +96,7 @@ class MemberUser extends User
     }
 
     /**
-     * @return Collection|MemberUserSubscription[]
+     * @return Collection|\App\Entity\User\Member\MemberUserSubscription[]
      */
     public function getMemberSubscriptions(): Collection
     {

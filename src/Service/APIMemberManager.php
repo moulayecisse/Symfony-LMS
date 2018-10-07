@@ -8,7 +8,7 @@
 
 namespace App\Service;
 
-use App\Entity\MemberUser;
+use App\Entity\User\MemberUser;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -50,7 +50,7 @@ class APIMemberManager
      *
      * @param Request $request http request
      *
-     * @return MemberUser
+     * @return \App\Entity\User\MemberUser
      */
     public function subscribe(
         Request $request

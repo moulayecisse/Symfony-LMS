@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MemberUserTestimonial;
+use App\Entity\User\Member\MemberUserTestimonial;
 use App\Mailer\Mailer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

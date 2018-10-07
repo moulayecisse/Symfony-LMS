@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\LibrarianUser;
+use App\Entity\User\LibrarianUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

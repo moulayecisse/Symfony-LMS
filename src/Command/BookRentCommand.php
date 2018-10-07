@@ -3,8 +3,8 @@
 namespace App\Command;
 
 use App\Entity\Book\BookRent;
-use App\Entity\Library;
-use App\Entity\MemberUser;
+use App\Entity\Library\Library;
+use App\Entity\User\MemberUser;
 use App\Entity\Book\Book;
 use DateTime;
 //use Doctrine\Bundle\DoctrineBundle\Registry;

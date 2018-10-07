@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\User\Member;
 
+use App\Entity\User\MemberUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

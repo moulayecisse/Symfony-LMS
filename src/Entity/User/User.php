@@ -6,7 +6,7 @@
  * Time: 20:55
  */
 
-namespace App\Entity;
+namespace App\Entity\User;
 
 use Cisse\Traits\Entity\EmailTrait;
 use Cisse\Traits\Entity\FirstNameTrait;

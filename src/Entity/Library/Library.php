@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Library;
 
 use App\Entity\Book\Book;
 use Doctrine\Common\Collections\ArrayCollection;

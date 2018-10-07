@@ -6,7 +6,7 @@ use App\Entity\Book\BookModel;
 use App\Entity\Book\BookRent;
 use App\Entity\Book\EBook;
 use App\Entity\File\ImageFile;
-use App\Entity\Library;
+use App\Entity\Library\Library;
 use App\Entity\Book\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;

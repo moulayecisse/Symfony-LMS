@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\MemberUserTestimonial;
+use App\Entity\User\Member\MemberUserTestimonial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

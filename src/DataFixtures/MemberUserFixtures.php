@@ -8,15 +8,15 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\AdminUser;
+use App\Entity\User\AdminUser;
 use App\Entity\Author;
-use App\Entity\LibrarianUser;
-use App\Entity\MemberUser;
-use App\Entity\MemberUserSubscription;
-use App\Entity\MemberUserType;
-use App\Entity\MemberUserSubscriptionType;
-use App\Entity\SuperAdminUser;
-use App\Entity\User;
+use App\Entity\User\LibrarianUser;
+use App\Entity\User\MemberUser;
+use App\Entity\User\Member\MemberUserSubscription;
+use App\Entity\User\MemberUserType;
+use App\Entity\User\Member\MemberUserSubscriptionType;
+use App\Entity\User\SuperAdminUser;
+use App\Entity\User\User;
 use DateInterval;
 use DatePeriod;
 use DateTime;

@@ -3,7 +3,7 @@
 namespace App\Mailer;
 
 use App\Entity\Book\BookRent;
-use App\Entity\User;
+use App\Entity\User\User;
 use Swift_Mailer;
 use Swift_Message;
 use Twig_Environment;

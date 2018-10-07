@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\MemberUserEBook;
+use App\Entity\User\Member\MemberUserEBook;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

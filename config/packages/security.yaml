@@ -4,11 +4,11 @@ security:
     providers:
         user_provider:
             entity:
-                class:      App\Entity\User
+                class:      App\Entity\User\User
                 property:   email
         api_user_provider:
             entity:
-                class:      App\Entity\User
+                class:      App\Entity\User\User
                 property:   email
     firewalls:
         api:

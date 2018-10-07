@@ -8,11 +8,11 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\AdminUser;
-use App\Entity\LibrarianUser;
-use App\Entity\MemberUser;
-use App\Entity\SuperAdminUser;
-use App\Entity\User;
+use App\Entity\User\AdminUser;
+use App\Entity\User\LibrarianUser;
+use App\Entity\User\MemberUser;
+use App\Entity\User\SuperAdminUser;
+use App\Entity\User\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

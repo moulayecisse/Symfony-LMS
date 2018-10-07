@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\MemberUserEBook;
+use App\Entity\User\Member\MemberUserEBook;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

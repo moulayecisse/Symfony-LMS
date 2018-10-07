@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Library;
+use App\Entity\Library\Library;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

@@ -10,7 +10,7 @@ namespace App\Entity\Book;
 
 use App\Entity\Book\Book;
 use App\Entity\Book\BookModel;
-use App\Entity\MemberUserEBook;
+use App\Entity\User\Member\MemberUserEBook;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -76,7 +76,7 @@ class EBook /*extends Book*/
     }
 
     /**
-     * @return Collection|MemberUserEBook[]
+     * @return Collection|\App\Entity\User\Member\MemberUserEBook[]
      */
     public function getMemberEBooks(): Collection
     {

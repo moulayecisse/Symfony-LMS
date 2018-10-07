@@ -9,7 +9,7 @@
 namespace App\Tests\Entity;
 
 
-use App\Entity\SuperAdminUser;
+use App\Entity\User\SuperAdminUser;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -28,7 +28,7 @@ class SuperAdminTest extends TestCase
 
     public function testSuperAdminCanBeCreated()
     {
-        $superAdmin = new SuperAdminUser();
+        $superAdmin = new \App\Entity\User\SuperAdminUser();
         $this->assertInstanceOf(SuperAdminUser::class, $superAdmin);
     }
 

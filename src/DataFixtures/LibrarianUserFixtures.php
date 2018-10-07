@@ -8,7 +8,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\LibrarianUser;
+use App\Entity\User\LibrarianUser;
 use App\Mailer\Mailer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

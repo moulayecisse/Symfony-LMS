@@ -8,7 +8,7 @@
 
 namespace App\Traits\Entity\Book;
 
-use App\Entity\Library;
+use App\Entity\Library\Library;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

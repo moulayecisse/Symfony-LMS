@@ -8,7 +8,7 @@
 
 namespace App\Controller\API;
 
-use App\Entity\MemberUser;
+use App\Entity\User\MemberUser;
 use App\Repository\MemberUserRepository;
 use App\Service\APIMemberManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
