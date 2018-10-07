@@ -65,11 +65,6 @@ class User implements UserInterface
         return null;
     }
 
-    public function getType()
-    {
-        return 'user';
-    }
-
     /**
      * Removes sensitive data from the user.
      *

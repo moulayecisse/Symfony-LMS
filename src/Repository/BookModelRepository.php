@@ -121,7 +121,7 @@ class BookModelRepository extends ServiceEntityRepository
     /**
      * Compte le nombre de livres dans la BDD.
      *
-     * @return int|mixed
+     * @return int
      */
     public function findTotalBooks()
     {
@@ -131,6 +131,7 @@ class BookModelRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getSingleScalarResult();
         } catch (NonUniqueResultException $e) {
+            return 0;
         }
     }
 }

@@ -6,29 +6,35 @@
  * Time: 01:03.
  */
 
-namespace App\Traits\Entity\BookRent;
+namespace App\Traits\Entity\MemberUserEBook;
 
+use App\Entity\Book\Book;
 use App\Entity\User\MemberUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Trait MemberUserTrait
+ * Trait BookTrait
  *
  * @package App\Traits\Entity
  */
 trait MemberUserTrait
 {
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="bookRents")
+     * Name.
+     *
+     * @var MemberUser
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="memberEBooks")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $memberUser;
 
     /**
      * Get Model.
      *
-     * @return MemberUser
+     * @return Null|MemberUser
      */
-    public function getMemberUser() : MemberUser
+    public function getMemberUser() : ?MemberUser
     {
         return $this->memberUser;
     }

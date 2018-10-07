@@ -3,6 +3,7 @@
 namespace App\Entity\User;
 
 use App\Entity\User\User;
+use App\Traits\Entity\LibrarianUser\LibraryTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,33 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class LibrarianUser extends User
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Library\Library", inversedBy="librarians")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $library;
+    use LibraryTrait;
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->setRoles([self::ROLE_LIBRARIAN]);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLibrary()
-    {
-        return $this->library;
-    }
-
-    /**
-     * @param mixed $library
-     *
-     * @return LibrarianUser
-     */
-    public function setLibrary($library)
-    {
-        $this->library = $library;
-        return $this;
     }
 }

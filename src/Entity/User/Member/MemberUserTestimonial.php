@@ -3,7 +3,9 @@
 namespace App\Entity\User\Member;
 
 use App\Entity\User\MemberUser;
+use App\Traits\Entity\MemberUserTestimonial\MemberUserTrait;
 use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\MessageTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,52 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MemberUserTestimonial
 {
     use IdTrait;
+    use MessageTrait;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $message;
-
-    /**
-     * @var MemberUser
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="memberUserTestimonials")
-     */
-    private $member;
-
-    /**
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * @param mixed $message
-     * @return MemberUserTestimonial
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @return MemberUser
-     */
-    public function getMember(): MemberUser
-    {
-        return $this->member;
-    }
-
-    /**
-     * @param MemberUser $member
-     * @return MemberUserTestimonial
-     */
-    public function setMember(MemberUser $member): MemberUserTestimonial
-    {
-        $this->member = $member;
-        return $this;
-    }
+    use MemberUserTrait;
 }

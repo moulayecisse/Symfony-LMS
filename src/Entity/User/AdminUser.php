@@ -21,6 +21,8 @@ class AdminUser extends User
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->setRoles([self::ROLE_ADMIN]);
     }
 }
