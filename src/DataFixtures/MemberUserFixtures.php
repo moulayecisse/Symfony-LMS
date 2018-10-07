@@ -13,7 +13,7 @@ use App\Entity\Author;
 use App\Entity\User\LibrarianUser;
 use App\Entity\User\MemberUser;
 use App\Entity\User\Member\MemberUserSubscription;
-use App\Entity\User\MemberUserType;
+use App\Entity\User\Member\MemberUserType;
 use App\Entity\User\Member\MemberUserSubscriptionType;
 use App\Entity\User\SuperAdminUser;
 use App\Entity\User\User;

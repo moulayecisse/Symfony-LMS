@@ -2,6 +2,8 @@
 
 namespace App\Entity\File;
 
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\NameTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -13,21 +15,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class File
 {
-    /**
-     * @Groups( "details" )
-     *
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @Groups( "details" )
-     *
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $name;
+    use IdTrait;
+    use NameTrait;
 
     /**
      * @Groups( "details" )
@@ -49,23 +38,6 @@ class File
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
     public function getExtension(): ?string
     {

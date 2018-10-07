@@ -3,6 +3,8 @@
 namespace App\Entity\Book;
 
 use App\Entity\Book\BookCategory;
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\NameTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,17 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BookLocation
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+    use IdTrait;
+    use NameTrait;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -30,30 +23,13 @@ class BookLocation
     private $floor;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\BookCategory", mappedBy="bookLocation")
+     * @ORM\OneToMany(targetEntity="App\Entity\Book\BookCategory", mappedBy="bookLocation")
      */
     private $categories;
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getFloor(): ?int

@@ -1,7 +1,7 @@
 resources:
-    App\Entity\Book: ~
+    App\Entity\Book\Book: ~
 
-    App\Entity\BookAuthor:
+    App\Entity\Book\BookAuthor:
         collectionOperations:
             get: ~
             post: ~
@@ -22,9 +22,9 @@ resources:
             put: ~
             api_book_author_count:
 
-    App\Entity\BookBooking: ~
+    App\Entity\Book\BookBooking: ~
 
-    App\Entity\BookCategory:
+    App\Entity\Book\BookCategory:
         shortName: 'BookCategory'
         description: 'An category from our library'
         iri: 'http://schema.org/category'
@@ -37,13 +37,13 @@ resources:
             api_book_category_count:
             api_book_category_counts:
 
-    App\Entity\BookEditor: ~
+    App\Entity\Book\BookEditor: ~
 
-    App\Entity\BookFormat: ~
+    App\Entity\Book\BookFormat: ~
 
-    App\Entity\BookLocation: ~
+    App\Entity\Book\BookLocation: ~
 
-    App\Entity\BookModel:
+    App\Entity\Book\BookModel:
         shortName: 'BookModel'
         description: 'An category from our library'
         iri: 'http://schema.org/Book'
@@ -93,7 +93,7 @@ resources:
             api_home_service_info:
 #            api_home_featured_news:
 
-    App\Entity\BookRent:
+    App\Entity\Book\BookRent:
         shortName: 'BookRent'
         description: 'Books that have been rented'
         itemOperations:
@@ -102,17 +102,17 @@ resources:
             put: ~
 #            api_book_rent_count:
 
-#    App\Entity\Book\EBook: ~
+#    App\Entity\Book\Book\EBook: ~
 
-    App\Entity\File: ~
+    App\Entity\File\File: ~
 
-    App\Entity\ImageFile: ~
+    App\Entity\File\ImageFile: ~
 
-    App\Entity\LibrarianUser: ~
+    App\Entity\User\LibrarianUser: ~
 
-    App\Entity\Library: ~
+    App\Entity\Library\Library: ~
 
-    App\Entity\MemberUser:
+    App\Entity\User\MemberUser:
         itemOperations:
             get: ~
             delete: ~
@@ -121,21 +121,21 @@ resources:
             api_member_user_current:
             api_member_user_subscribe:
 
-    App\Entity\MemberUserEBook: ~
+    App\Entity\User\Member\MemberUserEBook: ~
 
-    App\Entity\MemberUserSubscription: ~
+    App\Entity\User\Member\MemberUserSubscription: ~
 
-    App\Entity\MemberUserSubscriptionType: ~
+    App\Entity\User\Member\MemberUserSubscriptionType: ~
 
-    App\Entity\MemberUserTestimonial:
+    App\Entity\User\Member\MemberUserTestimonial:
         itemOperations:
             get: ~
             delete: ~
             put: ~
             api_member_user_testimonial_count:
 
-    App\Entity\MemberUserType: ~
+    App\Entity\User\Member\MemberUserType: ~
 
-    App\Entity\SuperAdminUser: ~
+    App\Entity\User\SuperAdminUser: ~
 
-    App\Entity\User: ~
+    App\Entity\User\User: ~

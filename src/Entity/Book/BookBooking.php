@@ -4,6 +4,7 @@ namespace App\Entity\Book;
 
 use App\Entity\Book\Book;
 use App\Entity\User\MemberUser;
+use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,21 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BookBooking
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use IdTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Book", inversedBy="bookBookings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\Book", inversedBy="bookBookings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $book;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $memberUser;
@@ -34,11 +30,6 @@ class BookBooking
      * @ORM\Column(type="date")
      */
     private $date;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getBook(): ?Book
     {

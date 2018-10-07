@@ -23,7 +23,7 @@ trait BookModelTrait
      *
      * @var \App\Entity\Book\BookModel
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\BookModel", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\BookModel", inversedBy="books")
      */
     private $bookModel;
 

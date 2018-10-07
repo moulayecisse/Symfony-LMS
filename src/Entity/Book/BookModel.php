@@ -60,7 +60,7 @@ class BookModel
      * @Groups( { "details", "draft" } )
      *
      * @ORM\OneToOne(
-     *     targetEntity="App\Entity\ImageFile",
+     *     targetEntity="App\Entity\File\ImageFile",
      *     mappedBy="book",
      *     cascade={"persist", "remove"}
      *     )
@@ -71,7 +71,7 @@ class BookModel
     /**
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\BookAuthor", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\BookAuthor", inversedBy="books")
      */
     private $bookAuthor;
 
@@ -89,7 +89,7 @@ class BookModel
      *
      * @Groups( { "details", "draft" } )
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\BookCategory", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\BookCategory", inversedBy="books")
      * @ORM\JoinColumn(nullable=false)
      */
     private $bookCategory;
@@ -103,11 +103,6 @@ class BookModel
      * @ORM\JoinColumn(nullable=true)
      */
     private $books;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getIsbn(): ?string
     {

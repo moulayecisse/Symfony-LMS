@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Entity\User;
+namespace App\Entity\User\Member;
 
 use App\Entity\User\MemberUser;
+use Cisse\Traits\Entity\IdTrait;
+use Cisse\Traits\Entity\NameTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,17 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class MemberUserType
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+   use IdTrait;
+   use NameTrait;
 
     /**
      * @ORM\Column(type="float")
@@ -30,18 +23,13 @@ class MemberUserType
     private $rate;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUser", mappedBy="memberType")
+     * @ORM\OneToMany(targetEntity="App\Entity\User\MemberUser", mappedBy="memberType")
      */
     private $members;
 
     public function __construct()
     {
         $this->members = new ArrayCollection();
-    }
-
-    public function getId()
-    {
-        return $this->id;
     }
 
     public function getName(): ?string

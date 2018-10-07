@@ -21,7 +21,7 @@ trait BookBookingsTrait
      *
      * @var Collection|\App\Entity\Book\BookBooking[]
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\BookBooking", mappedBy="book")
+     * @ORM\OneToMany(targetEntity="App\Entity\Book\BookBooking", mappedBy="book")
      */
     private $bookBookings;
 

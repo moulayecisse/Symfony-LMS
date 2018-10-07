@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class LibrarianUser extends User
 {
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Library", inversedBy="librarians")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Library\Library", inversedBy="librarians")
      * @ORM\JoinColumn(nullable=true)
      */
     private $library;

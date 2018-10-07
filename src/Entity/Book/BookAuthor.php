@@ -4,6 +4,7 @@ namespace App\Entity\Book;
 
 use App\Entity\Book\Book;
 use App\Entity\Book\BookModel;
+use App\Traits\Entity\BookAuthor\BooksTrait;
 use Cisse\Traits\Entity\BiographyTrait;
 use Cisse\Traits\Entity\BirthdayTrait;
 use Cisse\Traits\Entity\FirstNameTrait;
@@ -26,12 +27,7 @@ class BookAuthor
     use LastNameTrait;
     use BiographyTrait;
     use BirthdayTrait;
-
-    /**
-     * @var BookModel[]
-     * @ORM\OneToMany(targetEntity="App\Entity\BookModel", mappedBy="author")
-     */
-    private $books;
+    use BooksTrait { BooksTrait::__construct as private __constructBooks; }
 
 //    /**
 //     * @var Book[]
@@ -61,39 +57,7 @@ class BookAuthor
 
     public function __construct()
     {
-        $this->books = [];
-        $this->contributedBooks = [];
-    }
-
-    /**
-     * @return BookModel[]
-     */
-    public function getBooks(): array
-    {
-//        return $this->books;
-        return [];
-    }
-
-    public function addBook(BookModel $book): self
-    {
-        if (!$this->books->contains($book)) {
-            $this->books[] = $book;
-            $book->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removebook(Book $book): self
-    {
-        if ($this->books->contains($book)) {
-            $this->books->removeElement($book);
-            // set the owning side to null (unless already changed)
-            if ($book->getAuthor() === $this) {
-                $book->setAuthor(null);
-            }
-        }
-
-        return $this;
+        $this->__constructBooks();
+//        $this->contributedBooks = [];
     }
 }

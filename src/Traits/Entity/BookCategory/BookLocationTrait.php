@@ -24,7 +24,7 @@ trait BookLocationTrait
      *
      * @var BookLocation
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\BookLocation", inversedBy="categories")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\BookLocation", inversedBy="categories")
      */
     private $bookLocation;
 

@@ -3,6 +3,7 @@
 namespace App\Entity\User\Member;
 
 use App\Entity\User\MemberUser;
+use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,12 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class MemberUserTestimonial
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use IdTrait;
 
     /**
      * @ORM\Column(type="text")
@@ -25,14 +21,9 @@ class MemberUserTestimonial
     /**
      * @var MemberUser
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="memberUserTestimonials")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="memberUserTestimonials")
      */
     private $member;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @return mixed

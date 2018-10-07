@@ -6,7 +6,7 @@
  * Time: 01:03.
  */
 
-namespace App\Traits\Entity\BookCategory;
+namespace App\Traits\Entity\BookAuthor;
 
 use App\Entity\Book\Book;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -25,7 +25,7 @@ trait BooksTrait
      *
      * @var Collection|\App\Entity\Book\Book[]
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Book\Book", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Book\Book", mappedBy="author")
      */
     private $books;
 
@@ -72,7 +72,7 @@ trait BooksTrait
     {
         if (!$this->books->contains($book)) {
             $this->books[] = $book;
-            $book->setCategory($this);
+            $book->setAuthor($this);
         }
 
         return $this;
@@ -89,8 +89,8 @@ trait BooksTrait
     {
         if ($this->books->contains($book)) {
             $this->books->removeElement($book);
-            if ($book->getCategory() === $this) {
-                $book->setCategory(null);
+            if ($book->getAuthor() === $this) {
+                $book->setAuthor(null);
             }
         }
 

@@ -5,7 +5,7 @@ namespace App\Entity\User;
 use App\Entity\User\Member\MemberUserEBook;
 use App\Entity\User\Member\MemberUserSubscription;
 use App\Entity\User\Member\MemberUserTestimonial;
-use App\Entity\User\MemberUserType;
+use App\Entity\User\Member\MemberUserType;
 use App\Entity\User\User;
 use App\Traits\Entity\MemberUser\BookRentsTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -25,17 +25,17 @@ class MemberUser extends User
 //    use MemberUserEBooksTrait;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="memberUser", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\User\Member\MemberUserEBook", mappedBy="memberUser", orphanRemoval=true)
      */
     private $memberEBooks;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserSubscription", mappedBy="memberUser", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\User\Member\MemberUserSubscription", mappedBy="memberUser", orphanRemoval=true)
      */
     private $memberSubscriptions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUserType", inversedBy="members")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\Member\MemberUserType", inversedBy="members")
      * @ORM\JoinColumn(nullable=true)
      */
     private $memberType;
@@ -45,7 +45,7 @@ class MemberUser extends User
      *     "member"
      * )
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserTestimonial", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="App\Entity\User\Member\MemberUserTestimonial", mappedBy="member")
      */
     private $memberUserTestimonials;
 

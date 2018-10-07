@@ -11,6 +11,7 @@ namespace App\Entity\Book;
 use App\Entity\Book\Book;
 use App\Entity\Book\BookModel;
 use App\Entity\User\Member\MemberUserEBook;
+use Cisse\Traits\Entity\IdTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,29 +24,24 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EBook /*extends Book*/
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use IdTrait;
 
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\BookModel", inversedBy="eBook")
+     * @ORM\OneToOne(targetEntity="App\Entity\Book\BookModel", inversedBy="eBook")
      */
     private $bookModel;
 
     /**
      * @var Book
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\BookModel")
+     * @ORM\OneToOne(targetEntity="App\Entity\Book\BookModel")
      */
     private $file;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MemberUserEBook", mappedBy="ebook")
+     * @ORM\OneToMany(targetEntity="App\Entity\User\Member\MemberUserEBook", mappedBy="ebook")
      * @ORM\JoinColumn(nullable=false)
      */
     private $memberEBooks;

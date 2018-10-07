@@ -5,6 +5,7 @@ namespace App\Entity\User\Member;
 use App\Entity\Book\EBook;
 use App\Entity\Member;
 use App\Entity\User\MemberUser;
+use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,12 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class MemberUserEBook
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+   use IdTrait;
 
     /**
      * @ORM\Column(type="datetime")
@@ -25,13 +21,13 @@ class MemberUserEBook
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="memberEBooks")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="memberEBooks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $memberUser;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\EBook", inversedBy="memberEBooks")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\EBook", inversedBy="memberEBooks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ebook;
@@ -40,11 +36,6 @@ class MemberUserEBook
      * @ORM\Column(type="integer")
      */
     private $price;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getDate(): ?\DateTimeInterface
     {

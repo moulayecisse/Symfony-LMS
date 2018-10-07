@@ -23,7 +23,7 @@ trait LibraryTrait
      *
      * @var Library
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Library", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Library\Library", inversedBy="books")
      */
     private $library;
 

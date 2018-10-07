@@ -25,7 +25,7 @@ trait ParentTrait
      *
      * @var \App\Entity\Book\BookCategory
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\BookCategory", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Book\BookCategory", inversedBy="children")
      */
     private $parent;
 

@@ -28,15 +28,10 @@ class MemberUserSubscription
     private $end;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\MemberUser", inversedBy="memberSubscriptions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="memberSubscriptions")
      * @ORM\JoinColumn(nullable=false)
      */
     private $memberUser;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getStart(): ?\DateTimeInterface
     {

@@ -20,7 +20,7 @@ trait BookRentsTrait
      *
      * @var Collection|\App\Entity\Book\BookRent[]
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\BookRent", mappedBy="memberUser")
+     * @ORM\OneToMany(targetEntity="App\Entity\Book\BookRent", mappedBy="memberUser")
      */
     private $bookRents;
 
