@@ -21,7 +21,7 @@ trait FileTrait
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Book\BookModel")
      */
-    private $File;
+    private $file;
 
     /**
      * Get Model.
@@ -30,19 +30,19 @@ trait FileTrait
      */
     public function getFile() : File
     {
-        return $this->File;
+        return $this->file;
     }
 
     /**
      * Set Model.
      *
-     * @param File $File
+     * @param File $file
      *
      * @return self
      */
-    public function setFile(File $File): self
+    public function setFile(File $file): self
     {
-        $this->File = $File;
+        $this->file = $file;
 
         return $this;
     }

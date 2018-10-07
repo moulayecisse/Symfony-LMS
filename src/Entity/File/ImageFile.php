@@ -3,6 +3,7 @@
 namespace App\Entity\File;
 
 use App\Entity\File\File;
+use App\Traits\Entity\ImageFile\BookTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,29 +12,5 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ImageFile extends File
 {
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Book\BookModel", inversedBy="image")
-     * @ORM\Column(nullable=true)
-     */
-    private $book;
-
-    /**
-     * @return mixed
-     */
-    public function getBook()
-    {
-        return $this->book;
-    }
-
-    /**
-     * @param mixed $book
-     *
-     * @return ImageFile
-     */
-    public function setBook($book)
-    {
-        $this->book = $book;
-
-        return $this;
-    }
+    use BookTrait;
 }

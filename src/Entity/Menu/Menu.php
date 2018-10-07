@@ -14,5 +14,4 @@ use Cisse\Traits\Entity\IdTrait;
 class Menu
 {
     use IdTrait;
-
 }
