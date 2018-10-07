@@ -11,6 +11,8 @@ namespace App\Entity\Book;
 use App\Entity\Book\Book;
 use App\Entity\Book\BookModel;
 use App\Entity\User\Member\MemberUserEBook;
+use App\Traits\Entity\EBook\BookTrait;
+use App\Traits\Entity\EBook\FileTrait;
 use Cisse\Traits\Entity\IdTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,12 +28,8 @@ class EBook /*extends Book*/
 {
     use IdTrait;
 
-    /**
-     * @var Book
-     *
-     * @ORM\OneToOne(targetEntity="App\Entity\Book\BookModel", inversedBy="eBook")
-     */
-    private $bookModel;
+    use BookTrait;
+    use FileTrait;
 
     /**
      * @var Book
@@ -49,26 +47,6 @@ class EBook /*extends Book*/
     public function __construct()
     {
         $this->memberEBooks = new ArrayCollection();
-    }
-
-    /**
-     * @return Book
-     */
-    public function getBookModel(): Book
-    {
-        return $this->bookModel;
-    }
-
-    /**
-     * @param Book $bookModel
-     *
-     * @return EBook
-     */
-    public function setBookModel(BookModel $bookModel): EBook
-    {
-        $this->bookModel = $bookModel;
-
-        return $this;
     }
 
     /**

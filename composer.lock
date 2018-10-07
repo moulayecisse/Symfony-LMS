@@ -210,22 +210,23 @@
         },
         {
             "name": "cisse/symfony-traits",
-            "version": "v1.0.5",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moulayecisse/symfony-bundles-traits.git",
-                "reference": "0f3c15b828e3ca8be19bac8ff969f567893a1831"
+                "reference": "8951f0713b96d56a1f92551a4d8ea133da90a56a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moulayecisse/symfony-bundles-traits/zipball/0f3c15b828e3ca8be19bac8ff969f567893a1831",
-                "reference": "0f3c15b828e3ca8be19bac8ff969f567893a1831",
+                "url": "https://api.github.com/repos/moulayecisse/symfony-bundles-traits/zipball/8951f0713b96d56a1f92551a4d8ea133da90a56a",
+                "reference": "8951f0713b96d56a1f92551a4d8ea133da90a56a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "symfony/framework-bundle": ">=3.4",
-                "symfony/validator": "*"
+                "symfony/orm-pack": ">=1.0 <=1.0.5",
+                "symfony/serializer": "4.1 <=4.1.6",
+                "symfony/validator": "4.1 <=4.1.6"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -253,7 +254,7 @@
                 "web service",
                 "xml"
             ],
-            "time": "2018-10-06T16:22:31+00:00"
+            "time": "2018-10-07T11:55:43+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -4596,16 +4597,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v4.1.6",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "2704442b2b85429b95659fdce1696cb8f009385f"
+                "reference": "db427d70438645789ffce6048d61b3992118a33a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/2704442b2b85429b95659fdce1696cb8f009385f",
-                "reference": "2704442b2b85429b95659fdce1696cb8f009385f",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/db427d70438645789ffce6048d61b3992118a33a",
+                "reference": "db427d70438645789ffce6048d61b3992118a33a",
                 "shasum": ""
             },
             "require": {
@@ -4672,7 +4673,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:40:59+00:00"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "symfony/serializer-pack",
@@ -5002,16 +5003,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v4.1.6",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "eccf669ccfa447e5b9d850cd34db3a0539867773"
+                "reference": "f07bc14af6759710fb4639811a8240650d89786a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/eccf669ccfa447e5b9d850cd34db3a0539867773",
-                "reference": "eccf669ccfa447e5b9d850cd34db3a0539867773",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/f07bc14af6759710fb4639811a8240650d89786a",
+                "reference": "f07bc14af6759710fb4639811a8240650d89786a",
                 "shasum": ""
             },
             "require": {
@@ -5084,7 +5085,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T16:36:10+00:00"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "symfony/web-link",

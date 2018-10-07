@@ -2,8 +2,9 @@
 
 namespace App\Entity\Book;
 
-use App\Entity\Book\Book;
-use App\Entity\User\MemberUser;
+use App\Traits\Entity\BookBooking\BookTrait;
+use App\Traits\Entity\BookBooking\MemberUserTrait;
+use Cisse\Traits\Entity\DateTrait;
 use Cisse\Traits\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,57 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
 class BookBooking
 {
     use IdTrait;
+    use DateTrait;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Book\Book", inversedBy="bookBookings")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $book;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User\MemberUser", inversedBy="reservations")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $memberUser;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date;
-
-    public function getBook(): ?Book
-    {
-        return $this->book;
-    }
-
-    public function setBook(?Book $book): self
-    {
-        $this->book = $book;
-
-        return $this;
-    }
-
-    public function getMemberUser(): ?MemberUser
-    {
-        return $this->memberUser;
-    }
-
-    public function setMemberUser(?MemberUser $memberUser): self
-    {
-        $this->memberUser = $memberUser;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
+    use BookTrait;
+    use MemberUserTrait;
 }
